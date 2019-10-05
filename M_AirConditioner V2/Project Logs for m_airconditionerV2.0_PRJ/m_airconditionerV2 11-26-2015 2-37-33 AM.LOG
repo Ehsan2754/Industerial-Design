@@ -1,0 +1,6 @@
+Added Pin To Net: NetName=+12 Pin=C8-1
+Added Pin To Net: NetName=+12 Pin=C10-1
+Added Pin To Net: NetName=+12 Pin=D5-K
+Added Pin To Net: NetName=+12 Pin=D6-K
+Added Pin To Net: NetName=+12 Pin=U6-1
+Added Member To Class: ClassName=m_airconditionerV2.0_SCH Member=Component D6 1N4007

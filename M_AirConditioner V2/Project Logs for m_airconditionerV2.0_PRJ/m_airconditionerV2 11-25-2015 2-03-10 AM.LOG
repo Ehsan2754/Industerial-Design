@@ -1,0 +1,4 @@
+Change Component Designator: OldDesignator=D6 NewDesignator=D106
+Change Net Name : Old Net Name=NetD6_A New Net Name=NetD106_A
+Change Net Name : Old Net Name=NetD6_K New Net Name=NetD106_K
+Added Member To Class: ClassName=m_airconditionerV2.0_SCH Member=Component D106 1N4007

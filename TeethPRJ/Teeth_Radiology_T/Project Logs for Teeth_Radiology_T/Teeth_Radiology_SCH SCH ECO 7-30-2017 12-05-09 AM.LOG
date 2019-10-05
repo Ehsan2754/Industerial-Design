@@ -1,0 +1,8 @@
+Change Component Footprint: Designator=R11 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R12 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R13 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R14 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R15 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R16 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R17 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Designator: OldDesignator=R? NewDesignator=R34

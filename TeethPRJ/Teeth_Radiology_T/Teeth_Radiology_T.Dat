@@ -1,0 +1,33 @@
+﻿Field=#~Integer~#~50|Field=Comment~String~Comment~125|Field=Description~String~Description~125|Field=Designator~String~Designator~191|Field=Footprint~String~Footprint~103|Field=LibRef~String~LibRef~103|Field=Quantity~Integer~Quantity~103|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~Teeth_Radiology_T.PrjPcb|ReportField=ProjectFullPath~E:\W\Projects\Hard-Wear\Industerial\TeethPRJ\Teeth_Radiology_T\Teeth_Radiology_T.PrjPcb|ReportField=Title~Bill of Materials For Project [Teeth_Radiology_T.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~89|ReportField=ReportTime~9:00:01 AM|ReportField=ReportDate~8/14/2017|ReportField=ReportDateTime~8/14/2017 9:00:01 AM|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~8/14/2017|ReportField=CurrentTime~8:54:35 AM|ReportField=Date~|ReportField=DocumentFullPathAndName~E:\W\Projects\Hard-Wear\Industerial\TeethPRJ\Teeth_Radiology_T\Teeth_Radiology_SCH.SchDoc|ReportField=DocumentName~Teeth_Radiology_SCH.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~8/14/2017|ReportField=Organization~|ReportField=ProjectName~Teeth_Radiology_T.PrjPcb|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~|ReportField=DataSourceFileName~Teeth_Radiology_T.PrjPcb|ReportField=DataSourceFullPath~E:\W\Projects\Hard-Wear\Industerial\TeethPRJ\Teeth_Radiology_T\Teeth_Radiology_T.PrjPcb
+1|Buzzer||B1|Buzzer|Buzzer|1
+2|10u|Bipolar Capacitor|C1, C2, C6, C8, C14, C15|SMD_CAP_1206|Cap-Bipolar|6
+3|100nF|Bipolar Capacitor|C3, C7, C9, C16|SMD_CAP_1206|Cap-Bipolar|4
+4|1uF|Polar Capacitor|C4, C5|cap 04|Cap-Polar|2
+5|18pF|Bipolar Capacitor|C10, C12|SMD_CAP_0805|Cap-Bipolar|2
+6|100nF|Bipolar Capacitor|C11|SMD_CAP_0805|Cap-Bipolar|1
+7|10uF|Bipolar Capacitor|C13|SMD_CAP_1206|Cap-Bipolar|1
+8|1N4007|1 Amp Diode|D1, D6|My_DO-41|1N4007|2
+9|Diode Zener SMD||D2, D3, D4, D5|DIOMELF3615N|Diode Zener SMD|4
+10|Switch PB|Push Button Switch|DOWN SW, EXPOSE, RVG SW, S5, S6, S7, S8, S9, S10, S11, S12, S13, TIMER SW, UP SW|Switch - Push to On|Switch PB|14
+11|7Segment-4Digit-CA|7-Segment Display: CA|DS1|7segCA|7Seg-4Digit-CA|1
+12|FUSE||F1|FUSE_1|FUSE|1
+13|HC-05 Bluetooth||HC1|HC-05|HC-05 Bluetooth|1
+14|L78M05|Precision 500mA Regulator|IC1|TO-252|L78M05|1
+15|RJ45|Right Angle, Standard Profile, RJ45-Keyed, Flange Mount PCB Jack|J1, J2|My_RJ45|RJ45|2
+16|Relay-DPDT|Dual-Pole Dual-Throw Relay|K1|My_REL_cochick|Relay-DPDT|1
+17|Red|LED|LED36, LED Expose, LEDG, POWER LED, RVG LED, Timer LED|LED-3mm|LED|6
+18|220-12 Medule||M2|AC-DC 220-12|220-12 Medule|1
+19|LHWR||P2, P4|Polarized Header 3|3pin LHWR|2
+20|BoxHeader 2x5||P3, P900|Box Header 2x5|BoxHeader 2x5|2
+21|LHWR||P5, P6|Polarized Header 4|4pin LHWR|2
+22|PHONIX3||POWER SW, T1, T2|PHONIX3|PHONIX3|3
+23|C945|NPN Transistor|Q1|C945|C945|1
+24|330|Resistor|R7, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R20, R21, R22, RG|RES 0805 (2012X06L)|Resistor|15
+25|1K|Resistor|R8, R27, R29, R31, R33|RES 0805 (2012X06L)|Resistor|5
+26|10K|Resistor|R19|RES 0805 (2012X06L)|Resistor|1
+27|820k|Resistor|R34|RES 0805 (2012X06L)|Resistor|1
+28|51k|Resistor|R35|RES 0805 (2012X06L)|Resistor|1
+29|100k|Resistor|R36, R37|RES 0805 (2012X06L)|Resistor|2
+30|ATmega64A-AU|8-bit AVR Microcontroller, 64KB Flash, 2KB EEPROM, 4KB SRAM, 64-pin TQFP, Industrial Grade (-40°C to 85°C)|U2|64A_M|ATmega64A-AU|1
+31|PT2272||U3|DIP18|PT2272|1
+32|16MHz|XTAL Crystal|Y1|XTAL Small|XTAL|1

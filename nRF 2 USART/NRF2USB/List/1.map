@@ -1,0 +1,20 @@
+RAM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+rx_buffer                                                         0x0160       8
+tx_address                                                        0x0168       5
+rx_address                                                        0x016D       5
+_seed                                                             0x0172       4
+
+EEPROM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                          Register  Size
+--------------------------------------------------------------------------------
+CurrentPayLoad                                                    R5           1
+rx_wr_index                                                       R4           1
+rx_rd_index                                                       R7           1
+rx_counter                                                        R6           1
+rx_buffer_overflow                                                R2.0      1bit

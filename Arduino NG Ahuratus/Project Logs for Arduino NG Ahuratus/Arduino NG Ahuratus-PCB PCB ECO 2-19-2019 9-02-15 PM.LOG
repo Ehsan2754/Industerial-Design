@@ -1,0 +1,7 @@
+Added Pin To Net: NetName=GND Pin=C4-2
+Added Pin To Net: NetName=GND Pin=CON1-4
+Added Pin To Net: NetName=GND Pin=CON1-6
+Added Pin To Net: NetName=GND Pin=CON1-8
+Added Pin To Net: NetName=GND Pin=CON1-10
+Added Pin To Net: NetName=GND Pin=R1-2
+Added Member To Class: ClassName=Arduino NG Ahuratus-SCH Member=Component J5 Micro USB

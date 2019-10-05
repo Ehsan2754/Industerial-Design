@@ -1,0 +1,4 @@
+Added Component: Designator=SW56(SWITCH)
+Added Pin To Net: NetName=GND Pin=SW56-1
+Added Pin To Net: NetName=RES Pin=SW56-2
+Added Member To Class: ClassName=SmartChess_SCH Member=Component SW56 SWITCH

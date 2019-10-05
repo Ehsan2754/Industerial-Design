@@ -1,0 +1,31 @@
+Added Component: Designator=P112(Polarized Header 4)
+Added Component: Designator=P113(Polarized Header 6)
+Added Pin To Net: NetName=GND Pin=P113-1
+Added Pin To Net: NetName=VCC Pin=P113-6
+Added Pin To Net: NetName=VCC Pin=U1-62
+Added Pin To Net: NetName=ADC1 Pin=P113-5
+Added Pin To Net: NetName=ADC1 Pin=U1-61
+Added Net: Name=ADC1
+Added Pin To Net: NetName=ADC2 Pin=P113-4
+Added Pin To Net: NetName=ADC2 Pin=U1-60
+Added Net: Name=ADC2
+Added Pin To Net: NetName=ADC3 Pin=P113-3
+Added Pin To Net: NetName=ADC3 Pin=U1-59
+Added Net: Name=ADC3
+Added Pin To Net: NetName=ADC4 Pin=P113-2
+Added Pin To Net: NetName=ADC4 Pin=U1-58
+Added Net: Name=ADC4
+Added Pin To Net: NetName=ADC5 Pin=P112-4
+Added Pin To Net: NetName=ADC5 Pin=U1-57
+Added Net: Name=ADC5
+Added Pin To Net: NetName=ADC6 Pin=P112-3
+Added Pin To Net: NetName=ADC6 Pin=U1-56
+Added Net: Name=ADC6
+Added Pin To Net: NetName=ADC7 Pin=P112-2
+Added Pin To Net: NetName=ADC7 Pin=U1-55
+Added Net: Name=ADC7
+Added Pin To Net: NetName=ADC8 Pin=P112-1
+Added Pin To Net: NetName=ADC8 Pin=U1-54
+Added Net: Name=ADC8
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component P112 LHWR
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component P113 LHWR

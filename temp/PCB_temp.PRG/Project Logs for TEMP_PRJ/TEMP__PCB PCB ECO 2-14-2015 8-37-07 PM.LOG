@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=MOSI Pin=P3-4
+Removed Pin From Net: NetName=SCK Pin=P3-6
+Added Pin To Net: NetName=SCK Pin=P3-4
+Added Pin To Net: NetName=MOSI Pin=P3-6

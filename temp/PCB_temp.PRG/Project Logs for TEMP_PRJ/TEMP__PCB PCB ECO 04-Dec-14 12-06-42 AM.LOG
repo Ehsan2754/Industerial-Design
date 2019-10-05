@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=NetR5_1 Pin=R5-1
+Removed Pin From Net: NetName=NetR5_2 Pin=U1-2
+Added Component: Designator=Rcon(RES 0805 (2012X06L))
+Added Pin To Net: NetName=7EU Pin=R5-1
+Added Pin To Net: NetName=NetR5_2 Pin=Rcon-1
+Added Pin To Net: NetName=NetR5_1 Pin=Rcon-2
+Added Pin To Net: NetName=NetR5_1 Pin=U1-2
+Change Net Name : Old Net Name=NetR5_1 New Net Name=NetRcon_2
+Added Member To Class: ClassName=TEMP_SCH Member=Component Rcon Uses as a jumper
+Added Room: Name=TEMP_SCH

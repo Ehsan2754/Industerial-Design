@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=VCC Pin=R1-1
+Removed Pin From Net: NetName=RES Pin=R1-2
+Added Pin To Net: NetName=NetR1_1 Pin=R1-1
+Added Pin To Net: NetName=VCC Pin=R1-1
+Added Pin To Net: NetName=NetR1_2 Pin=R1-2
+Added Pin To Net: NetName=RES Pin=R1-2
+Added Room: Name=SmartDice-3rd

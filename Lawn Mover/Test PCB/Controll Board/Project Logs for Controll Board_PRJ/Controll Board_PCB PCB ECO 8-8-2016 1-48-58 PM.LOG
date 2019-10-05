@@ -1,0 +1,22 @@
+Added Component: Designator=U1(STM-TSSOP20_N)
+Added Pin To Net: NetName=GND Pin=U1-1
+Added Pin To Net: NetName=NetC2_1 Pin=U1-2
+Added Pin To Net: NetName=NetC3_1 Pin=U1-3
+Added Pin To Net: NetName=NRST Pin=U1-4
+Added Pin To Net: NetName=VCC Pin=U1-5
+Added Pin To Net: NetName=COIL1 INPUT Pin=U1-6
+Added Pin To Net: NetName=COIL1 INPUT Pin=U1-7
+Added Pin To Net: NetName=COIL2 INPUT Pin=U1-8
+Added Pin To Net: NetName=COIL2 INPUT Pin=U1-9
+Added Pin To Net: NetName=COIL3 INPUT Pin=U1-10
+Added Pin To Net: NetName=COIL3 INPUT Pin=U1-11
+Added Pin To Net: NetName=LED COIL3 Pin=U1-12
+Added Pin To Net: NetName=LED COIL2 Pin=U1-13
+Added Pin To Net: NetName=LED COIL1 Pin=U1-14
+Added Pin To Net: NetName=GND Pin=U1-15
+Added Pin To Net: NetName=VCC Pin=U1-16
+Added Pin To Net: NetName=TX Pin=U1-17
+Added Pin To Net: NetName=RX Pin=U1-18
+Added Pin To Net: NetName=SWDIO Pin=U1-19
+Added Pin To Net: NetName=SWDCLK Pin=U1-20
+Added Member To Class: ClassName=Controll Board_SCH Member=Component U1 STM32F030F4P6

@@ -1,0 +1,42 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+data_buf                                                                          0x0160      21
+rx_buffer                                                                         0x0175       8
+tx_buffer                                                                         0x017D       8
+_base_y                                                                           0x0185       4
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+rx_wr_index                                                                       R5           1
+rx_rd_index                                                                       R4           1
+rx_counter                                                                        R7           1
+rx_buffer_overflow                                                                R2.0      1bit
+tx_wr_index                                                                       R6           1
+tx_rd_index                                                                       R9           1
+tx_counter                                                                        R8           1
+_lcd_x                                                                            R11          1
+_lcd_y                                                                            R10          1
+_lcd_maxx                                                                         R13          1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+usart_rx_isr                                                                      0x00097     31
+getchar                                                                           0x000B6     19
+usart_tx_isr                                                                      0x000C9     23
+init_system                                                                       0x000E0     49
+main                                                                              0x00111     82
+_lcd_write_nibble_G100                                                            0x00163     37
+_lcd_write_data                                                                   0x00188     12
+lcd_gotoxy                                                                        0x00194     13
+lcd_clear                                                                         0x001A1     12
+lcd_putchar                                                                       0x001AD     21
+lcd_puts                                                                          0x001C2     15
+lcd_putsf                                                                         0x001D1     19
+lcd_init                                                                          0x001E4     47

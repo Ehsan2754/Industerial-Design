@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=PP3 Pin=P3-4
+Removed Pin From Net: NetName=PP5 Pin=P3-6
+Added Pin To Net: NetName=PP5 Pin=P3-4
+Added Pin To Net: NetName=PP3 Pin=P3-6
+Added Room: Name=TEMP_SCH

@@ -1,0 +1,188 @@
+W(6)
+000c92 93e0 0502 	STS  _twi_result,R30
+000c94 9478      	sei
+000c95 81ef      	LDD  R30,Y+7
+000c96 30e0      	CPI  R30,0
+000c97 f079      	BREQ _0x2000006
+000c98 85e8      	LDD  R30,Y+8
+000c99 85f9      	LDD  R31,Y+8+1
+000c9a 9730      	SBIW R30,0
+000c9b f1f1      	BREQ _0x20C000D
+000c9c 81ec      	LDD  R30,Y+4
+000c9d 30e0      	CPI  R30,0
+000c9e f021      	BREQ _0x2000009
+000c9f 81ad      	LDD  R26,Y+5
+000ca0 81be      	LDD  R27,Y+5+1
+000ca1 9710      	SBIW R26,0
+000ca2 f009      	BREQ _0x200000A
+                 _0x2000009:
+000ca3 c001      	RJMP _0x2000008
+                 _0x200000A:
+000ca4 c035      	RJMP _0x20C000D
+                 _0x2000008:
+000ca5 9468      	SET
+000ca6 c00d      	RJMP _0x2000065
+                 _0x2000006:
+000ca7 81ec      	LDD  R30,Y+4
+000ca8 30e0      	CPI  R30,0
+000ca9 f151      	BREQ _0x200000C
+000caa 81ed      	LDD  R30,Y+5
+000cab 81fe      	LDD  R31,Y+5+1
+000cac 9730      	SBIW R30,0
+000cad f161      	BREQ _0x20C000D
+000cae 91e0 05fd 	LDS  R30,_slave_address_G100
+000cb0 60e1      	ORI  R30,1
+000cb1 93e0 05fd 	STS  _slave_address_G100,R30
+000cb3 94e8      	CLT
+                 _0x2000065:
+000cb4 f831      	BLD  R3,1
+000cb5 94e8      	CLT
+000cb6 f832      	BLD  R3,2
+000cb7 91e0 0074 	LDS  R30,116
+000cb9 70ef      	ANDI R30,LOW(0xF)
+000cba 6ae0      	ORI  R30,LOW(0xA0)
+000cbb 93e0 0074 	STS  116,R30
+                +
+000cbd e2e0     +LDI R30 , LOW ( 0x7A120 )
+000cbe eaf1     +LDI R31 , HIGH ( 0x7A120 )
+000cbf e067     +LDI R22 , BYTE3 ( 0x7A120 )
+000cc0 e070     +LDI R23 , BYTE4 ( 0x7A120 )
+                 	__GETD1N 0x7A120
+000cc1 940e 16de 	CALL SUBOPT_0xF
+                 _0x200000E:
+000cc3 fc32      	SBRC R3,2
+000cc4 c00f      	RJMP _0x2000010
+000cc5 940e 17f0 	CALL SUBOPT_0x35
+000cc7 9731      	SBIW R30,1
+000cc8 4060      	SBCI R22,0
+000cc9 4070      	SBCI R23,0
+000cca 940e 16de 	CALL SUBOPT_0xF
+000ccc f431      	BRNE _0x2000011
+000ccd e0e5      	LDI  R30,LOW(5)
+000cce 93e0 0502 	STS  _twi_result,R30
+000cd0 9468      	SET
+000cd1 f832      	BLD  R3,2
+000cd2 c007      	RJMP _0x20C000D
+                 _0x2000011:
+000cd3 cfef      	RJMP _0x200000E
+                 _0x2000010:
+                 _0x200000C:
+000cd4 91a0 0502 	LDS  R26,_twi_result
+000cd6 e0e0      	LDI  R30,LOW(0)
+000cd7 940e 1b9d 	CALL __EQB12
+000cd9 c001      	RJMP _0x20C000C
+                 _0x2000005:
+                 _0x20C000D:
+000cda e0e0      	LDI  R30,LOW(0)
+                 _0x20C000C:
+000cdb 962b      	ADIW R28,11
+000cdc 9508      	RET
+                 _twi_int_handler:
+000cdd 920a      	ST   -Y,R0
+000cde 921a      	ST   -Y,R1
+000cdf 92fa      	ST   -Y,R15
+000ce0 936a      	ST   -Y,R22
+000ce1 937a      	ST   -Y,R23
+000ce2 938a      	ST   -Y,R24
+000ce3 939a      	ST   -Y,R25
+000ce4 93aa      	ST   -Y,R26
+000ce5 93ba      	ST   -Y,R27
+000ce6 93ea      	ST   -Y,R30
+000ce7 93fa      	ST   -Y,R31
+000ce8 b7ef      	IN   R30,SREG
+000ce9 93ea      	ST   -Y,R30
+000cea 940e 1c6f 	CALL __SAVELOCR6
+000cec 9110 0501 	LDS  R17,_twi_rx_index
+000cee 9100 0500 	LDS  R16,_twi_tx_index
+000cf0 9130 0600 	LDS  R19,_bytes_to_tx_G100
+000cf2 9120 0502 	LDS  R18,_twi_result
+000cf4 2fe1      	MOV  R30,R17
+000cf5 91a0 0601 	LDS  R26,_twi_rx_buffer_G100
+000cf7 91b0 0602 	LDS  R27,_twi_rx_buffer_G100+1
+000cf9 e0f0      	LDI  R31,0
+000cfa 0fea      	ADD  R30,R26
+000cfb 1ffb      	ADC  R31,R27
+000cfc 01af      	MOVW R20,R30
+000cfd 91e0 0071 	LDS  R30,113
+000cff 7fe8      	ANDI R30,LOW(0xF8)
+000d00 30e8      	CPI  R30,LOW(0x8)
+000d01 f411      	BRNE _0x2000017
+000d02 e020      	LDI  R18,LOW(0)
+000d03 c002      	RJMP _0x2000018
+                 _0x2000017:
+000d04 31e0      	CPI  R30,LOW(0x10)
+000d05 f419      	BRNE _0x2000019
+                 _0x2000018:
+000d06 91e0 05fd 	LDS  R30,_slave_address_G100
+000d08 c010      	RJMP _0x2000067
+                 _0x2000019:
+000d09 31e8      	CPI  R30,LOW(0x18)
+000d0a f011      	BREQ _0x200001D
+000d0b 32e8      	CPI  R30,LOW(0x28)
+000d0c f549      	BRNE _0x200001E
+                 _0x200001D:
+000d0d 1703      	CP   R16,R19
+000d0e f498      	BRSH _0x200001F
+000d0f 2fe0      	MOV  R30,R16
+000d10 5f0f      	SUBI R16,-1
+000d11 91a0 05fe 	LDS  R26,_twi_tx_buffer_G100
+000d13 91b0 05ff 	LDS  R27,_twi_tx_buffer_G100+1
+000d15 e0f0      	LDI  R31,0
+000d16 0fae      	ADD  R26,R30
+000d17 1fbf      	ADC  R27,R31
+000d18 91ec      	LD   R30,X
+                 _0x2000067:
+000d19 93e0 0073 	STS  115,R30
+000d1b 91e0 0074 	LDS  R30,116
+000d1d 70ef      	ANDI R30,LOW(0xF)
+000d1e 68e0      	ORI  R30,0x80
+000d1f 93e0 0074 	STS  116,R30
+000d21 c013      	RJMP _0x2000020
+                 _0x200001F:
+000d22 91e0 0603 	LDS  R30,_bytes_to_rx_G100
+000d24 171e      	CP   R17,R30
+000d25 f470      	BRSH _0x2000021
+000d26 91e0 05fd 	LDS  R30,_slave_address_G100
+000d28 60e1      	ORI  R30,1
+000d29 93e0 05fd 	STS  _slave_address_G100,R30
+000d2b 94e8      	CLT
+000d2c f831      	BLD  R3,1
+000d2d 91e0 0074 	LDS  R30,116
+000d2f 70ef      	ANDI R30,LOW(0xF)
+000d30 6ae0      	ORI  R30,LOW(0xA0)
+000d31 93e0 0074 	STS  116,R30
+000d33 c113      	RJMP _0x2000016
+                 _0x2000021:
+000d34 c038      	RJMP _0x2000022
+                 _0x2000020:
+000d35 c111      	RJMP _0x2000016
+                 _0x200001E:
+000d36 35e0      	CPI  R30,LOW(0x50)
+000d37 f431      	BRNE _0x2000023
+000d38 91e0 0073 	LDS  R30,115
+000d3a 01da      	MOVW R26,R20
+000d3b 93ec      	ST   X,R30
+000d3c 5f1f      	SUBI R17,-LOW(1)
+000d3d c002      	RJMP _0x2000024
+                 _0x2000023:
+000d3e 34e0      	CPI  R30,LOW(0x40)
+000d3f f489      	BRNE _0x2000025
+                 _0x2000024:
+000d40 91e0 0603 	LDS  R30,_bytes_to_rx_G100
+000d42 50e1      	SUBI R30,LOW(1)
+000d43 171e      	CP   R17,R30
+000d44 f028      	BRLO _0x2000026
+000d45 91e0 0074 	LDS  R30,116
+000d47 70ef      	ANDI R30,LOW(0xF)
+000d48 68e0      	ORI  R30,0x80
+000d49 c004      	RJMP _0x2000068
+                 _0x2000026:
+000d4a 91e0 0074 	LDS  R30,116
+000d4c 70ef      	ANDI R30,LOW(0xF)
+000d4d 6ce0      	ORI  R30,LOW(0xC0)
+                 _0x2000068:
+000d4e 93e0 0074 	STS  116,R30
+000d50 c0f6      	RJMP _0x2000016
+                 _0x2000025:
+000d51 35e8      	CPI  R30,LOW(0x58)
+000d5

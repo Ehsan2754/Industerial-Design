@@ -1,0 +1,61 @@
+Removed Pin From Net: NetName=GND Pin=R23-1
+Removed Pin From Net: NetName=GND Pin=R24-1
+Removed Pin From Net: NetName=GND Pin=R25-1
+Removed Pin From Net: NetName=GND Pin=R26-1
+Removed Pin From Net: NetName=GND Pin=R28-1
+Removed Pin From Net: NetName=GND Pin=R30-1
+Removed Pin From Net: NetName=GND Pin=R32-1
+Removed Member From Class: ClassName=Teeth_Radiology_SCH Member=LED17
+Removed Member From Class: ClassName=Teeth_Radiology_SCH Member=LED22
+Removed Member From Class: ClassName=Teeth_Radiology_SCH Member=LED26
+Removed Member From Class: ClassName=Teeth_Radiology_SCH Member=LED28
+Removed Member From Class: ClassName=Teeth_Radiology_SCH Member=LED30
+Removed Member From Class: ClassName=Teeth_Radiology_SCH Member=LED32
+Removed Member From Class: ClassName=Teeth_Radiology_SCH Member=LED34
+Removed Member From Class: ClassName=Teeth_Radiology_SCH Member=R23
+Removed Member From Class: ClassName=Teeth_Radiology_SCH Member=R24
+Removed Member From Class: ClassName=Teeth_Radiology_SCH Member=R25
+Removed Member From Class: ClassName=Teeth_Radiology_SCH Member=R26
+Removed Member From Class: ClassName=Teeth_Radiology_SCH Member=R28
+Removed Member From Class: ClassName=Teeth_Radiology_SCH Member=R30
+Removed Member From Class: ClassName=Teeth_Radiology_SCH Member=R32
+Added Component: Designator=S5(Switch - Push to On)
+Added Component: Designator=S7(Switch - Push to On)
+Added Component: Designator=S9(Switch - Push to On)
+Added Component: Designator=S12(Switch - Push to On)
+Added Component: Designator=S13(Switch - Push to On)
+Added Pin To Net: NetName=GND Pin=S5-1
+Added Pin To Net: NetName=GND Pin=S5-1
+Added Pin To Net: NetName=GND Pin=S7-1
+Added Pin To Net: NetName=GND Pin=S7-1
+Added Pin To Net: NetName=GND Pin=S9-1
+Added Pin To Net: NetName=GND Pin=S9-1
+Added Pin To Net: NetName=GND Pin=S12-1
+Added Pin To Net: NetName=GND Pin=S12-1
+Added Pin To Net: NetName=GND Pin=S13-1
+Added Pin To Net: NetName=GND Pin=S13-1
+Added Pin To Net: NetName=NetS5_2 Pin=S5-2
+Added Pin To Net: NetName=NetS5_2 Pin=S5-2
+Added Pin To Net: NetName=NetS5_2 Pin=U2-38
+Added Net: Name=NetS5_2
+Added Pin To Net: NetName=NetS7_2 Pin=S7-2
+Added Pin To Net: NetName=NetS7_2 Pin=S7-2
+Added Pin To Net: NetName=NetS7_2 Pin=U2-39
+Added Net: Name=NetS7_2
+Added Pin To Net: NetName=NetS9_2 Pin=S9-2
+Added Pin To Net: NetName=NetS9_2 Pin=S9-2
+Added Pin To Net: NetName=NetS9_2 Pin=U2-40
+Added Net: Name=NetS9_2
+Added Pin To Net: NetName=NetS12_2 Pin=S12-2
+Added Pin To Net: NetName=NetS12_2 Pin=S12-2
+Added Pin To Net: NetName=NetS12_2 Pin=U2-41
+Added Net: Name=NetS12_2
+Added Pin To Net: NetName=NetS13_2 Pin=S13-2
+Added Pin To Net: NetName=NetS13_2 Pin=S13-2
+Added Pin To Net: NetName=NetS13_2 Pin=U2-42
+Added Net: Name=NetS13_2
+Added Member To Class: ClassName=Teeth_Radiology_SCH Member=Component S5 Switch PB
+Added Member To Class: ClassName=Teeth_Radiology_SCH Member=Component S7 Switch PB
+Added Member To Class: ClassName=Teeth_Radiology_SCH Member=Component S9 Switch PB
+Added Member To Class: ClassName=Teeth_Radiology_SCH Member=Component S12 Switch PB
+Added Member To Class: ClassName=Teeth_Radiology_SCH Member=Component S13 Switch PB

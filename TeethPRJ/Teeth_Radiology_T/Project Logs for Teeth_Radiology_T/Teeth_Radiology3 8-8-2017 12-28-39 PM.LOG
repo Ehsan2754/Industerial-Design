@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=L Pin=T1-1
+Added Component: Designator=POWER SW(PHONIX3)
+Added Pin To Net: NetName=L Pin=POWER SW-1
+Added Pin To Net: NetName=NetPOWER SW_3 Pin=POWER SW-3
+Added Pin To Net: NetName=NetPOWER SW_3 Pin=T1-2
+Added Net: Name=NetPOWER SW_3
+Added Member To Class: ClassName=Teeth_Radiology_SCH Member=Component POWER SW PHONIX3

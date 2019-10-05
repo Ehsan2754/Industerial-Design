@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=NetC3_1 Pin=P2-2
+Removed Pin From Net: NetName=NetC3_1 Pin=P2-4
+Added Component: Designator=D51(My_DO-41)
+Added Pin To Net: NetName=NetC3_1 Pin=D51-K
+Added Pin To Net: NetName=NetD51_A Pin=D51-A
+Added Pin To Net: NetName=NetD51_A Pin=P2-2
+Added Pin To Net: NetName=NetD51_A Pin=P2-4
+Added Net: Name=NetD51_A
+Added Member To Class: ClassName=SmartChess_SCH Member=Component D51 1N4007

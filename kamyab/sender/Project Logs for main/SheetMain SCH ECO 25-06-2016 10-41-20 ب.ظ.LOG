@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=C1 Old Footprint=RAD-0.3 New Footprint=RAD-0.1
+Change Component Designator: OldDesignator=HM-TRP NewDesignator=IC?
+Change Component Designator: OldDesignator=MCU NewDesignator=U3

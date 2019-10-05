@@ -1,0 +1,34 @@
+Change Component Designator: OldDesignator=C12 NewDesignator=C14
+Change Component Designator: OldDesignator=C13 NewDesignator=C15
+Change Component Designator: OldDesignator=C14 NewDesignator=C16
+Change Component Designator: OldDesignator=C15 NewDesignator=C17
+Change Component Designator: OldDesignator=C16 NewDesignator=C18
+Change Component Designator: OldDesignator=C17 NewDesignator=C19
+Change Component Designator: OldDesignator=C18 NewDesignator=C20
+Change Component Designator: OldDesignator=C19 NewDesignator=C21
+Change Component Designator: OldDesignator=C20 NewDesignator=C22
+Change Component Designator: OldDesignator=C21 NewDesignator=C25
+Change Component Designator: OldDesignator=C22 NewDesignator=C26
+Change Component Designator: OldDesignator=C23 NewDesignator=C27
+Change Component Designator: OldDesignator=C24 NewDesignator=C28
+Change Component Designator: OldDesignator=C25 NewDesignator=C29
+Change Component Designator: OldDesignator=C26 NewDesignator=C30
+Added Component: Designator=C12(SMD_CAP_1206)
+Added Component: Designator=C13(SMD_CAP_1206)
+Added Component: Designator=C23(SMD_CAP_1206)
+Added Component: Designator=C24(SMD_CAP_1206)
+Added Pin To Net: NetName=GROUND Pin=C12-1
+Added Pin To Net: NetName=+3.3 Pin=C12-2
+Added Pin To Net: NetName=GROUND Pin=C13-1
+Added Pin To Net: NetName=+3.3 Pin=C13-2
+Added Pin To Net: NetName=GROUND Pin=C23-1
+Added Pin To Net: NetName=+3.3 Pin=C23-2
+Added Pin To Net: NetName=GROUND Pin=C24-1
+Added Pin To Net: NetName=+3.3 Pin=C24-2
+Change Net Name : Old Net Name=NetC12_1 New Net Name=NetC14_1
+Change Net Name : Old Net Name=NetC13_1 New Net Name=NetC15_1
+Change Net Name : Old Net Name=NetC20_1 New Net Name=NetC22_1
+Added Member To Class: ClassName=Signal Generator_SCH Member=Component C27 100nF
+Added Member To Class: ClassName=Signal Generator_SCH Member=Component C28 100Uf
+Added Member To Class: ClassName=Signal Generator_SCH Member=Component C29 100nF
+Added Member To Class: ClassName=Signal Generator_SCH Member=Component C30 10Uf

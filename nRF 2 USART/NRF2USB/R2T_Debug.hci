@@ -1,0 +1,9 @@
+VERSION:3 SOURCE_TIMESTAMP:432E98C0
+NODE:M LEVEL:0 LINE:2 "__R2TDebug_h_included__"
+NODE:I LEVEL:0 LINE:4 "C:\cvavr2.5.3\inc\stdio.h"
+NODE:I LEVEL:0 LINE:5 "C:\cvavr2.5.3\inc\string.h"
+NODE:M LEVEL:0 LINE:6 "DebugChannel"
+NODE:F LEVEL:0 LINE:8 "SendDataNF(unsigned char [] str)"
+NODE:F LEVEL:0 LINE:18 "SendDataNFixed(unsigned char [] str,unsigned char fixedlen)"
+NODE:F LEVEL:0 LINE:28 "SendData(unsigned char [] str)"
+NODE:F LEVEL:0 LINE:39 "PcDbg(unsigned char [] str)"

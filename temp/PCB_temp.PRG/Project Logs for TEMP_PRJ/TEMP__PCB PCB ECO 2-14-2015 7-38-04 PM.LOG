@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=VCC 12V Pin=D1-1
+Removed Pin From Net: NetName=NetC1_1 Pin=D1-2
+Removed Pin From Net: NetName=PP3 Pin=U1-15
+Removed Pin From Net: NetName=PP5 Pin=U1-17
+Change Component DesignItemId : Designator=D1 Old DesignItemId=Diode 1N4148 New DesignItemId=SMD Diodes
+Change Component Footprint: Designator=D1 Old Footprint=LL4148 New Footprint=DO-214AC ( SMD Diode )
+Change Component Comment : Designator=D1 Old Comment=1N4148 New Comment=SMD Diodes
+Added Pin To Net: NetName=VCC 12V Pin=D1-0
+Added Pin To Net: NetName=NetC1_1 Pin=D1-1
+Added Pin To Net: NetName=PP5 Pin=U1-15
+Added Pin To Net: NetName=PP3 Pin=U1-17
+Change Net Name : Old Net Name=PP3 New Net Name=SCK
+Change Net Name : Old Net Name=PP4 New Net Name=MISO
+Change Net Name : Old Net Name=PP5 New Net Name=MOSI
+Added Room: Name=TEMP_SCH

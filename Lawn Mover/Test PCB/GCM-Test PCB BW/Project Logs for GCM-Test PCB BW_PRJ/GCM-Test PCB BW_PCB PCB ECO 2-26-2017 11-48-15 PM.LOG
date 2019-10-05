@@ -1,0 +1,29 @@
+Removed Pin From Net: NetName=GND Pin=P2-1
+Change Component Footprint: Designator=R48 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R49 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R50 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R51 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R56 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R57 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R58 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Added Component: Designator=C12(cap 01)
+Added Component: Designator=C13(cap 01)
+Added Component: Designator=C14(cap 01)
+Added Component: Designator=C15(cap 01)
+Added Component: Designator=C16(cap 01)
+Added Pin To Net: NetName=+5 Pin=C12-1
+Added Pin To Net: NetName=REFRENCE FEEDBACK Pin=C12-2
+Added Pin To Net: NetName=+5 Pin=C13-1
+Added Pin To Net: NetName=GND Pin=C13-2
+Added Pin To Net: NetName=REFRENCE FEEDBACK Pin=C14-1
+Added Pin To Net: NetName=GND Pin=C14-2
+Added Pin To Net: NetName=COIL1SIGNAL Pin=C15-1
+Added Pin To Net: NetName=REFRENCE FEEDBACK Pin=C15-2
+Added Pin To Net: NetName=COIL1SIGNAL Pin=C16-1
+Added Pin To Net: NetName=REFRENCE FEEDBACK Pin=C16-2
+Added Pin To Net: NetName=REFRENCE FEEDBACK Pin=P2-1
+Added Member To Class: ClassName=GCM-Test PCB BW_SCH Member=Component C12 1uF   OR 680 nf Bipolar
+Added Member To Class: ClassName=GCM-Test PCB BW_SCH Member=Component C13 1uF   OR 680 nf Bipolar
+Added Member To Class: ClassName=GCM-Test PCB BW_SCH Member=Component C14 1uF   OR 680 nf Bipolar
+Added Member To Class: ClassName=GCM-Test PCB BW_SCH Member=Component C15 Depending LC Filter Designed
+Added Member To Class: ClassName=GCM-Test PCB BW_SCH Member=Component C16 Depending LC Filter Designed

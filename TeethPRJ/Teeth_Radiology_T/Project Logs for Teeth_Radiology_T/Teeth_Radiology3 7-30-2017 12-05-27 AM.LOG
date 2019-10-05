@@ -1,0 +1,10 @@
+Added Component: Designator=LEDG(LED-3mm)
+Added Component: Designator=RG(RES 0805 (2012X06L))
+Added Pin To Net: NetName=NetJ2_1 Pin=LEDG-2
+Added Pin To Net: NetName=NetJ2_8 Pin=RG-1
+Added Pin To Net: NetName=NetLEDG_1 Pin=LEDG-1
+Added Pin To Net: NetName=NetLEDG_1 Pin=RG-2
+Added Net: Name=NetLEDG_1
+Added Member To Class: ClassName=Teeth_Radiology_SCH Member=Component LEDG Red
+Added Member To Class: ClassName=Teeth_Radiology_SCH Member=Component P6 LHWR
+Added Member To Class: ClassName=Teeth_Radiology_SCH Member=Component RG 330

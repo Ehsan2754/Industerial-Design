@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=3.3V Pin=HM-TRP-5
+Removed Pin From Net: NetName=GND Pin=HM-TRP-6
+Removed Pin From Net: NetName=GND Pin=HM-TRP-9
+Removed Pin From Net: NetName=GND Pin=P1-2
+Removed Pin From Net: NetName=GND Pin=P1-2
+Removed Pin From Net: NetName=GND Pin=P1-2
+Removed Pin From Net: NetName=GND Pin=P1-2
+Removed Member From Class: ClassName=SheetMain Member=P1
+Change Component DesignItemId : Designator=HM-TRP Old DesignItemId=Component_1 New DesignItemId=Header 4
+Change Component Footprint: Designator=HM-TRP Old Footprint=PCBComponent_1 New Footprint=HDR1X4
+Change Component Comment : Designator=HM-TRP Old Comment=HM-TRP New Comment=Header 4
+Change Component Designator: OldDesignator=MCU NewDesignator=U3
+Change Component Designator: OldDesignator=R2 NewDesignator=R?
+Change Net Name : Old Net Name=NetIC?_2 New Net Name=NetHM-TRP_2
+Change Net Name : Old Net Name=NetIC?_4 New Net Name=NetHM-TRP_4
+Added Room: Name=SheetMain

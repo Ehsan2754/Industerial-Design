@@ -1,0 +1,27 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+digit                                                                             0x0500       8
+timer_flag                                                                        0x0508       1
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+l                                                                                 0x0000       2
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+k                                                                                 R4,R5        2
+z                                                                                 R6,R7        2
+q                                                                                 R8,R9        2
+p                                                                                 R10,R11      2
+j                                                                                 R12,R13      2
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+timer0_ovf_isr                                                                    0x0008B     93
+main                                                                              0x000E8    408
+Display_Number                                                                    0x00280     45
+beep                                                                              0x002AD      7

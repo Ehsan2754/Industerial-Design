@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=L Pin=POWER SW-1
+Removed Pin From Net: NetName=NetPOWER SW_3 Pin=T1-2
+Added Pin To Net: NetName=L Pin=POWER SW-2

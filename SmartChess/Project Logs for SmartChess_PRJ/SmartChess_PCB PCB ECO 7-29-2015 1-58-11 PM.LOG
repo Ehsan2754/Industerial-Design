@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=ONEWIRE Pin=P3-1
+Removed Member From Class: ClassName=SmartChess_SCH Member=P3
+Added Room: Name=SmartChess_SCH
+Added Room: Name=SmartChessMultiplex_SCH

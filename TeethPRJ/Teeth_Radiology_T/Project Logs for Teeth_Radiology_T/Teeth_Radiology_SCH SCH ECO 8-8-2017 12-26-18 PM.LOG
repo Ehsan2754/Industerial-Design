@@ -1,0 +1,26 @@
+Remove Pin=JS1-1 From Net=RGND
+Remove Pin=JS1-3 From Net=RVCC
+Remove Pin=JS2-1 From Net=RGND
+Remove Pin=JS2-3 From Net=RVCC
+Remove Pin=JS3-1 From Net=RGND
+Remove Pin=JS3-3 From Net=RVCC
+Remove Pin=JS4-1 From Net=RGND
+Remove Pin=JS4-3 From Net=RVCC
+Remove Pin=JS5-1 From Net=RGND
+Remove Pin=JS5-3 From Net=RVCC
+Remove Pin=JS6-1 From Net=RGND
+Remove Pin=JS6-3 From Net=RVCC
+Remove Pin=JS7-1 From Net=RGND
+Remove Pin=JS7-3 From Net=RVCC
+Remove Pin=JS8-1 From Net=RGND
+Remove Pin=JS8-3 From Net=RVCC
+Remove Pin=U1-14 From Net=RGND
+Remove Pin=U1-18 From Net=RVCC
+Change Component Footprint: Designator=C10 Old Footprint=CAP 1206 (3216X15L) New Footprint=SMD_CAP_0805
+Change Component Footprint: Designator=C12 Old Footprint=CAP 1206 (3216X15L) New Footprint=SMD_CAP_0805
+Change Component Footprint: Designator=R8 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R10 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R18 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=C11 Old Footprint=SMD_CAP_1206 New Footprint=SMD_CAP_0805
+Change Pin Designator/Name:  Old Designator=T1-1 Old Name= New Designator = New Name=2
+Change Pin Designator/Name:  Old Designator=T1-2 Old Name= New Designator = New Name=1

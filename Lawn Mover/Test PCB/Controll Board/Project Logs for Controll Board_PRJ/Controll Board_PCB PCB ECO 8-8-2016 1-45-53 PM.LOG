@@ -1,0 +1,113 @@
+Added Component: Designator=C1(SMD_CAP_1206)
+Added Component: Designator=C2(SMD_CAP_1206)
+Added Component: Designator=C3(SMD_CAP_1206)
+Added Component: Designator=C4(SMD_CAP_1206)
+Added Component: Designator=C5(SMD_CAP_1206)
+Added Component: Designator=C6(SMD_CAP_1206)
+Added Component: Designator=C7(SMD_CAP_1206)
+Added Component: Designator=C8(cap 01)
+Added Component: Designator=C9(SMD_CAP_1206)
+Added Component: Designator=C10(SMD_CAP_1206)
+Added Component: Designator=D1(My_LED3MM)
+Added Component: Designator=D2(My_LED3MM)
+Added Component: Designator=D3(My_LED3MM)
+Added Component: Designator=P1(HDR1X6)
+Added Component: Designator=P2(HDR1X6)
+Added Component: Designator=P3(HDR2X5)
+Added Component: Designator=PC1(My_ Power_Connector)
+Added Component: Designator=R1(RES 1206 (3216X08L))
+Added Component: Designator=R2(RES 1206 (3216X08L))
+Added Component: Designator=R3(RES 1206 (3216X08L))
+Added Component: Designator=R4(RES 1206 (3216X08L))
+Added Component: Designator=S1(Switch - Push to On)
+Added Component: Designator=U1(STM-TSSOP20_N)
+Added Component: Designator=U2(My_TO-220)
+Added Component: Designator=Y1(XTAL Small)
+Added Pin To Net: NetName=+5 Pin=C9-1
+Added Pin To Net: NetName=+5 Pin=P3-1
+Added Pin To Net: NetName=+5 Pin=P3-2
+Added Pin To Net: NetName=+5 Pin=PC1-2
+Added Pin To Net: NetName=+5 Pin=U2-1
+Added Net: Name=+5
+Added Pin To Net: NetName=COIL1 INPUT Pin=P3-3
+Added Pin To Net: NetName=COIL1 INPUT Pin=P3-4
+Added Net: Name=COIL1 INPUT
+Added Pin To Net: NetName=COIL2 INPUT Pin=P3-5
+Added Pin To Net: NetName=COIL2 INPUT Pin=P3-6
+Added Net: Name=COIL2 INPUT
+Added Pin To Net: NetName=COIL3 INPUT Pin=P3-7
+Added Pin To Net: NetName=COIL3 INPUT Pin=P3-8
+Added Net: Name=COIL3 INPUT
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C8-2
+Added Pin To Net: NetName=GND Pin=C9-2
+Added Pin To Net: NetName=GND Pin=C10-2
+Added Pin To Net: NetName=GND Pin=P1-2
+Added Pin To Net: NetName=GND Pin=P3-9
+Added Pin To Net: NetName=GND Pin=P3-10
+Added Pin To Net: NetName=GND Pin=PC1-1
+Added Pin To Net: NetName=GND Pin=S1-2
+Added Pin To Net: NetName=GND Pin=S1-2
+Added Pin To Net: NetName=GND Pin=U2-2
+Added Net: Name=GND
+Added Pin To Net: NetName=LED COIL1 Pin=D3-A
+Added Net: Name=LED COIL1
+Added Pin To Net: NetName=LED COIL2 Pin=D2-A
+Added Net: Name=LED COIL2
+Added Pin To Net: NetName=LED COIL3 Pin=D1-A
+Added Net: Name=LED COIL3
+Added Pin To Net: NetName=NetC2_1 Pin=C2-1
+Added Pin To Net: NetName=NetC2_1 Pin=Y1-2
+Added Net: Name=NetC2_1
+Added Pin To Net: NetName=NetC3_1 Pin=C3-1
+Added Pin To Net: NetName=NetC3_1 Pin=Y1-1
+Added Net: Name=NetC3_1
+Added Pin To Net: NetName=NetC5_2 Pin=C5-2
+Added Pin To Net: NetName=NetC5_2 Pin=C6-2
+Added Pin To Net: NetName=NetC5_2 Pin=C7-2
+Added Net: Name=NetC5_2
+Added Pin To Net: NetName=NetC8_1 Pin=C8-1
+Added Pin To Net: NetName=NetC8_1 Pin=C10-1
+Added Net: Name=NetC8_1
+Added Pin To Net: NetName=NetD1_K Pin=D1-K
+Added Pin To Net: NetName=NetD1_K Pin=R2-1
+Added Net: Name=NetD1_K
+Added Pin To Net: NetName=NetD2_K Pin=D2-K
+Added Pin To Net: NetName=NetD2_K Pin=R3-1
+Added Net: Name=NetD2_K
+Added Pin To Net: NetName=NetD3_K Pin=D3-K
+Added Pin To Net: NetName=NetD3_K Pin=R4-1
+Added Net: Name=NetD3_K
+Added Pin To Net: NetName=NetR2_2 Pin=R2-2
+Added Pin To Net: NetName=NetR2_2 Pin=R3-2
+Added Pin To Net: NetName=NetR2_2 Pin=R4-2
+Added Net: Name=NetR2_2
+Added Pin To Net: NetName=NRST Pin=C4-2
+Added Pin To Net: NetName=NRST Pin=P1-6
+Added Pin To Net: NetName=NRST Pin=R1-1
+Added Pin To Net: NetName=NRST Pin=S1-1
+Added Pin To Net: NetName=NRST Pin=S1-1
+Added Net: Name=NRST
+Added Pin To Net: NetName=RX Pin=P2-3
+Added Net: Name=RX
+Added Pin To Net: NetName=SWDCLK Pin=P1-5
+Added Net: Name=SWDCLK
+Added Pin To Net: NetName=SWDIO Pin=P1-4
+Added Net: Name=SWDIO
+Added Pin To Net: NetName=SWO Pin=P1-3
+Added Net: Name=SWO
+Added Pin To Net: NetName=TX Pin=P2-2
+Added Net: Name=TX
+Added Pin To Net: NetName=VCC Pin=C1-2
+Added Pin To Net: NetName=VCC Pin=C5-1
+Added Pin To Net: NetName=VCC Pin=C6-1
+Added Pin To Net: NetName=VCC Pin=C7-1
+Added Pin To Net: NetName=VCC Pin=P1-1
+Added Pin To Net: NetName=VCC Pin=R1-2
+Added Pin To Net: NetName=VCC Pin=U2-3
+Added Net: Name=VCC
+Added Class: Name=Controll Board_SCH
+Added Room: Name=Controll Board_SCH

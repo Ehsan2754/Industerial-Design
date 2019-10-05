@@ -1,0 +1,27 @@
+RAM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+Segments                                                          0x0160      12
+AnimSeg                                                           0x016C      13
+CheckCounterValue                                                 0x0179       1
+
+EEPROM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+TotalCounter                                                      0x0000       4
+CounterValue                                                      0x0004       2
+
+Register Allocation
+Variable                                                          Register  Size
+--------------------------------------------------------------------------------
+FirstVal                                                          R5           1
+SecondVal                                                         R4           1
+ThirdVal                                                          R7           1
+ForthVal                                                          R6           1
+TimeFlag                                                          R9           1
+DecimalPoint                                                      R8           1
+CounterINTFlag                                                    R11          1
+AnimSegFlag                                                       R2.0      1bit
+AnimSegFrame                                                      R10          1
+MainCounter                                                       R12,R13      2
+AnimationIsOn                                                     R2.1      1bit

@@ -1,0 +1,20 @@
+Removed Pin From Net: NetName=GND Pin=C20-2
+Removed Pin From Net: NetName=NetC19_2 Pin=U?-12
+Removed Pin From Net: NetName=NetC19_2 Pin=Y2-2
+Change Component DesignItemId : Designator=C19 Old DesignItemId=Cap-Bipolar New DesignItemId=CAP
+Change Component DesignItemId : Designator=C20 Old DesignItemId=Cap-Bipolar New DesignItemId=CAP
+Change Component Footprint: Designator=R11 Old Footprint=RES 0805 (2012X06L) New Footprint=Res-(1/4)-Stand
+Change Component Footprint: Designator=C19 Old Footprint=SMD_CAP_1206 New Footprint=RAD_ADA
+Change Component Footprint: Designator=C20 Old Footprint=SMD_CAP_1206 New Footprint=RAD_ADA
+Change Component Comment : Designator=R11 Old Comment=10k New Comment=1K
+Change Component Comment : Designator=C19 Old Comment=100nF New Comment=CAP
+Change Component Comment : Designator=C20 Old Comment=100nF New Comment=CAP
+Added Pin To Net: NetName=GND Pin=C20-1
+Added Pin To Net: NetName=NetC19_2 Pin=U?-13
+Added Pin To Net: NetName=NetC19_2 Pin=Y2-1
+Added Pin To Net: NetName=NetC20_2 Pin=C20-2
+Added Pin To Net: NetName=NetC20_2 Pin=U?-12
+Added Pin To Net: NetName=NetC20_2 Pin=Y2-2
+Added Net: Name=NetC20_2
+Added Member To Class: ClassName=RC_Receive_SCH Member=Component R15 1K
+Added Room: Name=RC_Receive_SCH

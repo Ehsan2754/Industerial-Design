@@ -1,0 +1,143 @@
+Added Component: Designator=C1(SMD_CAP_1206)
+Added Component: Designator=D1(LL4148)
+Added Component: Designator=DS1(F-10)
+Added Component: Designator=DS2(F-10)
+Added Component: Designator=IC1(TO-252)
+Added Component: Designator=LED1(LED SMD 1206)
+Added Component: Designator=P1m(HDR1X5)
+Added Component: Designator=P1(HDR1X5)
+Added Component: Designator=P2m(HDR1X5)
+Added Component: Designator=P2(HDR1X5)
+Added Component: Designator=P3(HDR1X6)
+Added Component: Designator=P4(HDR1X2)
+Added Component: Designator=P5(HDR1X3)
+Added Component: Designator=R1(RES 0805 (2012X06L))
+Added Component: Designator=R2(RES 0805 (2012X06L))
+Added Component: Designator=R3(RES 0805 (2012X06L))
+Added Component: Designator=R4(RES 0805 (2012X06L))
+Added Component: Designator=R5(RES 0805 (2012X06L))
+Added Component: Designator=R6(RES 0805 (2012X06L))
+Added Component: Designator=R7(RES 0805 (2012X06L))
+Added Component: Designator=R8(RES 0805 (2012X06L))
+Added Component: Designator=Rpro(RES 0805 (2012X06L))
+Added Component: Designator=U1(32A_N)
+Added Pin To Net: NetName=VCC Pin=C1-1
+Added Pin To Net: NetName=GNDI Pin=C1-2
+Added Pin To Net: NetName=VCC 12V Pin=D1-1
+Added Pin To Net: NetName=NetD1_2 Pin=D1-2
+Added Pin To Net: NetName=7G Pin=DS1-1
+Added Pin To Net: NetName=7F Pin=DS1-2
+Added Pin To Net: NetName=I/O1 Pin=DS1-3
+Added Pin To Net: NetName=7E Pin=DS1-4
+Added Pin To Net: NetName=7D Pin=DS1-5
+Added Pin To Net: NetName=P&N Pin=DS1-6
+Added Pin To Net: NetName=7C Pin=DS1-7
+Added Pin To Net: NetName=I/O1 Pin=DS1-8
+Added Pin To Net: NetName=7B Pin=DS1-9
+Added Pin To Net: NetName=7A Pin=DS1-10
+Added Pin To Net: NetName=7F Pin=DS2-2
+Added Pin To Net: NetName=I/O2 Pin=DS2-3
+Added Pin To Net: NetName=7E Pin=DS2-4
+Added Pin To Net: NetName=7D Pin=DS2-5
+Added Pin To Net: NetName=7C Pin=DS2-7
+Added Pin To Net: NetName=I/O2 Pin=DS2-8
+Added Pin To Net: NetName=7B Pin=DS2-9
+Added Pin To Net: NetName=7A Pin=DS2-10
+Added Pin To Net: NetName=NetD1_2 Pin=IC1-1
+Added Pin To Net: NetName=VCC Pin=IC1-3
+Added Pin To Net: NetName=GNDI Pin=IC1-4
+Added Pin To Net: NetName=P&N Pin=LED1-1
+Added Pin To Net: NetName=I/O2 Pin=LED1-2
+Added Pin To Net: NetName=7AU Pin=P1-1
+Added Pin To Net: NetName=7BU Pin=P1-2
+Added Pin To Net: NetName=7CU Pin=P1-3
+Added Pin To Net: NetName=7DU Pin=P1-4
+Added Pin To Net: NetName=7EU Pin=P1-5
+Added Pin To Net: NetName=7A Pin=P1m-1
+Added Pin To Net: NetName=7B Pin=P1m-2
+Added Pin To Net: NetName=7C Pin=P1m-3
+Added Pin To Net: NetName=7D Pin=P1m-4
+Added Pin To Net: NetName=7E Pin=P1m-5
+Added Pin To Net: NetName=7FU Pin=P2-1
+Added Pin To Net: NetName=7GU Pin=P2-2
+Added Pin To Net: NetName=I/O1U Pin=P2-3
+Added Pin To Net: NetName=I/O2U Pin=P2-4
+Added Pin To Net: NetName=P&NU Pin=P2-5
+Added Pin To Net: NetName=7F Pin=P2m-1
+Added Pin To Net: NetName=7G Pin=P2m-2
+Added Pin To Net: NetName=I/O1 Pin=P2m-3
+Added Pin To Net: NetName=I/O2 Pin=P2m-4
+Added Pin To Net: NetName=P&N Pin=P2m-5
+Added Pin To Net: NetName=GNDI Pin=P3-1
+Added Pin To Net: NetName=VCC Pin=P3-2
+Added Pin To Net: NetName=RESET Pin=P3-3
+Added Pin To Net: NetName=PP3 Pin=P3-4
+Added Pin To Net: NetName=PP4 Pin=P3-5
+Added Pin To Net: NetName=PP5 Pin=P3-6
+Added Pin To Net: NetName=VCC 12V Pin=P4-1
+Added Pin To Net: NetName=GNDI Pin=P4-2
+Added Pin To Net: NetName=GNDI Pin=P5-1
+Added Pin To Net: NetName=SENSOR Pin=P5-2
+Added Pin To Net: NetName=VCC Pin=P5-3
+Added Pin To Net: NetName=7AU Pin=R1-1
+Added Pin To Net: NetName=NetR1_2 Pin=R1-2
+Added Pin To Net: NetName=7BU Pin=R2-1
+Added Pin To Net: NetName=NetR2_2 Pin=R2-2
+Added Pin To Net: NetName=7CU Pin=R3-1
+Added Pin To Net: NetName=NetR3_2 Pin=R3-2
+Added Pin To Net: NetName=7DU Pin=R4-1
+Added Pin To Net: NetName=NetR4_2 Pin=R4-2
+Added Pin To Net: NetName=7EU Pin=R5-1
+Added Pin To Net: NetName=NetR5_2 Pin=R5-2
+Added Pin To Net: NetName=7FU Pin=R6-1
+Added Pin To Net: NetName=NetR6_2 Pin=R6-2
+Added Pin To Net: NetName=7GU Pin=R7-1
+Added Pin To Net: NetName=NetR7_2 Pin=R7-2
+Added Pin To Net: NetName=P&NU Pin=R8-1
+Added Pin To Net: NetName=NetR8_2 Pin=R8-2
+Added Pin To Net: NetName=VCC Pin=Rpro-1
+Added Pin To Net: NetName=RESET Pin=Rpro-2
+Added Pin To Net: NetName=NetR4_2 Pin=U1-1
+Added Pin To Net: NetName=NetR5_2 Pin=U1-2
+Added Pin To Net: NetName=GNDI Pin=U1-3
+Added Pin To Net: NetName=VCC Pin=U1-4
+Added Pin To Net: NetName=GNDI Pin=U1-5
+Added Pin To Net: NetName=VCC Pin=U1-6
+Added Pin To Net: NetName=NetR6_2 Pin=U1-9
+Added Pin To Net: NetName=NetR7_2 Pin=U1-10
+Added Pin To Net: NetName=NetR8_2 Pin=U1-11
+Added Pin To Net: NetName=I/O1U Pin=U1-12
+Added Pin To Net: NetName=I/O2U Pin=U1-13
+Added Pin To Net: NetName=PP3 Pin=U1-15
+Added Pin To Net: NetName=PP4 Pin=U1-16
+Added Pin To Net: NetName=PP5 Pin=U1-17
+Added Pin To Net: NetName=GNDI Pin=U1-21
+Added Pin To Net: NetName=SENSOR Pin=U1-23
+Added Pin To Net: NetName=RESET Pin=U1-29
+Added Pin To Net: NetName=NetR1_2 Pin=U1-30
+Added Pin To Net: NetName=NetR2_2 Pin=U1-31
+Added Pin To Net: NetName=NetR3_2 Pin=U1-32
+Added Member To Class: ClassName=TEMP_SCH Member=Component C1 100nF
+Added Member To Class: ClassName=TEMP_SCH Member=Component D1 1N4148
+Added Member To Class: ClassName=TEMP_SCH Member=Component DS1 7-SEG 1
+Added Member To Class: ClassName=TEMP_SCH Member=Component DS2 7-SEG 2
+Added Member To Class: ClassName=TEMP_SCH Member=Component IC1 L78M05
+Added Member To Class: ClassName=TEMP_SCH Member=Component LED1 Negative mark
+Added Member To Class: ClassName=TEMP_SCH Member=Component P1m control
+Added Member To Class: ClassName=TEMP_SCH Member=Component P1 controlu
+Added Member To Class: ClassName=TEMP_SCH Member=Component P2m control & I/O
+Added Member To Class: ClassName=TEMP_SCH Member=Component P2 control & I/Ou
+Added Member To Class: ClassName=TEMP_SCH Member=Component P3 programmer
+Added Member To Class: ClassName=TEMP_SCH Member=Component P4 Input power(12v)
+Added Member To Class: ClassName=TEMP_SCH Member=Component P5 Sensor
+Added Member To Class: ClassName=TEMP_SCH Member=Component R1 330
+Added Member To Class: ClassName=TEMP_SCH Member=Component R2 330
+Added Member To Class: ClassName=TEMP_SCH Member=Component R3 330
+Added Member To Class: ClassName=TEMP_SCH Member=Component R4 330
+Added Member To Class: ClassName=TEMP_SCH Member=Component R5 330
+Added Member To Class: ClassName=TEMP_SCH Member=Component R6 330
+Added Member To Class: ClassName=TEMP_SCH Member=Component R7 330
+Added Member To Class: ClassName=TEMP_SCH Member=Component R8 330
+Added Member To Class: ClassName=TEMP_SCH Member=Component Rpro 1K
+Added Member To Class: ClassName=TEMP_SCH Member=Component U1 ATmega8-16AC
+Added Room: Name=TEMP_SCH

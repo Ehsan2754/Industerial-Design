@@ -1,0 +1,19 @@
+Change Component Footprint: Designator=R48 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R49 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R50 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R51 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R56 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R57 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Change Component Footprint: Designator=R58 Old Footprint=RES 1206 (3216X08L) New Footprint=RES 0805 (2012X06L)
+Added Component: Designator=C9(SMD_CAP_1206)
+Added Component: Designator=C10(SMD_CAP_1206)
+Added Component: Designator=C11(SMD_CAP_1206)
+Added Pin To Net: NetName=+5 Pin=C9-1
+Added Pin To Net: NetName=GND Pin=C9-2
+Added Pin To Net: NetName=REFRENCE FEEDBACK Pin=C10-1
+Added Pin To Net: NetName=+5 Pin=C10-2
+Added Pin To Net: NetName=REFRENCE FEEDBACK Pin=C11-1
+Added Pin To Net: NetName=GND Pin=C11-2
+Added Member To Class: ClassName=GCM-Test PCB BW_SCH Member=Component C9 1u
+Added Member To Class: ClassName=GCM-Test PCB BW_SCH Member=Component C10 1u
+Added Member To Class: ClassName=GCM-Test PCB BW_SCH Member=Component C11 1u

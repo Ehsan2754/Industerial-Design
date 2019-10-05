@@ -1,0 +1,5 @@
+Change Component Designator: OldDesignator=LED1 NewDesignator=POWER LED
+Change Component Designator: OldDesignator=LED18 NewDesignator=RVG LED
+Change Net Name : Old Net Name=NetLED1_1 New Net Name=NetPOWER LED_1
+Change Net Name : Old Net Name=NetLED18_1 New Net Name=NetRVG LED_1
+Change Net Name : Old Net Name=NetLED18_2 New Net Name=NetR22_2

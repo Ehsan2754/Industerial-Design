@@ -1,0 +1,129 @@
+Added Component: Designator=B?(BAT_H)
+Added Component: Designator=C?(SMD_CAP_1206)
+Added Component: Designator=C?(SMD_CAP_1206)
+Added Component: Designator=C?(Electrolytic Capacitor SMD Dia-8)
+Added Component: Designator=C?(SMD_CAP_1206)
+Added Component: Designator=C?(SMD_CAP_1206)
+Added Component: Designator=J3(SIP16)
+Added Component: Designator=LED?(LED SMD 1206)
+Added Component: Designator=P?(HDR1X6)
+Added Component: Designator=P?(HDR2X2)
+Added Component: Designator=R?(RES 0805 (2012X06L))
+Added Component: Designator=R?(RES 0805 (2012X06L))
+Added Component: Designator=R?(RES 0805 (2012X06L))
+Added Component: Designator=R?(RES 0805 (2012X06L))
+Added Component: Designator=R?(RES 0805 (2012X06L))
+Added Component: Designator=U?(DIP8)
+Added Component: Designator=U?(DPAK228P972X240-3N)
+Added Component: Designator=U?(64A_N)
+Added Component: Designator=X?(XTAL2)
+Added Component: Designator=Y?(Crystal SMD)
+Added Pin To Net: NetName=GND Pin=C?-2
+Added Pin To Net: NetName=GND Pin=C?-2
+Added Pin To Net: NetName=GND Pin=C?-2
+Added Pin To Net: NetName=GND Pin=C?-2
+Added Pin To Net: NetName=GND Pin=C?-2
+Added Pin To Net: NetName=GND Pin=J3-1
+Added Pin To Net: NetName=GND Pin=J3-3
+Added Pin To Net: NetName=GND Pin=LED?-2
+Added Pin To Net: NetName=GND Pin=P?-1
+Added Pin To Net: NetName=GND Pin=P?-3
+Added Pin To Net: NetName=GND Pin=U?-2
+Added Pin To Net: NetName=GND Pin=U?-22
+Added Pin To Net: NetName=GND Pin=U?-53
+Added Pin To Net: NetName=GND Pin=U?-63
+Added Net: Name=GND
+Added Pin To Net: NetName=NetB?_1 Pin=B?-1
+Added Pin To Net: NetName=NetB?_1 Pin=U?-3
+Added Net: Name=NetB?_1
+Added Pin To Net: NetName=NetB?_2 Pin=B?-2
+Added Pin To Net: NetName=NetB?_2 Pin=P?-1
+Added Net: Name=NetB?_2
+Added Pin To Net: NetName=NetC?_1 Pin=C?-1
+Added Pin To Net: NetName=NetC?_1 Pin=P?-2
+Added Pin To Net: NetName=NetC?_1 Pin=P?-4
+Added Pin To Net: NetName=NetC?_1 Pin=U?-1
+Added Net: Name=NetC?_1
+Added Pin To Net: NetName=NetJ3_4 Pin=J3-4
+Added Pin To Net: NetName=NetJ3_4 Pin=U?-51
+Added Net: Name=NetJ3_4
+Added Pin To Net: NetName=NetJ3_5 Pin=J3-5
+Added Pin To Net: NetName=NetJ3_5 Pin=U?-50
+Added Net: Name=NetJ3_5
+Added Pin To Net: NetName=NetJ3_6 Pin=J3-6
+Added Pin To Net: NetName=NetJ3_6 Pin=U?-49
+Added Net: Name=NetJ3_6
+Added Pin To Net: NetName=NetJ3_11 Pin=J3-11
+Added Pin To Net: NetName=NetJ3_11 Pin=U?-47
+Added Net: Name=NetJ3_11
+Added Pin To Net: NetName=NetJ3_12 Pin=J3-12
+Added Pin To Net: NetName=NetJ3_12 Pin=U?-46
+Added Net: Name=NetJ3_12
+Added Pin To Net: NetName=NetJ3_13 Pin=J3-13
+Added Pin To Net: NetName=NetJ3_13 Pin=U?-45
+Added Net: Name=NetJ3_13
+Added Pin To Net: NetName=NetJ3_14 Pin=J3-14
+Added Pin To Net: NetName=NetJ3_14 Pin=U?-44
+Added Net: Name=NetJ3_14
+Added Pin To Net: NetName=NetJ3_16 Pin=J3-16
+Added Net: Name=NetJ3_16
+Added Pin To Net: NetName=NetLED?_1 Pin=LED?-1
+Added Pin To Net: NetName=NetLED?_1 Pin=R?-1
+Added Net: Name=NetLED?_1
+Added Pin To Net: NetName=NetQ?_1 Pin=U?-48
+Added Net: Name=NetQ?_1
+Added Pin To Net: NetName=NetR?_1 Pin=R?-1
+Added Pin To Net: NetName=NetR?_1 Pin=U?-7
+Added Net: Name=NetR?_1
+Added Pin To Net: NetName=NetU?_1 Pin=U?-1
+Added Pin To Net: NetName=NetU?_1 Pin=X?-1
+Added Net: Name=NetU?_1
+Added Pin To Net: NetName=NetU?_2 Pin=U?-2
+Added Pin To Net: NetName=NetU?_2 Pin=X?-2
+Added Net: Name=NetU?_2
+Added Pin To Net: NetName=PDI Pin=U?-2
+Added Net: Name=PDI
+Added Pin To Net: NetName=PDO Pin=U?-3
+Added Net: Name=PDO
+Added Pin To Net: NetName=RES Pin=P?-3
+Added Pin To Net: NetName=RES Pin=R?-2
+Added Pin To Net: NetName=RES Pin=U?-20
+Added Net: Name=RES
+Added Pin To Net: NetName=SCK Pin=P?-4
+Added Pin To Net: NetName=SCK Pin=U?-11
+Added Net: Name=SCK
+Added Pin To Net: NetName=SCL Pin=R?-1
+Added Pin To Net: NetName=SCL Pin=U?-6
+Added Pin To Net: NetName=SCL Pin=U?-25
+Added Net: Name=SCL
+Added Pin To Net: NetName=SDA Pin=R?-1
+Added Pin To Net: NetName=SDA Pin=U?-5
+Added Pin To Net: NetName=SDA Pin=U?-26
+Added Net: Name=SDA
+Added Pin To Net: NetName=VCC Pin=C?-1
+Added Pin To Net: NetName=VCC Pin=C?-1
+Added Pin To Net: NetName=VCC Pin=J3-2
+Added Pin To Net: NetName=VCC Pin=J3-15
+Added Pin To Net: NetName=VCC Pin=P?-2
+Added Pin To Net: NetName=VCC Pin=R?-1
+Added Pin To Net: NetName=VCC Pin=R?-2
+Added Pin To Net: NetName=VCC Pin=R?-2
+Added Pin To Net: NetName=VCC Pin=R?-2
+Added Pin To Net: NetName=VCC Pin=R?-2
+Added Pin To Net: NetName=VCC Pin=U?-3
+Added Pin To Net: NetName=VCC Pin=U?-8
+Added Pin To Net: NetName=VCC Pin=U?-21
+Added Pin To Net: NetName=VCC Pin=U?-52
+Added Pin To Net: NetName=VCC Pin=U?-62
+Added Pin To Net: NetName=VCC Pin=U?-64
+Added Net: Name=VCC
+Added Pin To Net: NetName=XTAL1 Pin=C?-1
+Added Pin To Net: NetName=XTAL1 Pin=U?-24
+Added Pin To Net: NetName=XTAL1 Pin=Y?-2
+Added Net: Name=XTAL1
+Added Pin To Net: NetName=XTAL2 Pin=C?-1
+Added Pin To Net: NetName=XTAL2 Pin=U?-23
+Added Pin To Net: NetName=XTAL2 Pin=Y?-1
+Added Net: Name=XTAL2
+Added Class: Name=SmartChess_SCH
+Added Room: Name=SmartChess_SCH

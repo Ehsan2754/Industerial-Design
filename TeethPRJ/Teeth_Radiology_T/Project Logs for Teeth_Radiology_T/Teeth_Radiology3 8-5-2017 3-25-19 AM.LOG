@@ -1,0 +1,10 @@
+Change Component Designator: OldDesignator=S5 NewDesignator=DOWN SW
+Change Component Designator: OldDesignator=S7 NewDesignator=EXPOSE
+Change Component Designator: OldDesignator=S9 NewDesignator=UP SW
+Change Component Designator: OldDesignator=S12 NewDesignator=RVG SW
+Change Component Designator: OldDesignator=S13 NewDesignator=TIMER SW
+Change Net Name : Old Net Name=NetS5_1 New Net Name=NetDOWN SW_1
+Change Net Name : Old Net Name=NetS7_1 New Net Name=NetEXPOSE_1
+Change Net Name : Old Net Name=NetS9_2 New Net Name=NetU2_6
+Change Net Name : Old Net Name=NetS12_2 New Net Name=NetRVG SW_2
+Change Net Name : Old Net Name=NetS13_2 New Net Name=NetTIMER SW_2

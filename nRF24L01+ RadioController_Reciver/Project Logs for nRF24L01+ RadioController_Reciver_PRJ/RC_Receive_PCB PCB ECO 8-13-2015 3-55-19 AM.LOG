@@ -1,0 +1,3 @@
+Change Component Designator: OldDesignator=U? NewDesignator=U132
+Added Member To Class: ClassName=RC_Receive_SCH Member=Component U132 ATmega16-16PC
+Added Room: Name=RC_Receive_SCH

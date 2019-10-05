@@ -1,0 +1,6 @@
+Added Component: Designator=SJ1(SMD Jumper)
+Added Pin To Net: NetName=NetR5_2 Pin=SJ1-1
+Added Pin To Net: NetName=NetRcon_2 Pin=SJ1-2
+Change Net Name : Old Net Name=NetRcon_2 New Net Name=NetSJ1_2
+Added Member To Class: ClassName=TEMP_SCH Member=Component SJ1 SmdJumper
+Added Room: Name=TEMP_SCH

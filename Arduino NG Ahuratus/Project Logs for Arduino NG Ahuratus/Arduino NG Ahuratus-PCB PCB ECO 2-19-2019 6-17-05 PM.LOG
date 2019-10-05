@@ -1,0 +1,11 @@
+Added Component: Designator=J5(MicroUSB)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ENG"; Value = "Ehsan Shaghaei"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=VCC Pin=J5-1-VBUS
+Added Pin To Net: NetName=GND Pin=J5-1
+Added Pin To Net: NetName=D- Pin=J5-2-D-
+Added Pin To Net: NetName=GND Pin=J5-2
+Added Pin To Net: NetName=D+ Pin=J5-3-D+
+Added Pin To Net: NetName=GND Pin=J5-3
+Added Pin To Net: NetName=GND Pin=J5-5-GND
+Added Member To Class: ClassName=Arduino NG Ahuratus-SCH Member=Component J5 Micro USB

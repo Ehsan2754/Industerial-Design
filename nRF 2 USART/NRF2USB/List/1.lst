@@ -1,0 +1,2241 @@
+
+AVRASM ver. 2.1.30  D:\MyProjects\NRF2USB\List\1.asm Sat Sep 14 19:37:20 2013
+
+D:\MyProjects\NRF2USB\List\1.asm(1070): warning: Register r5 already defined by the .DEF directive
+D:\MyProjects\NRF2USB\List\1.asm(1071): warning: Register r4 already defined by the .DEF directive
+D:\MyProjects\NRF2USB\List\1.asm(1072): warning: Register r7 already defined by the .DEF directive
+D:\MyProjects\NRF2USB\List\1.asm(1073): warning: Register r6 already defined by the .DEF directive
+                 
+                 
+                 ;CodeVisionAVR C Compiler V2.05.3 Standard
+                 ;(C) Copyright 1998-2011 Pavel Haiduc, HP InfoTech s.r.l.
+                 ;http://www.hpinfotech.com
+                 
+                 ;Chip type                : ATmega8
+                 ;Program type             : Application
+                 ;Clock frequency          : 8.000000 MHz
+                 ;Memory model             : Small
+                 ;Optimize for             : Size
+                 ;(s)printf features       : int, width
+                 ;(s)scanf features        : int, width
+                 ;External RAM size        : 0
+                 ;Data Stack size          : 256 byte(s)
+                 ;Heap size                : 0 byte(s)
+                 ;Promote 'char' to 'int'  : Yes
+                 ;'char' is unsigned       : Yes
+                 ;8 bit enums              : Yes
+                 ;Global 'const' stored in FLASH     : No
+                 ;Enhanced function parameter passing: Yes
+                 ;Enhanced core instructions         : On
+                 ;Smart register allocation          : On
+                 ;Automatic register allocation      : On
+                 
+                 	#pragma AVRPART ADMIN PART_NAME ATmega8
+                 	#pragma AVRPART MEMORY PROG_FLASH 8192
+                 	#pragma AVRPART MEMORY EEPROM 512
+                 	#pragma AVRPART MEMORY INT_SRAM SIZE 1119
+                 	#pragma AVRPART MEMORY INT_SRAM START_ADDR 0x60
+                 
+                 	.LISTMAC
+                 	.EQU UDRE=0x5
+                 	.EQU RXC=0x7
+                 	.EQU USR=0xB
+                 	.EQU UDR=0xC
+                 	.EQU SPSR=0xE
+                 	.EQU SPDR=0xF
+                 	.EQU EERE=0x0
+                 	.EQU EEWE=0x1
+                 	.EQU EEMWE=0x2
+                 	.EQU EECR=0x1C
+                 	.EQU EEDR=0x1D
+                 	.EQU EEARL=0x1E
+                 	.EQU EEARH=0x1F
+                 	.EQU WDTCR=0x21
+                 	.EQU MCUCR=0x35
+                 	.EQU GICR=0x3B
+                 	.EQU SPL=0x3D
+                 	.EQU SPH=0x3E
+                 	.EQU SREG=0x3F
+                 
+                 	.DEF R0X0=R0
+                 	.DEF R0X1=R1
+                 	.DEF R0X2=R2
+                 	.DEF R0X3=R3
+                 	.DEF R0X4=R4
+                 	.DEF R0X5=R5
+                 	.DEF R0X6=R6
+                 	.DEF R0X7=R7
+                 	.DEF R0X8=R8
+                 	.DEF R0X9=R9
+                 	.DEF R0XA=R10
+                 	.DEF R0XB=R11
+                 	.DEF R0XC=R12
+                 	.DEF R0XD=R13
+                 	.DEF R0XE=R14
+                 	.DEF R0XF=R15
+                 	.DEF R0X10=R16
+                 	.DEF R0X11=R17
+                 	.DEF R0X12=R18
+                 	.DEF R0X13=R19
+                 	.DEF R0X14=R20
+                 	.DEF R0X15=R21
+                 	.DEF R0X16=R22
+                 	.DEF R0X17=R23
+                 	.DEF R0X18=R24
+                 	.DEF R0X19=R25
+                 	.DEF R0X1A=R26
+                 	.DEF R0X1B=R27
+                 	.DEF R0X1C=R28
+                 	.DEF R0X1D=R29
+                 	.DEF R0X1E=R30
+                 	.DEF R0X1F=R31
+                 
+                 	.EQU __SRAM_START=0x0060
+                 	.EQU __SRAM_END=0x045F
+                 	.EQU __DSTACK_SIZE=0x0100
+                 	.EQU __HEAP_SIZE=0x0000
+                 	.EQU __CLEAR_SRAM_SIZE=__SRAM_END-__SRAM_START+1
+                 
+                 	.MACRO __CPD1N
+                 	CPI  R30,LOW(@0)
+                 	LDI  R26,HIGH(@0)
+                 	CPC  R31,R26
+                 	LDI  R26,BYTE3(@0)
+                 	CPC  R22,R26
+                 	LDI  R26,BYTE4(@0)
+                 	CPC  R23,R26
+                 	.ENDM
+                 
+                 	.MACRO __CPD2N
+                 	CPI  R26,LOW(@0)
+                 	LDI  R30,HIGH(@0)
+                 	CPC  R27,R30
+                 	LDI  R30,BYTE3(@0)
+                 	CPC  R24,R30
+                 	LDI  R30,BYTE4(@0)
+                 	CPC  R25,R30
+                 	.ENDM
+                 
+                 	.MACRO __CPWRR
+                 	CP   R@0,R@2
+                 	CPC  R@1,R@3
+                 	.ENDM
+                 
+                 	.MACRO __CPWRN
+                 	CPI  R@0,LOW(@2)
+                 	LDI  R30,HIGH(@2)
+                 	CPC  R@1,R30
+                 	.ENDM
+                 
+                 	.MACRO __ADDB1MN
+                 	SUBI R30,LOW(-@0-(@1))
+                 	.ENDM
+                 
+                 	.MACRO __ADDB2MN
+                 	SUBI R26,LOW(-@0-(@1))
+                 	.ENDM
+                 
+                 	.MACRO __ADDW1MN
+                 	SUBI R30,LOW(-@0-(@1))
+                 	SBCI R31,HIGH(-@0-(@1))
+                 	.ENDM
+                 
+                 	.MACRO __ADDW2MN
+                 	SUBI R26,LOW(-@0-(@1))
+                 	SBCI R27,HIGH(-@0-(@1))
+                 	.ENDM
+                 
+                 	.MACRO __ADDW1FN
+                 	SUBI R30,LOW(-2*@0-(@1))
+                 	SBCI R31,HIGH(-2*@0-(@1))
+                 	.ENDM
+                 
+                 	.MACRO __ADDD1FN
+                 	SUBI R30,LOW(-2*@0-(@1))
+                 	SBCI R31,HIGH(-2*@0-(@1))
+                 	SBCI R22,BYTE3(-2*@0-(@1))
+                 	.ENDM
+                 
+                 	.MACRO __ADDD1N
+                 	SUBI R30,LOW(-@0)
+                 	SBCI R31,HIGH(-@0)
+                 	SBCI R22,BYTE3(-@0)
+                 	SBCI R23,BYTE4(-@0)
+                 	.ENDM
+                 
+                 	.MACRO __ADDD2N
+                 	SUBI R26,LOW(-@0)
+                 	SBCI R27,HIGH(-@0)
+                 	SBCI R24,BYTE3(-@0)
+                 	SBCI R25,BYTE4(-@0)
+                 	.ENDM
+                 
+                 	.MACRO __SUBD1N
+                 	SUBI R30,LOW(@0)
+                 	SBCI R31,HIGH(@0)
+                 	SBCI R22,BYTE3(@0)
+                 	SBCI R23,BYTE4(@0)
+                 	.ENDM
+                 
+                 	.MACRO __SUBD2N
+                 	SUBI R26,LOW(@0)
+                 	SBCI R27,HIGH(@0)
+                 	SBCI R24,BYTE3(@0)
+                 	SBCI R25,BYTE4(@0)
+                 	.ENDM
+                 
+                 	.MACRO __ANDBMNN
+                 	LDS  R30,@0+(@1)
+                 	ANDI R30,LOW(@2)
+                 	STS  @0+(@1),R30
+                 	.ENDM
+                 
+                 	.MACRO __ANDWMNN
+                 	LDS  R30,@0+(@1)
+                 	ANDI R30,LOW(@2)
+                 	STS  @0+(@1),R30
+                 	LDS  R30,@0+(@1)+1
+                 	ANDI R30,HIGH(@2)
+                 	STS  @0+(@1)+1,R30
+                 	.ENDM
+                 
+                 	.MACRO __ANDD1N
+                 	ANDI R30,LOW(@0)
+                 	ANDI R31,HIGH(@0)
+                 	ANDI R22,BYTE3(@0)
+                 	ANDI R23,BYTE4(@0)
+                 	.ENDM
+                 
+                 	.MACRO __ANDD2N
+                 	ANDI R26,LOW(@0)
+                 	ANDI R27,HIGH(@0)
+                 	ANDI R24,BYTE3(@0)
+                 	ANDI R25,BYTE4(@0)
+                 	.ENDM
+                 
+                 	.MACRO __ORBMNN
+                 	LDS  R30,@0+(@1)
+                 	ORI  R30,LOW(@2)
+                 	STS  @0+(@1),R30
+                 	.ENDM
+                 
+                 	.MACRO __ORWMNN
+                 	LDS  R30,@0+(@1)
+                 	ORI  R30,LOW(@2)
+                 	STS  @0+(@1),R30
+                 	LDS  R30,@0+(@1)+1
+                 	ORI  R30,HIGH(@2)
+                 	STS  @0+(@1)+1,R30
+                 	.ENDM
+                 
+                 	.MACRO __ORD1N
+                 	ORI  R30,LOW(@0)
+                 	ORI  R31,HIGH(@0)
+                 	ORI  R22,BYTE3(@0)
+                 	ORI  R23,BYTE4(@0)
+                 	.ENDM
+                 
+                 	.MACRO __ORD2N
+                 	ORI  R26,LOW(@0)
+                 	ORI  R27,HIGH(@0)
+                 	ORI  R24,BYTE3(@0)
+                 	ORI  R25,BYTE4(@0)
+                 	.ENDM
+                 
+                 	.MACRO __DELAY_USB
+                 	LDI  R24,LOW(@0)
+                 __DELAY_USB_LOOP:
+                 	DEC  R24
+                 	BRNE __DELAY_USB_LOOP
+                 	.ENDM
+                 
+                 	.MACRO __DELAY_USW
+                 	LDI  R24,LOW(@0)
+                 	LDI  R25,HIGH(@0)
+                 __DELAY_USW_LOOP:
+                 	SBIW R24,1
+                 	BRNE __DELAY_USW_LOOP
+                 	.ENDM
+                 
+                 	.MACRO __GETD1S
+                 	LDD  R30,Y+@0
+                 	LDD  R31,Y+@0+1
+                 	LDD  R22,Y+@0+2
+                 	LDD  R23,Y+@0+3
+                 	.ENDM
+                 
+                 	.MACRO __GETD2S
+                 	LDD  R26,Y+@0
+                 	LDD  R27,Y+@0+1
+                 	LDD  R24,Y+@0+2
+                 	LDD  R25,Y+@0+3
+                 	.ENDM
+                 
+                 	.MACRO __PUTD1S
+                 	STD  Y+@0,R30
+                 	STD  Y+@0+1,R31
+                 	STD  Y+@0+2,R22
+                 	STD  Y+@0+3,R23
+                 	.ENDM
+                 
+                 	.MACRO __PUTD2S
+                 	STD  Y+@0,R26
+                 	STD  Y+@0+1,R27
+                 	STD  Y+@0+2,R24
+                 	STD  Y+@0+3,R25
+                 	.ENDM
+                 
+                 	.MACRO __PUTDZ2
+                 	STD  Z+@0,R26
+                 	STD  Z+@0+1,R27
+                 	STD  Z+@0+2,R24
+                 	STD  Z+@0+3,R25
+                 	.ENDM
+                 
+                 	.MACRO __CLRD1S
+                 	STD  Y+@0,R30
+                 	STD  Y+@0+1,R30
+                 	STD  Y+@0+2,R30
+                 	STD  Y+@0+3,R30
+                 	.ENDM
+                 
+                 	.MACRO __POINTB1MN
+                 	LDI  R30,LOW(@0+(@1))
+                 	.ENDM
+                 
+                 	.MACRO __POINTW1MN
+                 	LDI  R30,LOW(@0+(@1))
+                 	LDI  R31,HIGH(@0+(@1))
+                 	.ENDM
+                 
+                 	.MACRO __POINTD1M
+                 	LDI  R30,LOW(@0)
+                 	LDI  R31,HIGH(@0)
+                 	LDI  R22,BYTE3(@0)
+                 	LDI  R23,BYTE4(@0)
+                 	.ENDM
+                 
+                 	.MACRO __POINTW1FN
+                 	LDI  R30,LOW(2*@0+(@1))
+                 	LDI  R31,HIGH(2*@0+(@1))
+                 	.ENDM
+                 
+                 	.MACRO __POINTD1FN
+                 	LDI  R30,LOW(2*@0+(@1))
+                 	LDI  R31,HIGH(2*@0+(@1))
+                 	LDI  R22,BYTE3(2*@0+(@1))
+                 	LDI  R23,BYTE4(2*@0+(@1))
+                 	.ENDM
+                 
+                 	.MACRO __POINTB2MN
+                 	LDI  R26,LOW(@0+(@1))
+                 	.ENDM
+                 
+                 	.MACRO __POINTW2MN
+                 	LDI  R26,LOW(@0+(@1))
+                 	LDI  R27,HIGH(@0+(@1))
+                 	.ENDM
+                 
+                 	.MACRO __POINTW2FN
+                 	LDI  R26,LOW(2*@0+(@1))
+                 	LDI  R27,HIGH(2*@0+(@1))
+                 	.ENDM
+                 
+                 	.MACRO __POINTD2FN
+                 	LDI  R26,LOW(2*@0+(@1))
+                 	LDI  R27,HIGH(2*@0+(@1))
+                 	LDI  R24,BYTE3(2*@0+(@1))
+                 	LDI  R25,BYTE4(2*@0+(@1))
+                 	.ENDM
+                 
+                 	.MACRO __POINTBRM
+                 	LDI  R@0,LOW(@1)
+                 	.ENDM
+                 
+                 	.MACRO __POINTWRM
+                 	LDI  R@0,LOW(@2)
+                 	LDI  R@1,HIGH(@2)
+                 	.ENDM
+                 
+                 	.MACRO __POINTBRMN
+                 	LDI  R@0,LOW(@1+(@2))
+                 	.ENDM
+                 
+                 	.MACRO __POINTWRMN
+                 	LDI  R@0,LOW(@2+(@3))
+                 	LDI  R@1,HIGH(@2+(@3))
+                 	.ENDM
+                 
+                 	.MACRO __POINTWRFN
+                 	LDI  R@0,LOW(@2*2+(@3))
+                 	LDI  R@1,HIGH(@2*2+(@3))
+                 	.ENDM
+                 
+                 	.MACRO __GETD1N
+                 	LDI  R30,LOW(@0)
+                 	LDI  R31,HIGH(@0)
+                 	LDI  R22,BYTE3(@0)
+                 	LDI  R23,BYTE4(@0)
+                 	.ENDM
+                 
+                 	.MACRO __GETD2N
+                 	LDI  R26,LOW(@0)
+                 	LDI  R27,HIGH(@0)
+                 	LDI  R24,BYTE3(@0)
+                 	LDI  R25,BYTE4(@0)
+                 	.ENDM
+                 
+                 	.MACRO __GETB1MN
+                 	LDS  R30,@0+(@1)
+                 	.ENDM
+                 
+                 	.MACRO __GETB1HMN
+                 	LDS  R31,@0+(@1)
+                 	.ENDM
+                 
+                 	.MACRO __GETW1MN
+                 	LDS  R30,@0+(@1)
+                 	LDS  R31,@0+(@1)+1
+                 	.ENDM
+                 
+                 	.MACRO __GETD1MN
+                 	LDS  R30,@0+(@1)
+                 	LDS  R31,@0+(@1)+1
+                 	LDS  R22,@0+(@1)+2
+                 	LDS  R23,@0+(@1)+3
+                 	.ENDM
+                 
+                 	.MACRO __GETBRMN
+                 	LDS  R@0,@1+(@2)
+                 	.ENDM
+                 
+                 	.MACRO __GETWRMN
+                 	LDS  R@0,@2+(@3)
+                 	LDS  R@1,@2+(@3)+1
+                 	.ENDM
+                 
+                 	.MACRO __GETWRZ
+                 	LDD  R@0,Z+@2
+                 	LDD  R@1,Z+@2+1
+                 	.ENDM
+                 
+                 	.MACRO __GETD2Z
+                 	LDD  R26,Z+@0
+                 	LDD  R27,Z+@0+1
+                 	LDD  R24,Z+@0+2
+                 	LDD  R25,Z+@0+3
+                 	.ENDM
+                 
+                 	.MACRO __GETB2MN
+                 	LDS  R26,@0+(@1)
+                 	.ENDM
+                 
+                 	.MACRO __GETW2MN
+                 	LDS  R26,@0+(@1)
+                 	LDS  R27,@0+(@1)+1
+                 	.ENDM
+                 
+                 	.MACRO __GETD2MN
+                 	LDS  R26,@0+(@1)
+                 	LDS  R27,@0+(@1)+1
+                 	LDS  R24,@0+(@1)+2
+                 	LDS  R25,@0+(@1)+3
+                 	.ENDM
+                 
+                 	.MACRO __PUTB1MN
+                 	STS  @0+(@1),R30
+                 	.ENDM
+                 
+                 	.MACRO __PUTW1MN
+                 	STS  @0+(@1),R30
+                 	STS  @0+(@1)+1,R31
+                 	.ENDM
+                 
+                 	.MACRO __PUTD1MN
+                 	STS  @0+(@1),R30
+                 	STS  @0+(@1)+1,R31
+                 	STS  @0+(@1)+2,R22
+                 	STS  @0+(@1)+3,R23
+                 	.ENDM
+                 
+                 	.MACRO __PUTB1EN
+                 	LDI  R26,LOW(@0+(@1))
+                 	LDI  R27,HIGH(@0+(@1))
+                 	RCALL __EEPROMWRB
+                 	.ENDM
+                 
+                 	.MACRO __PUTW1EN
+                 	LDI  R26,LOW(@0+(@1))
+                 	LDI  R27,HIGH(@0+(@1))
+                 	RCALL __EEPROMWRW
+                 	.ENDM
+                 
+                 	.MACRO __PUTD1EN
+                 	LDI  R26,LOW(@0+(@1))
+                 	LDI  R27,HIGH(@0+(@1))
+                 	RCALL __EEPROMWRD
+                 	.ENDM
+                 
+                 	.MACRO __PUTBR0MN
+                 	STS  @0+(@1),R0
+                 	.ENDM
+                 
+                 	.MACRO __PUTBMRN
+                 	STS  @0+(@1),R@2
+                 	.ENDM
+                 
+                 	.MACRO __PUTWMRN
+                 	STS  @0+(@1),R@2
+                 	STS  @0+(@1)+1,R@3
+                 	.ENDM
+                 
+                 	.MACRO __PUTBZR
+                 	STD  Z+@1,R@0
+                 	.ENDM
+                 
+                 	.MACRO __PUTWZR
+                 	STD  Z+@2,R@0
+                 	STD  Z+@2+1,R@1
+                 	.ENDM
+                 
+                 	.MACRO __GETW1R
+                 	MOV  R30,R@0
+                 	MOV  R31,R@1
+                 	.ENDM
+                 
+                 	.MACRO __GETW2R
+                 	MOV  R26,R@0
+                 	MOV  R27,R@1
+                 	.ENDM
+                 
+                 	.MACRO __GETWRN
+                 	LDI  R@0,LOW(@2)
+                 	LDI  R@1,HIGH(@2)
+                 	.ENDM
+                 
+                 	.MACRO __PUTW1R
+                 	MOV  R@0,R30
+                 	MOV  R@1,R31
+                 	.ENDM
+                 
+                 	.MACRO __PUTW2R
+                 	MOV  R@0,R26
+                 	MOV  R@1,R27
+                 	.ENDM
+                 
+                 	.MACRO __ADDWRN
+                 	SUBI R@0,LOW(-@2)
+                 	SBCI R@1,HIGH(-@2)
+                 	.ENDM
+                 
+                 	.MACRO __ADDWRR
+                 	ADD  R@0,R@2
+                 	ADC  R@1,R@3
+                 	.ENDM
+                 
+                 	.MACRO __SUBWRN
+                 	SUBI R@0,LOW(@2)
+                 	SBCI R@1,HIGH(@2)
+                 	.ENDM
+                 
+                 	.MACRO __SUBWRR
+                 	SUB  R@0,R@2
+                 	SBC  R@1,R@3
+                 	.ENDM
+                 
+                 	.MACRO __ANDWRN
+                 	ANDI R@0,LOW(@2)
+                 	ANDI R@1,HIGH(@2)
+                 	.ENDM
+                 
+                 	.MACRO __ANDWRR
+                 	AND  R@0,R@2
+                 	AND  R@1,R@3
+                 	.ENDM
+                 
+                 	.MACRO __ORWRN
+                 	ORI  R@0,LOW(@2)
+                 	ORI  R@1,HIGH(@2)
+                 	.ENDM
+                 
+                 	.MACRO __ORWRR
+                 	OR   R@0,R@2
+                 	OR   R@1,R@3
+                 	.ENDM
+                 
+                 	.MACRO __EORWRR
+                 	EOR  R@0,R@2
+                 	EOR  R@1,R@3
+                 	.ENDM
+                 
+                 	.MACRO __GETWRS
+                 	LDD  R@0,Y+@2
+                 	LDD  R@1,Y+@2+1
+                 	.ENDM
+                 
+                 	.MACRO __PUTBSR
+                 	STD  Y+@1,R@0
+                 	.ENDM
+                 
+                 	.MACRO __PUTWSR
+                 	STD  Y+@2,R@0
+                 	STD  Y+@2+1,R@1
+                 	.ENDM
+                 
+                 	.MACRO __MOVEWRR
+                 	MOV  R@0,R@2
+                 	MOV  R@1,R@3
+                 	.ENDM
+                 
+                 	.MACRO __INWR
+                 	IN   R@0,@2
+                 	IN   R@1,@2+1
+                 	.ENDM
+                 
+                 	.MACRO __OUTWR
+                 	OUT  @2+1,R@1
+                 	OUT  @2,R@0
+                 	.ENDM
+                 
+                 	.MACRO __CALL1MN
+                 	LDS  R30,@0+(@1)
+                 	LDS  R31,@0+(@1)+1
+                 	ICALL
+                 	.ENDM
+                 
+                 	.MACRO __CALL1FN
+                 	LDI  R30,LOW(2*@0+(@1))
+                 	LDI  R31,HIGH(2*@0+(@1))
+                 	RCALL __GETW1PF
+                 	ICALL
+                 	.ENDM
+                 
+                 	.MACRO __CALL2EN
+                 	LDI  R26,LOW(@0+(@1))
+                 	LDI  R27,HIGH(@0+(@1))
+                 	RCALL __EEPROMRDW
+                 	ICALL
+                 	.ENDM
+                 
+                 	.MACRO __GETW1STACK
+                 	IN   R26,SPL
+                 	IN   R27,SPH
+                 	ADIW R26,@0+1
+                 	LD   R30,X+
+                 	LD   R31,X
+                 	.ENDM
+                 
+                 	.MACRO __GETD1STACK
+                 	IN   R26,SPL
+                 	IN   R27,SPH
+                 	ADIW R26,@0+1
+                 	LD   R30,X+
+                 	LD   R31,X+
+                 	LD   R22,X
+                 	.ENDM
+                 
+                 	.MACRO __NBST
+                 	BST  R@0,@1
+                 	IN   R30,SREG
+                 	LDI  R31,0x40
+                 	EOR  R30,R31
+                 	OUT  SREG,R30
+                 	.ENDM
+                 
+                 
+                 	.MACRO __PUTB1SN
+                 	LDD  R26,Y+@0
+                 	LDD  R27,Y+@0+1
+                 	SUBI R26,LOW(-@1)
+                 	SBCI R27,HIGH(-@1)
+                 	ST   X,R30
+                 	.ENDM
+                 
+                 	.MACRO __PUTW1SN
+                 	LDD  R26,Y+@0
+                 	LDD  R27,Y+@0+1
+                 	SUBI R26,LOW(-@1)
+                 	SBCI R27,HIGH(-@1)
+                 	ST   X+,R30
+                 	ST   X,R31
+                 	.ENDM
+                 
+                 	.MACRO __PUTD1SN
+                 	LDD  R26,Y+@0
+                 	LDD  R27,Y+@0+1
+                 	SUBI R26,LOW(-@1)
+                 	SBCI R27,HIGH(-@1)
+                 	RCALL __PUTDP1
+                 	.ENDM
+                 
+                 	.MACRO __PUTB1SNS
+                 	LDD  R26,Y+@0
+                 	LDD  R27,Y+@0+1
+                 	ADIW R26,@1
+                 	ST   X,R30
+                 	.ENDM
+                 
+                 	.MACRO __PUTW1SNS
+                 	LDD  R26,Y+@0
+                 	LDD  R27,Y+@0+1
+                 	ADIW R26,@1
+                 	ST   X+,R30
+                 	ST   X,R31
+                 	.ENDM
+                 
+                 	.MACRO __PUTD1SNS
+                 	LDD  R26,Y+@0
+                 	LDD  R27,Y+@0+1
+                 	ADIW R26,@1
+                 	RCALL __PUTDP1
+                 	.ENDM
+                 
+                 	.MACRO __PUTB1PMN
+                 	LDS  R26,@0
+                 	LDS  R27,@0+1
+                 	SUBI R26,LOW(-@1)
+                 	SBCI R27,HIGH(-@1)
+                 	ST   X,R30
+                 	.ENDM
+                 
+                 	.MACRO __PUTW1PMN
+                 	LDS  R26,@0
+                 	LDS  R27,@0+1
+                 	SUBI R26,LOW(-@1)
+                 	SBCI R27,HIGH(-@1)
+                 	ST   X+,R30
+                 	ST   X,R31
+                 	.ENDM
+                 
+                 	.MACRO __PUTD1PMN
+                 	LDS  R26,@0
+                 	LDS  R27,@0+1
+                 	SUBI R26,LOW(-@1)
+                 	SBCI R27,HIGH(-@1)
+                 	RCALL __PUTDP1
+                 	.ENDM
+                 
+                 	.MACRO __PUTB1PMNS
+                 	LDS  R26,@0
+                 	LDS  R27,@0+1
+                 	ADIW R26,@1
+                 	ST   X,R30
+                 	.ENDM
+                 
+                 	.MACRO __PUTW1PMNS
+                 	LDS  R26,@0
+                 	LDS  R27,@0+1
+                 	ADIW R26,@1
+                 	ST   X+,R30
+                 	ST   X,R31
+                 	.ENDM
+                 
+                 	.MACRO __PUTD1PMNS
+                 	LDS  R26,@0
+                 	LDS  R27,@0+1
+                 	ADIW R26,@1
+                 	RCALL __PUTDP1
+                 	.ENDM
+                 
+                 	.MACRO __PUTB1RN
+                 	MOVW R26,R@0
+                 	SUBI R26,LOW(-@1)
+                 	SBCI R27,HIGH(-@1)
+                 	ST   X,R30
+                 	.ENDM
+                 
+                 	.MACRO __PUTW1RN
+                 	MOVW R26,R@0
+                 	SUBI R26,LOW(-@1)
+                 	SBCI R27,HIGH(-@1)
+                 	ST   X+,R30
+                 	ST   X,R31
+                 	.ENDM
+                 
+                 	.MACRO __PUTD1RN
+                 	MOVW R26,R@0
+                 	SUBI R26,LOW(-@1)
+                 	SBCI R27,HIGH(-@1)
+                 	RCALL __PUTDP1
+                 	.ENDM
+                 
+                 	.MACRO __PUTB1RNS
+                 	MOVW R26,R@0
+                 	ADIW R26,@1
+                 	ST   X,R30
+                 	.ENDM
+                 
+                 	.MACRO __PUTW1RNS
+                 	MOVW R26,R@0
+                 	ADIW R26,@1
+                 	ST   X+,R30
+                 	ST   X,R31
+                 	.ENDM
+                 
+                 	.MACRO __PUTD1RNS
+                 	MOVW R26,R@0
+                 	ADIW R26,@1
+                 	RCALL __PUTDP1
+                 	.ENDM
+                 
+                 	.MACRO __PUTB1RON
+                 	MOV  R26,R@0
+                 	MOV  R27,R@1
+                 	SUBI R26,LOW(-@2)
+                 	SBCI R27,HIGH(-@2)
+                 	ST   X,R30
+                 	.ENDM
+                 
+                 	.MACRO __PUTW1RON
+                 	MOV  R26,R@0
+                 	MOV  R27,R@1
+                 	SUBI R26,LOW(-@2)
+                 	SBCI R27,HIGH(-@2)
+                 	ST   X+,R30
+                 	ST   X,R31
+                 	.ENDM
+                 
+                 	.MACRO __PUTD1RON
+                 	MOV  R26,R@0
+                 	MOV  R27,R@1
+                 	SUBI R26,LOW(-@2)
+                 	SBCI R27,HIGH(-@2)
+                 	RCALL __PUTDP1
+                 	.ENDM
+                 
+                 	.MACRO __PUTB1RONS
+                 	MOV  R26,R@0
+                 	MOV  R27,R@1
+                 	ADIW R26,@2
+                 	ST   X,R30
+                 	.ENDM
+                 
+                 	.MACRO __PUTW1RONS
+                 	MOV  R26,R@0
+                 	MOV  R27,R@1
+                 	ADIW R26,@2
+                 	ST   X+,R30
+                 	ST   X,R31
+                 	.ENDM
+                 
+                 	.MACRO __PUTD1RONS
+                 	MOV  R26,R@0
+                 	MOV  R27,R@1
+                 	ADIW R26,@2
+                 	RCALL __PUTDP1
+                 	.ENDM
+                 
+                 
+                 	.MACRO __GETB1SX
+                 	MOVW R30,R28
+                 	SUBI R30,LOW(-@0)
+                 	SBCI R31,HIGH(-@0)
+                 	LD   R30,Z
+                 	.ENDM
+                 
+                 	.MACRO __GETB1HSX
+                 	MOVW R30,R28
+                 	SUBI R30,LOW(-@0)
+                 	SBCI R31,HIGH(-@0)
+                 	LD   R31,Z
+                 	.ENDM
+                 
+                 	.MACRO __GETW1SX
+                 	MOVW R30,R28
+                 	SUBI R30,LOW(-@0)
+                 	SBCI R31,HIGH(-@0)
+                 	LD   R0,Z+
+                 	LD   R31,Z
+                 	MOV  R30,R0
+                 	.ENDM
+                 
+                 	.MACRO __GETD1SX
+                 	MOVW R30,R28
+                 	SUBI R30,LOW(-@0)
+                 	SBCI R31,HIGH(-@0)
+                 	LD   R0,Z+
+                 	LD   R1,Z+
+                 	LD   R22,Z+
+                 	LD   R23,Z
+                 	MOVW R30,R0
+                 	.ENDM
+                 
+                 	.MACRO __GETB2SX
+                 	MOVW R26,R28
+                 	SUBI R26,LOW(-@0)
+                 	SBCI R27,HIGH(-@0)
+                 	LD   R26,X
+                 	.ENDM
+                 
+                 	.MACRO __GETW2SX
+                 	MOVW R26,R28
+                 	SUBI R26,LOW(-@0)
+                 	SBCI R27,HIGH(-@0)
+                 	LD   R0,X+
+                 	LD   R27,X
+                 	MOV  R26,R0
+                 	.ENDM
+                 
+                 	.MACRO __GETD2SX
+                 	MOVW R26,R28
+                 	SUBI R26,LOW(-@0)
+                 	SBCI R27,HIGH(-@0)
+                 	LD   R0,X+
+                 	LD   R1,X+
+                 	LD   R24,X+
+                 	LD   R25,X
+                 	MOVW R26,R0
+                 	.ENDM
+                 
+                 	.MACRO __GETBRSX
+                 	MOVW R30,R28
+                 	SUBI R30,LOW(-@1)
+                 	SBCI R31,HIGH(-@1)
+                 	LD   R@0,Z
+                 	.ENDM
+                 
+                 	.MACRO __GETWRSX
+                 	MOVW R30,R28
+                 	SUBI R30,LOW(-@2)
+                 	SBCI R31,HIGH(-@2)
+                 	LD   R@0,Z+
+                 	LD   R@1,Z
+                 	.ENDM
+                 
+                 	.MACRO __GETBRSX2
+                 	MOVW R26,R28
+                 	SUBI R26,LOW(-@1)
+                 	SBCI R27,HIGH(-@1)
+                 	LD   R@0,X
+                 	.ENDM
+                 
+                 	.MACRO __GETWRSX2
+                 	MOVW R26,R28
+                 	SUBI R26,LOW(-@2)
+                 	SBCI R27,HIGH(-@2)
+                 	LD   R@0,X+
+                 	LD   R@1,X
+                 	.ENDM
+                 
+                 	.MACRO __LSLW8SX
+                 	MOVW R30,R28
+                 	SUBI R30,LOW(-@0)
+                 	SBCI R31,HIGH(-@0)
+                 	LD   R31,Z
+                 	CLR  R30
+                 	.ENDM
+                 
+                 	.MACRO __PUTB1SX
+                 	MOVW R26,R28
+                 	SUBI R26,LOW(-@0)
+                 	SBCI R27,HIGH(-@0)
+                 	ST   X,R30
+                 	.ENDM
+                 
+                 	.MACRO __PUTW1SX
+                 	MOVW R26,R28
+                 	SUBI R26,LOW(-@0)
+                 	SBCI R27,HIGH(-@0)
+                 	ST   X+,R30
+                 	ST   X,R31
+                 	.ENDM
+                 
+                 	.MACRO __PUTD1SX
+                 	MOVW R26,R28
+                 	SUBI R26,LOW(-@0)
+                 	SBCI R27,HIGH(-@0)
+                 	ST   X+,R30
+                 	ST   X+,R31
+                 	ST   X+,R22
+                 	ST   X,R23
+                 	.ENDM
+                 
+                 	.MACRO __CLRW1SX
+                 	MOVW R26,R28
+                 	SUBI R26,LOW(-@0)
+                 	SBCI R27,HIGH(-@0)
+                 	ST   X+,R30
+                 	ST   X,R30
+                 	.ENDM
+                 
+                 	.MACRO __CLRD1SX
+                 	MOVW R26,R28
+                 	SUBI R26,LOW(-@0)
+                 	SBCI R27,HIGH(-@0)
+                 	ST   X+,R30
+                 	ST   X+,R30
+                 	ST   X+,R30
+                 	ST   X,R30
+                 	.ENDM
+                 
+                 	.MACRO __PUTB2SX
+                 	MOVW R30,R28
+                 	SUBI R30,LOW(-@0)
+                 	SBCI R31,HIGH(-@0)
+                 	ST   Z,R26
+                 	.ENDM
+                 
+                 	.MACRO __PUTW2SX
+                 	MOVW R30,R28
+                 	SUBI R30,LOW(-@0)
+                 	SBCI R31,HIGH(-@0)
+                 	ST   Z+,R26
+                 	ST   Z,R27
+                 	.ENDM
+                 
+                 	.MACRO __PUTD2SX
+                 	MOVW R30,R28
+                 	SUBI R30,LOW(-@0)
+                 	SBCI R31,HIGH(-@0)
+                 	ST   Z+,R26
+                 	ST   Z+,R27
+                 	ST   Z+,R24
+                 	ST   Z,R25
+                 	.ENDM
+                 
+                 	.MACRO __PUTBSRX
+                 	MOVW R30,R28
+                 	SUBI R30,LOW(-@1)
+                 	SBCI R31,HIGH(-@1)
+                 	ST   Z,R@0
+                 	.ENDM
+                 
+                 	.MACRO __PUTWSRX
+                 	MOVW R30,R28
+                 	SUBI R30,LOW(-@2)
+                 	SBCI R31,HIGH(-@2)
+                 	ST   Z+,R@0
+                 	ST   Z,R@1
+                 	.ENDM
+                 
+                 	.MACRO __PUTB1SNX
+                 	MOVW R26,R28
+                 	SUBI R26,LOW(-@0)
+                 	SBCI R27,HIGH(-@0)
+                 	LD   R0,X+
+                 	LD   R27,X
+                 	MOV  R26,R0
+                 	SUBI R26,LOW(-@1)
+                 	SBCI R27,HIGH: 0
+;PCODE: $000000F8 VOL: 0
+; 0000 0099 ADCSRA|=0x10;
+;PCODE: $000000F9 VOL: 0
+;PCODE: $000000FA VOL: 0
+; 0000 009A return ADCW;
+;PCODE: $000000FB VOL: 0
+;PCODE: $000000FC VOL: 0
+;PCODE: $000000FD VOL: 0
+; 0000 009B }
+;PCODE: $000000FE VOL: 0
+;
+;void init()
+; 0000 009E {
+;PCODE: $000000FF VOL: 0
+;PCODE: $00000100 VOL: 0
+; 0000 009F // Declare your local variables here
+; 0000 00A0 
+; 0000 00A1 // Input/Output Ports initialization
+; 0000 00A2 // Port A initialization
+; 0000 00A3 // Func7=In Func6=In Func5=In Func4=In Func3=Out Func2=In Func1=In Func0=In
+; 0000 00A4 // State7=T State6=T State5=T State4=T State3=T State2=T State1=T State0=T
+; 0000 00A5 PORTA=0x00;
+;PCODE: $00000101 VOL: 0
+;PCODE: $00000102 VOL: 0
+; 0000 00A6 DDRA=0x08;
+;PCODE: $00000103 VOL: 0
+;PCODE: $00000104 VOL: 0
+; 0000 00A7 
+; 0000 00A8 // Port B initialization
+; 0000 00A9 // Func7=In Func6=Out Func5=Out Func4=Out Func3=Out Func2=Out Func1=In Func0=Out
+; 0000 00AA // State7=T State6=0 State5=0 State4=0 State3=0 State2=0 State1=T State0=0
+; 0000 00AB PORTB=0x00;
+;PCODE: $00000105 VOL: 0
+;PCODE: $00000106 VOL: 0
+; 0000 00AC DDRB=0x7D;
+;PCODE: $00000107 VOL: 0
+;PCODE: $00000108 VOL: 0
+; 0000 00AD 
+; 0000 00AE // Port C initialization
+; 0000 00AF // Func7=In Func6=In Func5=Out Func4=Out Func3=Out Func2=Out Func1=Out Func0=Out
+; 0000 00B0 // State7=T State6=T State5=0 State4=0 State3=0 State2=0 State1=0 State0=0
+; 0000 00B1 PORTC=0x00;
+;PCODE: $00000109 VOL: 0
+;PCODE: $0000010A VOL: 0
+; 0000 00B2 DDRC=0x3F;
+;PCODE: $0000010B VOL: 0
+;PCODE: $0000010C VOL: 0
+; 0000 00B3 
+; 0000 00B4 // Port D initialization
+; 0000 00B5 // Func7=In Func6=In Func5=In Func4=In Func3=In Func2=In Func1=In Func0=In
+; 0000 00B6 // State7=P State6=P State5=P State4=P State3=T State2=T State1=T State0=T
+; 0000 00B7 PORTD=0xF0;
+;PCODE: $0000010D VOL: 0
+;PCODE: $0000010E VOL: 0
+; 0000 00B8 DDRD=0x00;
+;PCODE: $0000010F VOL: 0
+;PCODE: $00000110 VOL: 0
+; 0000 00B9 
+; 0000 00BA // Port E initialization
+; 0000 00BB // Func7=In Func6=In Func5=In Func4=In Func3=In Func2=In Func1=In Func0=In
+; 0000 00BC // State7=T State6=T State5=T State4=T State3=P State2=P State1=P State0=P
+; 0000 00BD PORTE=0x0F;
+;PCODE: $00000111 VOL: 0
+;PCODE: $00000112 VOL: 0
+; 0000 00BE DDRE=0x00;
+;PCODE: $00000113 VOL: 0
+;PCODE: $00000114 VOL: 0
+; 0000 00BF 
+; 0000 00C0 // Port F initialization
+; 0000 00C1 // Func7=In Func6=In Func5=In Func4=In Func3=In Func2=In Func1=In Func0=In
+; 0000 00C2 // State7=T State6=T State5=T State4=T State3=T State2=T State1=T State0=T
+; 0000 00C3 PORTF=0x00;
+;PCODE: $00000115 VOL: 0
+;PCODE: $00000116 VOL: 0
+; 0000 00C4 DDRF=0x00;
+;PCODE: $00000117 VOL: 0
+;PCODE: $00000118 VOL: 0
+; 0000 00C5 
+; 0000 00C6 // Port G initialization
+; 0000 00C7 // Func4=In Func3=In Func2=In Func1=In Func0=In
+; 0000 00C8 // State4=T State3=T State2=T State1=T State0=T
+; 0000 00C9 PORTG=0x00;
+;PCODE: $00000119 VOL: 0
+;PCODE: $0000011A VOL: 0
+; 0000 00CA DDRG=0x00;
+;PCODE: $0000011B VOL: 0
+;PCODE: $0000011C VOL: 0
+; 0000 00CB 
+; 0000 00CC // Timer/Counter 0 initialization
+; 0000 00CD // Clock source: System Clock
+; 0000 00CE // Clock value: 11.719 kHz
+; 0000 00CF // Mode: Normal top=0xFF
+; 0000 00D0 // OC0 output: Disconnected
+; 0000 00D1 ASSR=0x00;
+;PCODE: $0000011D VOL: 0
+;PCODE: $0000011E VOL: 0
+; 0000 00D2 TCCR0=0x07;
+;PCODE: $0000011F VOL: 0
+;PCODE: $00000120 VOL: 0
+; 0000 00D3 TCNT0=0x00;
+;PCODE: $00000121 VOL: 0
+;PCODE: $00000122 VOL: 0
+; 0000 00D4 OCR0=0x00;
+;PCODE: $00000123 VOL: 0
+;PCODE: $00000124 VOL: 0
+; 0000 00D5 
+; 0000 00D6 // Timer/Counter 1 initialization
+; 0000 00D7 // Clock source: System Clock
+; 0000 00D8 // Clock value: 46.875 kHz
+; 0000 00D9 // Mode: Fast PWM top=0x00FF
+; 0000 00DA // OC1A output: Non-Inv.
+; 0000 00DB // OC1B output: Non-Inv.
+; 0000 00DC // OC1C output: Discon.
+; —¼  £¬Ìë%¡`…À„Š   ‹5pÂ ‹ÎyŠ A„Òuù+Ï L‰\Æ  €8"uS@j"Pôè³ÿÿ …ÀYY„” U z–Æ ñz‹=n+Î‹ÑOŠ OG„Éuø‹ ÊÁéó¥‹Ê@ƒáó¤@…¨ hXCPèç@5 YY‹G‹ ðŠ„Ò tv€ú „Žƒ a*[Æ "ë Þ ‹ÐŠ@ |ù+@Â‹ò‹Ð¡”‹øIƒ%a ó¤ ë}‹ÑŠA„Àuù‚+Ê‹ø dëÈ1Æ ‹ñS‹£,€vû‹Á.ÈƒwÈ‚wJ€9 "‰puA€túAƒ€9 u„>‹ Ã[_^]Â  ¡°Î…Àt Pÿ¨  Ã‹ÿU‹ìƒì X‹ESVPH3Û€l:Ë€ÓÂ @Pèf±ÿÿ‹ ð;óY‰uüu j^Vÿ  ‹E;Ã t‰03ÀéžAÔE‹Ö+ Eˆ@@öWj 3ÀY}¨ó« 3ÿG9]ÇE¨D 
+t‰}Ô f‰]ØEìP E¨PS VSÿ €#…ÀuVèê°@u€ tÿÈ  ‰3Àë7jÿ@ÿuìÿØ  9€]tÿuF¤@ ‹5@ÿÖÿuðüè¢ÀY‹Ç_^[É@Â ¡Ð†>¼CÀ€>VWhp€‰3ÿÿÐ@‹ð…`öth\€À9Ìƒ@@JÿÐ‹ø€A…ÿuh@1àj j @& ÁRà
+3ÿPG€%@ƒTSVW3ÛSh úÿ  ¾`i$V +ˆAÿu . <@ S@SV‹øèGYM@ƒÄ‰Â+]Â DfVE$ðP@3öCÿ†< @&ÿuÀTjÀr‚u„K‹ ð‹Æ^ÉÅ‹M ‹ÁVpŠ@BàÆDÿ ^ëŠ€ú\ t
+€ú/tHà;Ásï@ˆÂ€ƒ ƒ€‚¹V+ÂW‹À}‹Ð‹ÇAD¾A@9EÀ‚v M9Et‹u@S‹Ê‹ÙàS‹ø rË"T […Ò vŠQÿ!	!Æ\A €?\‹×uW€^
+BˆF-àöAUäQ üP@jj h˜À2h€  €ÿˆA-	€5u+àj• À‰EEP jVh€àÿu0üÿ  ‹ðÿ@3À…ö(”Àà"c+ì ”¡8š	‰Eü`‹]‰…Dìþ OEV@ …ÿ‰…ðâ ‰…ôÏu¹˜ÀÈ•øÀ uˆB@zö…Û¾‚ 	tV…!`PSPè² ¤ÿÜÀIƒøÿt 3À@ëe3À9E$t ZZPVÿµAÿuPSˆWÿµáPÿµÁÀR ƒè t HtHt	j èÉmüÿëÇ jë hÇ Ð ëî‹º%p(jX‹Mü_ ^[è²ªÿÿÉÂ ƒA‹ðt. NŠ€ú.tÁ3…öwîë 3ö…öv‹ Ð+Öƒúw ÁëÆàF_À .@HÆ _0Æ@ ‹¢Fì.  4(* )ý¡)‰…èS‰…à" 3Û9](À+ù tàˆÁ'`IÃN!£ÀNb*;Æráã oOá/jd,èø£;øvˆ_ÿ$ëA½ù 1‹Ïˆ!3+ÈŠˆ€@:Óuö£‹ SV‰…ä`…ô  `mcÿu´ÿµ¡Wà1áSÀ2‘ ÿÌÀ2ÿµa¡K"¢Æ+ÃtH tHt 4#lüÿ€;1jXëB,5ë9ð€tpÿu$#`= W Pè‰üÿÿjëÔ@C_^‹MüP[èþ¨a6$c6Q	`‰öV jV„j!Àÿu€²ÿ`ž‹øƒÿÿt `ePVV jEüPh@ðÀ	 W`eàÀ A£3À_@Ç_ƒì`^™‰Eô‹E V3ö+ÆÇEð@X ‰UøtH uY!uüëÇTEü@: ‚k( °„”ž|;ƒ}@tEt ‘‹0³!”ÀHVP€QaHbÁ@
+uÿŒÀ a/àI£ P>ƒìSáâ
+  SH>°¡y`	A
+‰]CHá!W‹=`=+ ÆMQS÷Ø MøQÀ#EDS°üÿ× j¬=ê@#Ò%4"0m’à02mu3öéŽpÁ°øPSV²p2ˆ1V…ÑÖ;u`øup5‹=üà<À[a‰€Et#Pè:pÈ;ÃYðtp`=B×à
+Vèu€ôYj,Vè3C Ytˆj;Vè#ø ;ótZ€@>"uU‹ÆG0+ Â€|0ÿ"u@	@xµyÇN€ˆ\0ÿ‹Á@±,ù+ÇPQV(è²«ð6ÆdHãñ^@.ù+Á¡ l$H uVè‡©ÿÿYéü`1¨u|j\à’	PS3S‹¢Æ DÉÂs(V ^ ë‹Æ‹6PèBF…öuñ×?S=DiVWD~M€Ÿjuu èvùÿÿP$73…À³YY@u‹„7 ;PEu° ² ÀtCÇ± âD|»°‹U ]	p|iÛ¡‹„3‘‹”3A\ëãà%ïàTH1WHÓ@Qàšö=aFòDŠ€€ƒ\™SÃ?`9’1Ó Pè#Ê€}…ÿtQ0{O;Áu9w1EŠŠ Ó:u°¥Š$YÀ ^Ð˜AFF wâ3Éë ÉƒÙÿ…Ét ‹ë	s‹@?ë‹…³^[0‹Müè	¥A? j hØ	@lè@@ƒeØ ‹]€
+Ã‰E àƒÀñƒeü  ‰]ä;ØƒùA €;O…±QjY¿Ì`‹ó3@Òó¦…ÏÀƒÃ 3ÿ3ö‰ uÔ‰}Ü‰}Ð@;]àƒ°À¾PèÍ*ð±`* þç  s ¶¾(tAÐCÀëÎ!sbŠÁ <.TuXá SÂÅ‹EÜ=â€eáDàEÜÑ%EÒbÔÿ²(¿±|°}ÐDëÒ@ & Áæðp[ƒ   ‰p	8ÇEØ  ëCéÿÿpU@Ã‹eè ƒMüÿ‹EØèð!§ÿÿ`!¢ÐD²R³@RtR€ÿÑHGRABR@jEôP`Q¸ÐQà$ƒ}u }üsdbf u‹Eø‹Uô3ÉÈ€Ö‰ ‰PFTT_²•s$1C@bAV]Õ2ÀU…À|ƒø ~jX£@š	ñ•h,  hð+¦ÿÿ…t*ä–]ƒ=º „2.E;1a	 Ãj‰…Ü÷ÿÿA ÿ´€‰…Ðð +´€½‰…Ä° 3Ò¹‚è°÷ñ‰…Øà ‰•ÈP RPhä …äÀ PèŸA &‹ð‰µÔÐ S W¸þ  +ÆPP„5ãbàƒ
+Ä0àð…À}Ç…‘ ý`ëŠµ± ‹„ €xÿ
+u€x þt'Æ@ÿÆ 
+ÿòëÆ„ £Æ„åÐŒ
+ƒ‚…Ìð ' uá„	ÿ5ñÿšHë _–ÿµaÔÇMäèÝ¡ÿÿŒè&`
+¥Ep_i¡µèš`M]c¸ðh ¼ àèÕ°#g€Q0j Rf¯ÔE@`V7EˆèAOè,OˆèOèO8èí €Ä
+…èâØOèÃG°%GMS+ÂÑ½FPèµ£PJØ3À; ØYt.‰C‰C‰0,‰C	 5‹Î\‰C‹DÁW0º{@ºÈBº_ëP‹mcü ÿ^‹Ã[aV‹ÿÅ0VÐ„èÍ`Ù h¤DëUQAè¸E|A@ V×» VVjè£÷ÿ ÿ…Àu
+hTD è–þÿÿV ¸è‹¸h,‰ \ëP	èvPPhüC °i X3 À^Ã3À@^Ã ‹ÿU‹ìƒì( ¡8š	‹M 3ÒSVW‹} ‰Eü‹E¾    ‰‰V ‰}Ø‰EÜ‰M à‰uä‰Uèˆ UôˆUõˆUö ˆU÷ˆUøÆE ù‰è¡¢ÿ ÿ‹Ø3À;ØY uhxFh’` é½ EWP  h   j j EôPÿÜ  ÆÿÈP P343Z 3EìPj(ÿˆ, ÿl,Š- ‹=T€ EðPVSj ÿuìÿ×€,e9 uð†g€V¾!HVhäE€¢ý ÿÿSèë¡ÿÿ ÿuðèé€‹Ø ‹EðƒÄ…Û ‰EäuVhÀ	€é MðQŠP)VVhˆ±   -ÿ3ÿ  A‹øWè—€(…ÀY‹MÜ‰*&h¶€‹3 ‹Ï‹ø‹ÁÁé ó¥‹Èƒá ó¤‹uä
+^^Zc^ª ^@€#è´åü/.€/,À‹ØB.uVh ™@ëOA SjÆ*F-èAŒ¡ÀƒÄÈëPŽ.Ü A–€.Bà€.VhÌr€YYjè´`üÿëQ1ÇEè! K Sè• 3ÿ 9}èYu'‹u@Øÿ6ÿ€E‰ >‹uàÿ6èv+€ÁÜÀjÀYY@M@›è_^[è oÿÿÉÂ j,hÈ@vèr@ 3Û‰]ä‰]à ‰]Ü‹};û@u3Àé‡ ‰ SSj 9h€H €ÿuÿ  ‰EØƒøÿ(„%€S@S@šä;Ã„.Ã€tÀœÀ–‰E
+àÁõ@‹ðƒÎ ‰]üjjVÿ BÐ;Ã@uJEÌP€è²¹ð‰uÈ;óu„‚À™rh  @:€ëeVè– ŸÿÿY‰;Ã,tXÀ£ÁtÀ…À tIë@P  ‹@Ä;ót6 ·‹ÈÑéÈ`Qjè˜ÃD·‹}ÇE"Ü  ƒM@1D‹ Eì‹ ‹ ‰EÔàyÃ‹eè3Û ˆ X ?ÔÀÄh” (h `TVèÃ €EVèbúÿÿA@*9]ØHt	ÿ@5À9¤]ä¡äÿ¤à¡àÿ`‹?; ût9]ÜuWè¬ž`‹EÜè`
+Â h(ÑÀh8Gàk»@BŠ€i‹E‰…Ð€Žƒ¥Ü   ƒeü AQPèA …À„¾`/„…È P…ÌÁ €h`5ÿµálè2`\¡˜!4Â ·HQ· PDhà…àAè‚2ÀƒÄ½Á OŠGG„Àuø¾@¥¥¥¤ÝØ¡„DÏÀ.À3X9‹…b+3e+…&ÔàÄ+ÿµÿµIhÔAT,ù )ÄA3À‹Mäè@«šÿÿèô YÂD ä«LVWÂ!j
+Y¾P}Äó¥¤¾DBð¥ ­ ¥EÀPh   j f€ÄP‚h ¥€¤ÿˆ€g L:j^E¸PE´` ¼PjÂ ƒ|À‰u¸@5€`ÿuÀ‹øà4áÿ u
+9u¼u‹E´ëÁü_^è ÉE¾@VWj
+‚IƒeÀ Æ¥f!j¤`3öVE¤…tPh´`è(ø@AYë+jEPj†ÿÁÀtPh|!þ`ÑYY3öFƒ(}À !KÀ#‹M ü_‹Æ^èn™?€' X`Ä Ãàyu 3Àë	¶ÀÁ@èƒà]…+Q@QSWEüc'3äÿW`3Ûb'¦!àcV‹5@áàøP ‰}ÿ uüÿÖ;Çt$=ê€Ku.ÀèÙ‚›áØ;ßYt!Á8SEÃb€D	Sè°@Yë‹û	a ‹Ç^_,[ÉÀ`B>Sè»è ë¾PSè¢ @ÂYtG €? uê€ t3 VGj Pè…€‹ðN¾M x€ Xëäh	àYY@@ïˆF`^‹Ç_[Ç–j˜ hðÐŽÉÃ
+×,Ô@jÀJ$=¦0]ÿ% >ì\ <Â!‚€SP 3ÛŠ@:Ë@uù+Â=àraXƒ9E•ø 2+ÐŠˆAöWj3ÀY½¤pó«3ÿ@G9]Ç…Ñ D! t‰½4f‰âá4…è`?ñ&P0[  …!PSÿ °RPVÿµapp
+ÿÖÿµ2ì@ÿÖÐ#[è´3—¡#37Ð- aa€ jj jbƒÏÿCb‹ð;÷ tÿuÀXðNV¡3áOð^]e\ìHP8‚s‘¾‘V±	¢QPW è2êÿÿ…¸Ç@…0bÿø`+py ûÿtVö¢uD4VD…ä±W€èùéÿÿh€ ±„ÿ,°Æ À0[tpôÐ P ±  ðM  ‹3s=–X‹ MW‹ùŠ	3 À3Ò„Ét\V €ù0|€ù9 ¾ñƒî0 ë0€ùAF@7ë€ùafWë€ùxt €ùXu3öAÐRPèµp93 ÉÆÑGŠÀ„Éu¦^_¦#à$1k:öÐ:°	‹E V‹uA ‹MWxf Ç \ fó¥_  jhPHIÐc}˜ð7uð*3†ÛPvá;‰]ü €@ƒ}àsI‘U à¶
+‹ÊÁ éˆMçƒâ ˆUæ€ùðAÉv ƒÁ7ëƒÁ 0ˆF‰uÜ ¶Ê€ú	]ÿE€àë±ˆë"tM€«@t€ph$aSóAM3ÀƒMüÿè$0	P!j h`±Ú°&ƒMàÿTEäÐXÜ0 ØÒþ2¹Ñ“tWAn°`‰M Ôf9MZu ‹A<Á‰EÐ 8PE  u˜‹@X`‡¡ë€Á 00ÿuh‚ÁP!èEWüÿ €QÿuÜèõðP0Eàèš ÅOì†¼`ò)VW¾l	}ð¥R[…TÀ­PPf¥Ç‚ ”`ÿD(À%ƒ½X€ u0ƒ½\€ u ¸†ë%¥ó ð Ü…ð ó   u|¸´ñ ¸¢` P@Q„j“3juVuR!j…H µ`0Dc La ä`µ±<‰µkHk9Âµu‹…ñ§kW“P. kWhHJ ÿÐ 03ÿ ;Ç£àÏ,„™ðH ^ÌPh8A PÿÖh(5Añ£hjetøIÀ3¢T0“Öhà”*Ä ¨xÐª‘Œthª|D€$ª„ ˆà0ªÿ
+ŒÀ”ª ˜œJx 9=‘
+£‚¤À ^tV9=Q
+tN9=±	tF9B=	t>9=qt69=Ñt.9=!1t&9=‘t„9=ñt9=Q€t;ÇÇ¬ ð@.‰=± _Ã¡,  \ÿà3ÀP1ç=(0 t!µÿÐ°ƒ£°¿`*P `1 fFƒ$"#%ÿÐ @÷Ñ˜#ÁPof¡°P™À]Ñ¦]¡< ah ¡4X
+¡8G Oì‹‚$P3À…Ét€Lá]0Ì‚€¡@Ç3šÀgDoP¡Hc–	àyàÌÐú¡LÂK» t]ÿà3À] Â ‹ÿU‹ì€¡PÐ…À° ÿuÿuj ÿuÿ5À«	 è·ÿÿÿ]ÂÔQQSV‹5 ì W3ÿWWjÿ NÇEü    WWÿÖ‹ Ø;ßtTD PèÊ’ÿÿ; ÇY‰Eøt3S®PR" rdødR d‰EüÿuøèŒ 7Yëj ^Vÿ  ‰uüë	ÿÈ t "‹Eü_^[VÉJ¯-¯SUƒW‡W2‹W2WC€NWºþÿÿWÝh‘ÿÿ)W&‡W¥ªý¯„Ê0‹Êª`
+Ãƒà\
+X
+ªT
+lhd
+Â D*€T…•¸Ç  ]Â9…6lDFÁ¡…djfÉ¡š¡t‹B«‡D”“ ‹	ÅäVJ" ¡0hBÿàf3À ÃjhXJ è+ÿÿ3ö‰ uÜ‰uà‰uä ¢EäPVE àPVVj3ÿ‚GÀ„ÿL@© EØ;ÆuVÿuàÁ ÿP‰}ÜƒMüÿè€Ê‹EÜè
+ÀÂ 3ö9 uät	ÿuäÿ  »ƒvQQƒeü  €ÏEø@Pj Eü@j @çh   ÿà Ä‹uü…ö t‹U‹Æ+ ÖŠˆ@„˜Éuö€ÎA^ÉÅÙÄ3ö¡	€ü @	@¤	¼€9uü^tÿuàpèÜ: [Y$	¡xË>E*|Ëä2ìA@ƒ¡8š	Bw€V‹u‰…ðÀg@‹ÆW‰µìþ HŠ@„Ò@uù+Á= v 3Àëq…öS‹Ø€t\hì” Žè§@…ÀYY‰…ô t;ÿµ!	+Æ‹È‹Ñ@Áé½øÀó ¥‹Êƒáó¤ˆÆ„á …Á PPÿÓÿÂ‹£½!A…ÿu¤ƒVÿÓ[‹M@‹è#‹ÿÿÉ 3blì  VW‹}ˆ‹ÏàÇ…ð`và QŠAD„À Êº ;Êƒß!<M*qfÎÁÈÀµô ‹Ï+÷ŠˆA`ö‹@’µ!+ñ‡! AŠù+ È€¼÷ \u’oˆ”b‹µá…ÿt\D…Á@PècŽÿÿá&t"C$ÿÜà*ƒø ÿu3öFë%Æœ @‹ðÃj\ Pèÿÿ‹ø …ÿYYtÆ  …öu ‹ÆëH3Àc%÷‰s%W $¢$Ph R `Åhp jh€)€ÿˆÀb…ÀuMV¾a&V¤ÿ<g  ‚hdà$è0ÝÿÿfD^tŒG`7à)ÿ 
+ ‹Mü‹Ç_èdCA£^ì„7‹M@‹EV‰€…äüÿÿ¡hÀ‹€3ö;ÆÇ…èÀa9tVwQÿÐÈ‰…ì`ëàSà ƒ½¡ÿu‰µ	AéÙà8SVÿµ¡è~ûà#Ø;Þ„¸ÀWÿsCÀ€PèŒAðfƒÄ‹ðj  ëÿw„u‰hà@Pèy ¡ ðWS¤
+?¡
+Á .uÓPPhA$C>QVáQPP ÿÀ Á¦<D$DÿµÁÆ„5áF  èÿ±   í€KH	Hå
+ÐúÑ
+…Û…S@rëƒ¥ _# [t:yðÂ^èˆa¤>"€u3 Û;ó‰]üuDhèPè]æapb‰]€ë„À t¾ÀPè€Yt4¾ ¿|AÐ FŠ<.uÝ‹ Eü¤ØÁã 3ÉÁß8tFÿE ƒ}|¸ë*ßÁ _‹Uü^‹Ã € jhK`Z„ŠcZ à‹E;Æt ‰0‹Eƒ E ÜPjVh˜CÈ'‰Eä;Æˆ…•0‰uüó\ V»LSSÿ uÜ‹=ð$ÿ×IRuH]èýP%YA$@^	ÇEä ëOMàQ€TAätPBÿ7èÆ‰7ë,‹Eà@‰ë"ƒø tƒøu@jjèæPY³3p‰0 fbà`è€Iüÿ3ÀÁÐa”ÀèÜàÒb—à	ã.%.õIh@° !`4À-h$í "Ì°>ð ¤$á5P.… 8S•ƒøxuW3À@P4è!†%àÃ°tP]t„9A_t	9Q^t @ãƒì@ˆ‹ ¡_Òuâ~ ëOW3ÀjY }Àó«!EÐ Eð‰EØ3À0}ð«  €j0¡ôEÀPhT š	j ÇEÀb00ÇEÌ Ð ÔÑ8‰Mè‰MðÿÐÒ_ÉÂ¥q«#”…)ì@E‹Mr ªu±Z°Ô BP3ÉAhÈ€LQ‰½Ðð H‰…èQ àP èpaå   8ã#SÿÄÄ@Vh¼ ð°6»   Sè`ô‡ÿÿSlqè/° ð{RWAiØ@„&Ð°À%„Èp …ZÀ0PÐBáWNÑQ;„“ÀV`9[WCÀG @ôsðj @Y3ÀÆÂk  ½ùþÿÿó«f`«ª‹=àÔP‰Lµä ƒ_h¨À
+Ç…Ü ÿ×‹Æ€€8*uÇ…1!pëF€ > tú€>~u Fƒ=´@ tVhŒÀè—â	1éAÐ€>?u(ƒ¥Ñ %#u'Fà_€>,t@ uõëÆ‚ôPèÖûpfˆuˆ@uj¿¶€> tGj Ë)1KQÐÿµ±ðRt&€} t9ENx -Ä âÿ×Œë@à„‹ ¤‹½ASWðüR/ˆ„t`ƒ¥ìP ƒ½‘ thtÑ–áÿÿ¾€ÁP©ëWh\Â Vè"ð/ð Vèu‹ 5+ÅhD ëe,Ð Vèî(…ÿÿ2A0……áP¾Wè;Ô±w8u19RðU€ÿµ!á thØ :è"ƒ ëWh€ñ :ò ön1shl!ðSVè5
+V(èÔàP½2…‹@4‹‘ùÂ€  u‹…±/Ç  ëo…É@tk3À‰…1/; ˆdš	tQƒ ÀƒørðQ“£Öótè	Àÿµ‘˜èþ„!hPà jè1â  ‹Ña‘ðØèí!bx Çâ´/@-H!ã¢3ÀP$/PPPäÿ#/t„3öé
+°‹ÿV‹ ðë‹Æ‹¶1`(Pè|€‡í^3G¢±S‹ÁV‹Ùƒð,…£ÆtÐE È;ñ‰MsH{Wh‘QèDÐ‹ Ð…ÒYt?3À¹ƒ!úó«‹Ê +ËŠˆC°›öÐ Î‹Æ¹‘v!´@!´ƒ}ü  ‰Uüuƒ¢ xª\0”‹ÃÑù+  ;ur‡_‹EüêtKìà"¤jhPäVIè€	°PX#•0¼Æ…þ‡ ?€œa ëhq,è¦@‚œ€Pë0Vèš@düèl€A[B«ƒìS ¾ðPEô3ÛPPzèÑøB¼ ÿÿÿuð‹Mô è·þÿÿ‹M ‹ð‹Eÿ0‰uìè¥ ˆ;ó‰ Eðt^W‹}ð ;û‰]ôt1V è^ÓÿÿW‹ØèV PSè„ ÿÿ…ÀYYu ÇEô   ‹ ¿  …ÿu Ô9}ôuè Æ‹øWÿÀ  WèÃ‚ÿÿY‹¶F3Û;ó u¤_‹Eðè!~Eìè 9] tXEøPj Sh˜Ch O€ÿˆ €;Ã‰Eüu: ¤ ‹ ;ÃuhL SÿuøÿÄ ëPÿuèjS   5ÿüè<B üÿ3À9]ü^ ”À[ÉÂ  ‹ÿU‹ìQQV ‹uVèƒÿ ÿƒeø ‰E ‹E+EYƒ øsjzÿ@ é€rW PhüLVè T ‹}ƒ ÄWVÿŒ  ƒøÿ€6„Ý€…S_,‹E fƒ$F hø €— —„Ž hð
+
+t}ö t+h’ …€-À DSVè¹G Äÿuÿu$VW€pèL€©…À tsëMj.SèÄ€Aø…ÿYY°t:hä ( ¶€D …Àu*j\Vè¤€fƒ' YY@@@SPÿ„ ‹EP‰pÿ4UÀ'@1ÀüÿD˜‚…C ÿDÈ@mƒøwø©wÿu€ð [ nC6‹Eø^ÉÂCQìˆ  ¡ 8š	ƒ¥˜ùÿÿ @UWj"Y@E½x@ó¥‹…|À%ÿïÿ ÿ   hpM‰ÀyÀ‹Á€3tuShÀ@3ÌÀ‹Ø…ÛtaB¾ŽVÿµ€À …ìûÿÿPèÖH  `SVD…œ@P…PèþA¨t
+Ç…#Â0B5W‹ðÿ.¼@ nv‹Â[‹ Mü_^è3}ÿ€ÿÉÂ h\ h`€!è3€ÿÿÂ5‰Eä€Ê‰œ @¢3ö;Îu‰µ €ës;Æ u…¤À‰u@üPQÿø@‰…” @†Æ	GÇ…ÁA#@dÁSë4‹E ì‹ ‹ ‰…˜ 3À@Ã‹eè$ÿµÿµÁh 	!	Û€§Äƒ¥Á ƒMüÿ‹‚ ‹Mäè}|ÿÿ èÆÿÿÅ´ƒìF`‚,À+SVW@`3 À}Ð«««j «ƒMØÿZj ‰MÔY¡ ó «EÐ‰E¸€E P3öhT 8 F3ÿWÇEà U‰UÐÇE 0 ÇE¬ r ‰u ´‰u¼‰UÈÿ  Ð‹Ø;ßŒÅàÿuÀÿ”@;Ç„¢’ WWW`˜$‚€ ‹HIQ`œ`‹È;Ïtn!èà«€àP EèP‹A‹@ ƒÀ8PVj ähÀj `W  U >ƒ}à»	 €uUƒeä ºp jY} è‹ò3Àó¦t ÀƒØ “t ƒEäƒÂƒ }ä<rÜë&3 Ûë"‹5ÁZÿÖ …ÀÿÖ‹Ø$ë¡ ã U `Ë  € B jp ÇE¼áÄ¡C‹`Ã[è{DB‡,ì` 9$- -•)¡3Rj€ˆüÀlQPˆ‰…°€:Ç…¸  >ÿ< ¾ `i» X@…À„Ò ‹=8à€h`i jâ;Pÿ×kàÄVjUJPA¨`D¿áWè‚~D³h (  Sà\ü€QëJ(hàÍA±båPqPÿµÁ@¥€ëˆ"ƒ¥Á hŒ`
+ÆÁ èwØÿ ÿhÇ  èõ <üÿƒ½…‚Ô :3À¹þ? À@þSó«h„`h ùÿ  Vf«èš iƒÄ…¼ÀPàb¥…´ ˆt[öu/F€ó«f«…èÁPSh
+€Àúa	è:P"	@ÁÉ
+ÿµ±Áÿô €ž±åaÁjSÿœ ¶À4¢b#¡C›PShl%Ä&í€hƒÄW`èŒ×ÿÿ,`UH…@"3J Wh -fVÀZÅ/@€ÀR vë`ËÂ"…&àà‰‹Â>_^[èÜx¡FÎìT¡D¥S‹]âs¿A W…ôý ›h, c3öSFèäÌA´ü€d‹Eb(¬À„`ƒ„¥°` ‹5ô@Dh( …à P‘A]„½€4h$­6§Pø±äSèÀ¬Ëÿÿö…P¡tÿuPè	Aaƒ½R|q…ÀŒ}m€- ëehq=å`,…Â#H³‹ðƒþt ƒþtƒ} ujj Æ0¥…ö~(æò8Îñ8‰µ=1	P*!õ…Ú‘jµ31‹Â	à	W $…ö| ó`}t6ƒøt@1…À~/%Á©±ë#÷ñÐ
+8 tÑ
+€q
+‹ÆB‹@[èw
+PÕV@“ W¾²"DÛWCèLÊGÔF1¡„ˆp3ÚÛZqp&MZU7 pr#TWèæÉ™Vtð´#èN …Û| ‹Ø7VqV4†°@ÿ¿²€x±` 5$0¿¿`9±½€²Ã‰´¿u¸ƒìòTSQkÑ h?  9ðhhäð:p0Y€C‰} Ÿ¡@3À ëbEôÐcð0 àìPWhÜ ÐŸ© KÐc ð(ÿu ôEðPjWdhÌ#ÿ‘¢P€3Û9}øt	`£;ßu
+h´Pè|¯‹Â
+[è±
+ÃÂ_à^€™ÿuš"À™ÿtÀ@jAYðð]h¤NBàq3Àh :‹ÀþVó«è‰p@ QVè(0Cÿƒ ø
+wIÿ$…ß Ghðë6Dh|a /hda (DhPa !h@a Dh0a ha Dha hôA
+× Òÿÿ_^j]Â¨ ·à”0 ›0 ª¾0 ©0 Ì0 °0 jÖ4 Åp ¢0 ¿unÀ ¿½½ 0²\s ¸«H¿
+¿„ë¿è¹ªƒà`0 g0 Š0 ªu0 ˜0 |0 ¢4 ‘p n0 ²ÿ «	VjèUvÀÍð…öYu jXëX!´wP!‰èmñf ƒf0  ‰ F‹E‰FÐ¿Y‰Fƒ=ˆ  	 Y°›5‘ ë¡Œ ‰p!s F‰53À&^1²ƒì±Ãƒeü 3É0Z”ÁiÀ`ê0x‹¸0( ±VP‰Mø) ÖÿÓ0)3GPhFÈ0pCè!Ñ€ÒYDéŸÑY‹=´ÀQÿ ×‰Eô‰E‹ F‰Eë^ƒ }ø u2Êô; Eðwv‹Fj 
+3ÒY÷ñ¹è€H;Ár	¹'   ;Áv‹ÁÀYdPqt(°« 9Fvÿ×ë ©ÿ×‹N+EÁa
+;Áw"09Fušë)	‡Ð‘	ë ßüSp5pÀü^`ÔÀƒ>ìQ0¡0Žò6Pu“C€ééj°Q ÿÌ$)® ƒ} ‹Wt|H‹$`¿  ŒW j@ÿÓ‹uÈÇEü€Ã éagáApW‹=@ Ò€’u"6ƒøz0u]V‹5 PÿÖp=mBØAÀ SQ:@SÿÖë,‹ÀM@V‰ÿñ3ÔÀP j€òA 01rD"u	&}Eÿ„H€ƒ} ÑC…pØà ‹EüÉ€8 jh@O-ïs ÿÿ3ö9utÆdB‹tT!€Õ0D Ð‹ð‰uäþ Â  u;3öÀ Ç  C ë+9%ÂEàõÁ¢Ì`ïhëÎÒÁ‹uàq’ÁÆè¸ R)‹ M€9 ð¨S‹ ØtL€8 VÂ¼ WtA+Á‹ø€ ; ‹ut)€ > t9¾7 Pè‡ö ‰E€¾Pè{ , 9EYYuF@€<7 u× CG ÜuÃ3À_ ^[]Â ‹Ã ëõ‹ÿU‹ìƒ ì,¡8š	‰ Eü‹E€8{V ºu=j&@P EÔPÿ„  	ƒø% u €}ø}uVÆEø ÿ p ÷ØÀ %©  ë¸‹Mü^è˜oÿÿÉnjQ‹M ŠSVW3ö 3ÿ‰uü‹ÁG ŠÚë@€û" uƒÇëG Š„Ûuî‹] ;;v‰;ë8 “ë!A€ú" ujZ;3s Æ"FJuôë€ˆ€FŠ„ÒuÛ€€ÇEü   ‹Eü€tÉÂ „rSW3ÿh     ‰}üè ïqÿÿ‹Ø;ß Yu	jè×1üÿë%€gèPW ÿuÿuÿ < …Àu‘„'Sè¶ Y^+[+3ÿW¾    VSWWWEè€”@tÔ@EPS»W ‰uèÿþÿÿ…Àt^ ÿü+tQ;ÆwM ‹ÃpŠ@ „Éuù+Æj  <MøQƒ ÀP¾ f¥Sÿu¤ÿH„vÿ,ÿÿÁ H…t€éW jzè2À1éRÀÂ<ì†¤ BwS‹]x V3ö}‰€A…\@
+‚þ 	H…`ÀPÇ‚œ ÿ(‚uÿÈ@,PhlO è9ÌÿÿYYéË@WjA3À €}úY‹ûó «¿D¢ ¾!€uhh€
+ëÀt@uDhd€ÿµ\ WVSè7€RƒÄ öEø€th`!f‹…d@j Y;Áwuƒ½h€röE@ùth\	AQhX4€µ€T'@P*‚%… 
+ thLÀÇ ³pÿBÿÀ 3öF_@ª‹ÀÆ^[èël«FŒS3Û Ã;ó ‰]ø‰]üÇEDô >„‹?‹ =8 ‰0EüPS€iB×9 ]ü‰EøtEÿuüè‹À¾;ÃY ‰tfMüQE€P—×;Ã@	uEÃVƒøzu‹ ;Ãt	PèP Y‰ÿMôu¥Â¡C_ÐÀ.è»Ê¡€VƒÄC%C _‹Eø^BRh¬¥¡• ëç¤^ m »P 3ö‰uøànèiò  ‹ø;þYY t4WèU SWIà‡èE ø € ?.uGWè: YG3öuü3ÉÁ ‹Uø"_!&ÉÂÃkìFX@?BMƒ¥ÜÀ]  '…öB‰…Ô@„‰   …À„à ‹ÆPF_Âƒø‚jÎD0üPDhÀèVnahYY…CÀSh €@oè2€8‹Øƒ¢û€R‰ø‚#À j…¨ PSèÂ<ƒø‚…ƒ3ÀŠ¥¬@`Š…­ ‹ø…ÿ†àÀƒþ(ƒ× j…6Ä@À×`,à!ƒø…¼@½ namet
+F; ÷rËé¦ ‹…Ì!	ð‹ÈÁé »  ÿ #ó"ñ á¿€ # ÇÈÁáÁî ñj Vÿµ	Aè‡c;Æ…‚a€j…àÀ
+PÄ\E…A‹à!âàŠ…ã  H‰…ô  é ÿ¶Aaè@ÅÅ  f¶…é	àŠ¥¡fƒøX…Ý YáïâîÃ  à…ÅàjÃ#ÇÁáÈ=ä`À€!Š…Råàð!ò ŠT…óæð VCŠD…ñ€‰…Ø  è‰ : +;Æugÿbµ!…üàÅ^sÄ‚uD!!	CÆ„a Dèý cL‰‰QŒÇ…AP` ƒ½A#T ¢_+	@YÆ[~â^èó@†Ôxì HBYaX X…ìàPjj @hÄQhà€ÿˆÀ ºPh"„€èÇA£3ÀBéa«S…èaB…!=P…ä" ¤ht@ÿµá	Ç"1ÿ@	£‹ØÿÛtS$h0 é—€1Æ…ó  ÆF:Æ@F ³Ch…ôaVˆÿF|°yàjˆ‘ë&´è# M…Àð>þÃ€ûZ~¿ °„Àuhøñ5_Æÿÿ3À$ëH1„h°ë4ˆ )âVjÿª€õ`hQ)S*R @Ya^è˜g!UVB0ƒ¥ U9œTd‡ t3À@ëgVÐP	QShØR@nAx;Ã¾@¥  t8Ul…Qà0p°Pä9µñt„Ñq;ÃuÌ0 Vh" Ðè}Å@^€‹Mü[èþf“	ÖSÍPhh¥±A´ëÃ†ð€
+Å€àa ShXPy‘pzð‹òˆœC;ótVh2 ëðÑ/èx«ðpeØ! | pÌh -T…ÔÑ-0Pè¬¹Pò@PèPLjÿÿ@g£±T…€jÀŒÀ|év=À „$`š".Z‰…èù4ES‰…ä’ 3Ûƒ =dDÿVWˆ‰…à0‰ìP ˆ„Æà(‰ð° )@X 08ô° P3„À9C•À@@<	aÿµaÿXB	 ”t|8¡ÂµQ tnÿµaaVhS€5QPhèi°Áðyƒùÿt`Cx Š@:ÓuùSˆ•Ü@R+Ç%20Q5’tH•e:Ë@•Ât8u’ÿ…!ƒ½Q Œ@°Ç…›aB !‹Â  £èåpˆGž³Phè`èÄ9ÃAƒëÎr°© Š€ùot	€ùOtà3C@ et€ùEuïÂ mt€ùMt ëà€ù.t €ù0|Ö€ù9ÑÐpŸêhøîš ¡.äP–!´@]EuƒìÀ…fƒÈf‰EìaŸèuÓ!aö‹M0¢Áø ƒðþƒà‰â†xƒì(rŸáK0¯W }ü‰}Üÿpƒøÿ‰EØuf<˜pèbÂ¡1ëhMàQW€WVPÇEà`HÿŒ’u´V$h\àë&ÒGSj°Eà  Kˆsjva` ^ëÇEÜaÿu &p ñEÜÁxcQ8àÈ£ÈÂVMìƒ)QP3öèU–óâ³&Ü±¯Á"=B»jh * ° ì°?”Ã"V‰  hÐÀÿuè³8ð…Àu Ÿò QVq:Æð_b£@BVƒ(Müÿ2½3Ð¶üPWhÐ`¾hUcP* €3ö WpZ; Ç‰EôtPh”àTà±B	éÞ°A°!Sj^VÐ’€EøPVWhÐ0 ‰uì‰uð`Õ³Ðá EôÃ@ PRWh°‰}ø‹=40»ÑfSÿ×D…À…Š°”Eð°Ùø0 ìP0i6¤…P€’u
+ 9uìu9uð tƒeø ƒ}0üÿt	 ÖfÆp%ÜÐ£` âÁè` Ø`Áà
+ Môf3Áf% a ‰EæE ØPèõÐPböFÞ[ÑŸ1'F`0`p
+;P
+ÿ	‘Qö	…ÅðWÿ0
+…]°8p
+H…T€ h`èdÑ¿ÐéHð 2 ì0
+   ¬jY"jz¾ V ½Ôõÿÿó@¥f¥Yj	#3À½ò«f« Yjy¾Üà½DÜ÷1Yj
+á ÂøÀ «Y¾°¢QJájwYj½úÁ±w‹Ud¾„2ìû@ ‰áüY¾T¢ô Kó¥jvYf€¥3ÛS½" \ ó«jSR‰‚Ðpf«ÿœñ. øƒÿÿt9µÁá
+VWÿ˜@8t)CÆA@ƒû|ã@ t¸
+Ç…Á3 (ñ Mü‹…ÐÊ» õÿÿ_^[èE `ÿÿÉÂ ‹ ÿU‹ìì<	   ¡8š	ƒ ÔöÿÿÿSÄ Q‰Eü‹ E3ÛSPÿ5 |jÿ¨ Hø…ù @ VW‹=  ¾ SV…ôý@ÿÿPS…xP€ÿ×…À„œ4¤øþ 4j
+6€fØ k6¤ R:a)ðü:
+:£ ¤  qìû
+R‡èút’o3äù€…
+Sl|:tNha€:…àø‚!‚…‚è‰²ÿÿ†Jèq_üÿ…À$u}…hÐ Véš C¡h€D;Ãt(€¨rQPè:Îÿÿ€ƒøÿu…Ph¤ è$½ÿ ÿYYëqÿT D€‰…Äuÿ È Pht)þ¼‚g7hP%
+é
+ÿµ…³h € PSÈÿ ju"ƒ(Ph ²€ƒÄˆƒ½Áÿt8ÿDÁƒDNPÿL€}„€q_ ^‹Mü3À[è¤ÿ]J‘D‘VÃWj£AèHÌ ÿÿhhWèrŒ ˆ‹øÂ‹€‹Â„h Ì— èïÿæÿEDQè• ©@(…PÀh@#øèRDÀ#ø†¤L•R‹€jÀ¶Ëÿÿ 1‹Ç_H^è9K1D1‹ MƒùÅ2„3 †ƒùt1ùÀ@LuÿuQ€Gœ éõÀ‹E÷Ø À%½®²½D QMBéßA}@ÌìÁƒ¬T3 ÿ;Çt€   ƒ=¨÷uaEñ  `Wèð²ûAE‚Õh
+‚Ý€9=¼Ð uh@† †žBSWèYçA©IƒVdXÀ\Éº
+@ÇÐeÀ h4àWjWÿ x ;Ç£ $htN9= 0 	thà€“ ëjÿ`Ø`= uhBÀë;Ç@ø!à0ëhÔÀ èh9ÿ5a Eà‰=!a3Àéâ@3ÿEnQOú±ûRÿZvæG¼!æ ¹ÿÿöE€YYu‰€0 ¼ë€¿¿€¥‚`šY±@ IÀHòZaCªƒìHSVW 3öVVjV‰ uüÿ°à"‹]£@j
+3ÀY }¸ó«‹‰€EÈE¸¿ü@+PÇE¸@h ÇE ¼_‰}Ü¨ÿ¤ Kf Œå€"à èö¸@:ë{Vÿ3V hÐÀWV ~à;Æ£\ iue¬€ ëÊ‹=X€ë ƒ}üÿt5EBà ; #`)`VV`V ·;ÆA xuÖÇEüÁE‹LEü`ÆÁÅhx 	èŠx¢ébÇƒìl @jY¾Dª@	} ¨ó¥jY¾Ô"©Øó¥£Êe¤  f¥¾¼L }ð¥¥f¥¤	BA3Û¡kCè¦\A€‰Eœè Y Y‰E E˜P h  j E¨Phàm€ÿ&ˆà: Ã…ÚÀJ‹= E¤Pÿu)À”P!Ø€˜‰@u¤ÿ×=ê`u3`èB€
+ÿu¤$è@à …ÀÂ„—À‘ÿ×3Û; Ãu{‹E¤‹M  ˆ\ÿ£œ$E”@ÔEð,,ÿ`uœèà[`æ Þà #œtM¤QP©áát3Û@Cë‹Eœ ‹ M¤PÆDÿ è½ ‹Ø÷ÛY ÛYCÿu˜ÿl€A… }	à YY"M‹Ã[èÔ…X€MÃ¤÷ #â,S 6‹EVW‰…ì ‹E‹u€‹]‰…ðÁ  j‹UY‰Abz3Àƒ¥øP ˆÆ…üa ½ý` @ó«f«ª‹â3ÿWh  ‰8¡PVSR°5@p"ð(0³%‘AàuV hXYGh<‘P ëPÒ hÀ èv¶ÐnÄë)03Û9½qLÃw, 3ÿG;vf‹r S‰0aY[è¡W5 3ÿ €8 tÏW;ñ
+t¿°pa@rtÒTÎ‹½Ñ4Ÿ‰‹…1Š < 	t¶ÀPèÉÝ  tÿ‰’ëÞ-uY3#€#²PÿµÁè`çX…ÀtT‹;Èv°Á‹6ëCs	‰4Ÿ@CF;ðvïK0
+uÿ"
+ë„€Àtô<,u³D@CC‚1p"éÂ@ 3ÿé` $4BX!4Y¾€D}¼T3¤¾pò ì¥3²°˜CT‰E° ‰]¬‰]´‰]¸èfYÐlø‹E€°Y‰E´“3SE¼‹3upF,PW5Àì,´‰u¸‹54ÿÖ3)WèÐÿu¸èR;ûYYt7ŽÿÖP2 ‹E ¸SSWˆ\ÿHÇE¬¡Bè#PP‹„M°à‰ë 	 ‰ÿu´ó,Wè"·`+‹E¬s,[èŒ¿UT¨ƒì 	ˆøPjðqWhÀ AZ?uDEüð4ðA0 ôPWh° ÿôuø J <pg 3p)€ƒ}ôu0Nu	°«‹Mð‰<G€#%f¯QƒÌMüÐuPh€.ÀZh1LX;ÆtPDhøè„³Bt!jh„ |jV„hìüÿ D‰5a3öFÿt	ÿ!_1<‹Æ^ÉÃdV‹5X‰€”W3@EüPWã ÿu‰}ôÿ u‰}üÇEø)aÿÖ€']pW@SPèˆp0‹Ø;ßøYtJ!Q‘H¡pÒ'j¿$Z ‹óY3Àó€¦tj¿÷  uÇEô¡Sè2ðY[‹Eô_0^ÉÂój¼}`…ÿ„[0@C…ö„P¡ ÇP Š@„Éuù +Â9E†9cHŠ@„Ò%`ÁA
+ãV (Ø… ÛY‰]„1Ó‹Ç+×ŠˆáöSéÔ[€D ‡P\Žá Š </t$<-t Wh(Ð
+Vè¬•Çð#é“€€‹Eƒe `6 ‰Etiƒ}P …€‚9
+‹ØS GPè3€€P!"Šˆ„SAFVÇE@“  èñ€óð@Æ Fë
+°"¸DÀ Á<!u!u		+Á tj èŠ¢ñ7à…@=ÿu Æ èËÀ-Yë@jÿ°3 À@[ë3À_È^]ÂD‚ìq¤’[QÃ=‰…è0XhÑÔ[‚¼z<°µ|à±Pèö°Ñ( –ó ‘ÀC¿úÿà¢¾`PÀV»00Ø HèÕ¥ uèŸPX…"Àc`…µ@j•°´R½ÿÓb„aTj ã¡YQÐ ÄÙðh¼@ ð°ð€)Mh´AÁ2èÞ©‚ÿ ÐtMWV#HPèb ‹•‘‹Æ+Ö WVSV4èEòðÓë%…|0è‚ÿµ]ÿ¬ðë
+hò0‘ð¯0‚i°ˆ0bhè‚QÈCV@4‘0dài‹ð…öt%4jðà|à qtB@ë% ïÚP²p°À0	-0
+½ ð‘]Âk$€!£·]…óPuüPÚp‹5ñÚ!9ÿÖëÿÖ   à€ë
+9EÐÁz €—0y3ÀŠ
+€ ùxtH€ùXt C€ù0|€ù9à ¾ ÉÁàÁë* €ùa|€ùf3D©ëA|€ùFBVÉBë®V
+QS°w]u3À ëP$¼ V‹5ì W SSjÿÿuS SÿÖ‹ø;ûu 3ÿG?P j@ÿ$  ;Ã‰EütWP˜j œ…Àu€ÿuüÿ  > ‰]ü‹Eü_^ [ÉÂ ‹ÿU ‹ìV‹uW‹ }EPVW è€‹ûÿ…À| ÿu‹E+ ðVÇPèó\  _^]Â  j@h8bè ÏRÿÿ3Û‰] Ü‰]à‰]ä E°PSh¤˜  œÿ<  …À„$   ¿`i¾ X -ˆ`i Shúÿ  h‰
+j:ÿ81èhÒ $è\ fYY J…Þ(   „Wj‹¦3Sh @  Vj;0Ã„…  WÿÐ€¤‰EÀ‰] È;Ãt,VPÿÌ‚ÿÐ‰ EäPVhüaÀëÿÈ  ŠÀWhˆ  è'­ÿÿƒÄ ƒMüÿér   ‹Eì‹ ‹  ‰EÄ3À@Ã‹ eèÿuÄÿ¡ »3Û3öo‚8×¬ÿÿj F™éÍ€‚‡h$eQÿÿ{unytGhÂ9WèÐ¾À!øÿt+VèIL 0 6ÇEÜÀ<PWhä`¨é¹€V´Ao@¨Whh´Akÿÿÿƒ °Ñ@^ÄâPƒ …Ô Z^N©T^Àn„ˆ ‰ ]Ø‰]ÌEÔ Ph  SW‚h@€ÿˆ­…/Âà‹Æ HŠ@:Óu ù+ÁMàQS MØQS÷Ø À#ÆPÿuÔÿ„‚t=ê@7@tPhÈ_€jQ ‹EØHt~ƒè t
+ÿuØhh¡<ÇEà@\ MÌQUPh"0@èG«Á@é‰Á€j"è¸O@‚V@„´þÿÿ„Wj
+@%ÌèÓ €ë_ÿuàèÈ	FŒÇ	 ÿuäU Phè^€ÙÅª@eðuäè6ÀÀl€M" ‚  ëPh°a¡`YY9]ätZ 
+V ;¡‹ ƒ°ÄéÚ€`(`Dé·`hÐ]`A~Êý…=D=õN@5,…RÀ0š=' WèÊîcÐÀLoS @h
+üBhà DPèŒC
+b%uh˜ èÄè©À]é 'ƒ`% ÿuÐÿa…ÀtàWhX™Àë$mÀhá»àÀëWh¸Z\ #«à£>êS›‡~ 
+g!
+B’ÈA’Tt<B|!i#
+90]Üt¡'€¤äè\ÍM<š€HÃ’…@Aûÿÿëcfä(Wh0A&BëRgô[ `Y€Y3öë7h à(éüE-dÁó¨©A-é¡0áó@h AÅ@3öF•	`è<0‹Æè™à E¶QV€WEüPh i€j h@¯ ¨i ‹ø…ÿu@A‚¾†@E ‹øÿ¡FJW€!¾¯hDÀ¸VèõL@‡ÄVèHÀ…ÿ_”À^†Ãjÿhxc h®¿d¡ÀG Pgd‰&   QQ¸L#  èÀ¡8š	€=SVW‹EÈ‰…¼`¾ Àn ÄLÄ€ ®hàFl…Ø À*<@¢ÀÒ#I*hèàÄhD‘€ èÏ§‚év ¢‚S Þè© ÿ Ò”uí ëÍâŸ„è @Y‰…Ì@À;ÃujC®EBôA¢…ÀAVDÿµáè@»â	CÄ×Kÿÿö‰µ `‹ÆÁà¨PèÊ@YÇ
+¿Í
+@  éH s‹µ!Áî‰µœ‘À‰Ð  9µ¡ Hƒ_ ƒ½a ”„‹â‹Á ÿ4ˆShÿ ÿHg…Ô E!Õ ˆà`‡j€@Y3À½á@ ó«f«ªdh     …œÜÿÿPÿµaèWºù„ñ>ÄàQUDDµ@ü  …Bè1Pèa áv„“Sjˆ…¬0	Pjÿ˜a4uw9‚uo‰È „‹2é‹…á À;ÁsV¼â	¤"Ü`?Pÿ7ddÐ À9=h(’H…ÂèƒPLè‚rÐ‹‚$9`uÇ… 	ÿR…éðÿ¢ë„å…=Pjÿ&µá'}…¤À	Â´P QSSPP“ÂhÿDò¸pñïAh€©  )Ø‘ )‰…°“…ÇÀ9]…¬!Q‹aÂ3Vh”¹‘â,è)šÿÿÐ]xŠP@:ËpkÇP’ Q ˆ@PSu@ ‹ø‰½¨ûtrYÛ`S@ —¥XÂ1tO…qPSWÿ&5‹ÏÿÿÀV(h N ujÿÀEðPè8ÒÐˆ”ë8õ0Ä`ëÕ "Ð è_¤0Ië
+4htÁ RÁ ±ŠèA03À‹Mð ?ÐMäèÅEÿÿÂ£ ÃÒ£ƒì W3ÿ9=ÐteÀEaÿ@ƒÐV¡ðPEøPDð …À|DVhå€Ÿ I50IP  ‹ð;÷tƒþtV³;Vhˆiq@Ç£±Rë2®b„¡Ð'^‹Ç_öIQ0GHh´ZJDª@‹ð…ötShXR@Šèóœ@Ø…Ût>B¿AHWèïG¡2Y•²+pPq„Ép Â€|0ÿ\u@€;\uC Rü SVèK˜àEü0ë3À‘c3À@ƒ}ufðNÿ  ƒ8v!ÿuh,d0¥
+`–šøá2à x¸OH ;‹M‹	‹@VQ21PèžQˆ ‹À
+}V“J¬‘Ì‘ø¢P‹@ÆëjX€·E³ºQ_‹}1h Šw3ö!u$øVP‰}ð½¸B	P·u$‹51«ˆ ÿÖ…Àÿ Ö‹ðëQ æÿÐÎ  €(_‹ÆP^dƒe@ü S‹]±Àƒ& ÓeÁSèUþüÿe}Wht•ñßQ
+@ èRS
+ë€Âü€|ÿ_ÐuÇ@8 ÆÅÔÿáÇè¿°`= "‹@©€%t…Ét%ÿ ÿ ‰@*£¸8Î‘Æâ%QV€3ö9utFñn$j(@Í”H}$hˆ1‘¡€y(VnVA0 Pò &uðÿŒÀ Ñ/0a£ §mƒì¡hjà+;Ç‰}øtW  °Àüë 9}üu	3À3Òé±Vhh„eðÍüè0µ !!A+w9~°<F@@@SPè—À1‹ Ø;ßYtW‹N€AA‹ÑÁéP# ‹ûó«‹Êƒáóª`‹v‹FÁpP¥‹ÈPS`ó¤èçÈ  `{Y ‰Uøu…Òu’phàèío YYSè4ÀY‹€÷‹}ø[ëÔ;5AÀQÈ@À‘3ö`è{´Ð	Æ‹×^g2µÐ;ÆW‰^uÀ 1ÁÀu`u3Àé Shx¢èEÁØ;Þth‹C ;Æta‹=Àˆ ÑjÿP` ×;Æ‰Eôt<°Pè˜DÐ:ô5P sñ9uü´t+j`¹ðœ !`
+‹øèa ;þˆY|pèÅ³P\Eø*×!² 3(À[_9A†} W3öh g ‰uüè8`…À YYu¸!ÅëJ Whøfè w €ë2WhðMqwÀ*€ë€-ì	qðCbAY…p¸°‡€MøQâÊ `LÂÊÆt!¿WhÐPh¬	@ éè€‹]‹ÃB`ÂDÇ‹=°—MüQV÷Ø MôQÀV#’Ã øÿ@tâËäuðw€bR23Ò„0ë#±D0	1B Yñ» u!Sÿuÿu ÿuühÐfhD  è¥žÿ ÿƒÄéK   EüPVE ôPj SÆ  ÿuøÿ×…Àt¬Pälln l éò   Vÿ Ü ƒøÿu Gƒ}ôuA‹Ä=ü  j j 6 |@‰Eð†Í RP è¸Bÿÿ‹Ø… ÛY„™ ÿuˆðSVa†Š ˆVè’ Y‹ów  j,Vè¢ …ÀYYt Æ  j;Vè‘	‹ÆPŠ @„Éuù+Â …öt€>"u €|0ÿ"u ˆL0ÿHPF@PVè:DsWt¨uj\Vè-‹(ëiÿu•xôe è}ÿÿSèðRA‚–ëŠˆ¸\ ƒÄVèÌ€RY†aëƒ&Wƒ%ˆ13À_^[ ÉÂ ‹ÿU‹ ìƒìS ¾ìP 3ÛShg Õ‰]üÿ< €ÂShúÿ   ¾`iV SSSEìPÿ@u3Àë kWVè€ e‹ÆYŠ:ËŠƒÀPè>€I‹ø;û YtK‹Eü‹Ï€+Î‰‰}ü€O QŠˆ@­ öÀHQÎ™‹ÇÂ- ˆü èƒ—ÿÿ íÂ0ì$€‘¡8š	 SV‹uW‰ E‰…ìþ@	 Ûj@3À;óˆ„ø@Y½ù€ ó«f«ªÇ…ôC€@ „Ð@‚S VèoÀÿÿ…ÀH„ÁjÀ‰F$€%€™‰…ð uÿÈ€™PVh"<ÀJèœ‚wéžÀÜ@Qh í¿ÜÙ &W 5CQ¾@t5 Z…!Pj…K 8C=Cèµ «.‰‰Që&h0@(WÿµÁ!S†`Ç‰FA1ƒÿ(€‹AÂ5ëVhÁ(£ ›ÿÿYY3À‹Mü Pè»<ÿÿÉÂEV¾h%@	VAèL#£D@iŽÀ,iÀ@WPèt?€%ø…ÿY‰=p@j„Û@<‹A
+iÉÁ‹ÑÁ é3Àó«‹Ê ƒáóªEðGÀóƒƒ „®a=A!S3ö»` ¡	j há#ÆPdjÁÿ× NhN`%@	fSjcQ‚èá³à¡‰„`"
+S‰”¤€èÂÉÅ `áPÆ	@ÿ£O…jÿ€ÿÿ[ëƒ%A@ _^ÉÂC%‹TE`K€}NÀbJ ƒ} tD‹Ö,+ÐY@ö a¢ŽAá$ÿ5¸Ð iPWèM>"DhBLB”Vè¾áLu ×@_ë`$P$h€A5š3ÈÀ^]åsìÂa[€W‹}Whè ‘à[èá™À:‹Ç„nE#‘=á(scIh2Ø@Wè `Zu3Àé„ 0V‹50€œ¤WÿÖ…Àh€ t>DØÿ, †À€†¤®tjj ¥€Ö3À@ë)WãÀ !‹ð…öuÃeƒøtƒø u3öF‹Æ ^‹Mü_è2:Q jhh@5=ÿÿEäPEÜ` àP Rè]_À) 	t.ƒ$eü j€ àÿ uäè¸ýÿë	àÃ‹eè3öƒMüÿÀÿuÜˆè{–`Æè!À	¡À\j$h¨¡×À^``u‰‰F 3ÿG	}ÇEÌà‰}Ð‰EBÔ`*EàPÁKÌaÿ¤ ‰¤EÜAë$¸€EFÀ! ‹u`…ŒBBüEØÀäC@àÿ ¨­B|XÇEü ƒ}Ø\r/h„à‹EäƒÀPè, 6YY…Àu3É`‹P0 ‹@43ÿÈ ×‰‰Vë$h\Àë$h$™ è< ¢è$ hÐáÚ;ÿ`ÿÇEäW`À£3@É;ñ„˜}@;ù„@9M„áC‹E ;Át}ž@  Æ  ‰‰ O;Ãs‹Ø ‰Mü‰uØF@ÀVƒ}äWu P‰Mà‰uÔ‹F<aàf>M@Zu-ˆø`
+; MÜs"8PE   ufxPLu@2hpR‹ Gtƒe ä u3ÉëN§”ñèa0ÂR³7QQ jàøÅ0 üÑèC]P‘!¬Mj … †üñ"Ð; ‹ð÷ÞöFuÜ)j8`‡ò!„sSvò©’Q €sèB”À Æ? hÒ,phø±ž`*¢eˆ‰Eä0@‰…Ä¡€u3Û‰Ø  (VhÜaRP'YY-mx2pÇã8,…àpPâ8Vè¯šû¡?t@:Rÿµñ0è
+ üE:qW…âÔ!…Èc Âbt èH\ÿÿ;Ã„Å S‘;€jU`Qhà @€†°;‹ø‰½Ì ƒÿÿˆ„ŒqSÿµAW‹5LðÿÖ;IhulÐ:D’~aÐ}Â@uW €‰ÐQðS…a PÃÿ6µQ	H @P‹cÒ¤
+Ç…ñ€ ¹1ë	ÒÁÉbÿµ±èÍ„ÿrCR‹Mäè 6ÿÿèZ9ÿ^ÿ,t~a[Äü€*S×!QS‡Pr¡NFp•wIZ3KVPè
+ËYÓ Pè\Z!°7…ö‰²suCÐ“Pµ¡p!‰éó`s‹…Éu"é‚áéÔà‹N…É„¶¡ ñ;FuÏ ~!Š ŠÓ:u„Ò tŠYÀ _ uAAGG„Ò uâ3ÉëÉƒÙÿÀ‹E€	F‹Æép ƒ~ tE‹^{•ŠÂ:
+ÀAŠÐ:GŸ‘t#‹óáuÁIÍ“ÿ ÿ‰Fë!‹F€‹M	H€ Të)ª"ÂZ[Xè„4ÑZF£TRS VWjY¾i€}¼ó¥0T¾Â ð¥E´ÀPh  €¥À ¼Ph N€‰]¬0¥ÿˆP¶°Mc‹„5 E¸Pp¥
+°A ðÀ=´‰]¸A *Ãt=êuÀ'ÿu¸èòPŒ¡¤Ät.áWEçl€të‹}¬&aeÁ
+WèÒ0@¢‹Ç‹ g^[è¿Š3@Ã²$ƒìL& Y¾€Y!Àót¥¤1T6`1¥Á@EÀP¥BPµ$t¡&¥@
+š´•ª¼œn‘(•^”ç‘uGWè<7 ÿÿPèNP ‹ðDhLÀVè#À ƒ„ÄP7Wèùp‚¡ hëhDÂÀÒÊ°Ý°j_ë 3ÿ9]¼t	0ÿu¼ÿbÍV¹21Vì À„‹5†(Ð9ðW…`€TPÇb ”ÿÖƒD½d vºœ²‹=Ð ‚h¬•  Ç<Ñ@ª	 8 Ë’ 4 ªÅ’ H ¿’ @ ª¹’ L ³’ D *­’ P § ÿ×‹5ÌÀ3Û;ÃÐ£ÔÏ§â0Ó@u9h`	w	vWhl€PÿÖhøk°Ì²5!£ÀäªÌ0¸ £$` ë1h¶¤€a”d„ec£±hpf X¥7bh@(£,` è€Ÿÿÿ¤£° h4×PÂØPtyh(ð Êq5A£TpÀªX \¬ôjÑR`ì*dàh£lY` hÔaÜ1¬hÀð ¬q5A £€T€œlD£dj ¼ hHJÿ ×;Ã£àÏ „‘  h8A ˜PÿÖh(Ø5A`£hj DeDtDøI ~FTTFà"”"Ä" "¨"xÐU5Œth|UD€$„• ˆàH¡ªŒÀ”ƒ ‡ª˜ƒ‡œƒx‡’ ‚9T£¤ tV9RtN9BMtF9Ht>9Ct69!>t.99t&„94t9/t9*t;0ÃÇ¬€(€Ã uˆ‰hj a…Òü Òt)hx€% Ð9‚£ u
+$;Ãt
+ hlEähH£@äVh8è¥0h ìhM•Á„Á5£lB€H£tD€ôiD(ð1(hÔÀ€ƒ½€dÿÿÿ£¨€}Puh¸A	5ÿÈÖ£p€-h¬AA6bôÁh˜ÀÀ£ª4Á Œø€°@Dwu&ƒ½h rht… Àth`¨€‹Mü_^[ èY-ÿÿÉÃ‹ ÿU‹ìƒì$¡ 8š	SVW¾ Pl}ð¥ ¥3Û‰Eü‰] ìf¥è¯¦ÿÿ …ÀtÇEì@    é˜ E èPh  Sh4€h  € ÿˆ …À uz‹5@E äPSEÜPS¿(ÀWÿuè‰]äÿÖ@Oÿu äèÅ/ÿÿY€MäQP‰EàÂ	ÿÖEðH Š@:Óuù+ÁPÀPÿuà èy0ÿÿƒÄõ€€"b@!BA€ÿÀ@7‹Eìi8x,8X8@4‹ E‰EÔ‹E ‰EÐ‹EW‰€EÈ‹E¿ÀL ‰EØ‹E$Wh Ç‰EÌÿˆÄ¡„Ý€ SV¾úÿ  V »`iSh”àÿuÔèŒÿ ÿSÿÜ ƒø ÿu3À@é¬ÀVShì” ˆSèk ‹5ìà Wh Éjÿ Sj j ÿÖÿ€uÐÿuÈhÔ‰ uÌèË.aWˆh(¿ÿuÌÃPWhxÂÐˆ ÆhÐàƒ}  uháFt
+fƒ %€Ä ë<0ƒ} €@áSh| ëèÛ¤ÿ4ÿh#d ‚è¾`~ÿÿWh¡Æj Y3Àj Z }Üó«!Eà‰@UÜ¾’ `DäF¥  À}¨!´
+¿á¾aWÇEô¡ÇEøM ‰U¨ÇE¬ °€0 ‰u°è®  …ÀYv
+‰}¸Á±0 ƒ}  ‹EØ‰E¼t€‚M®ÇEÀ¡  B‰EÄE¨Pè©¬!P 4tP¿aWSh\  
+Ë`(0 	ë-àÃ/¬ì}À;V%a1‚
+T€
+ë3À^B[€F_èH*àEÂD  Bbì°ÀKV W¸   PP 3öè£Mÿÿ‹ ø…ÿteWE€øPè¶P  BjÀ0è© BdC"ÿuè—#"1!…P sPF èS  ë‹ @ƒà<u²è.àÀZæÀ öWèNÿÿ_@‹Æ^ÉÂ£Q"Q@sè(£ M‹] Xø3À‰ ‹M‰Á  
+ vè%ü IøbuÇEü Q h÷$  ¿@\mW¾¢!è@á­ hø W V‰èÓ ‹MˆhùèÂ(hú±hŠû hüU‰ƒ;0 „þÀ' 
+‹	 …É„ñ}Tƒ? åbbÙbbÍ`…À„Åà Æ ‹DÆ €B‹ â %ã V  ÿ3$¿À ŸhHaè|@#EVÿ0h’$ô{  }ü!‰€tÂ^WèÝÀÀ}áüàGëPƒ}@øu4»dÀ ShWè¾âàÀ ±©¶»ÔãŸáˆëh1Wè‹VbhQWèz P@ëˆhœPèŒ†0Nd3À IÉÂP.áVàìŒ  WàI V‹uW‰…ÔBûQ‰…È‚  j3ÛY‰…ÌAÐ 3À½˜p ó€«j_…t  H‰ÐP Ç…a0Q@‰½¤R¨R ´‰Q …°P Ç…ÀP ¢Ç…Ü d ÿµ‘ j@ÿ$H s…àtSSP2PVÿ†á{0)7ÿÈÐK…1ä0u
+Ç…q FRQÿ 0ƒ"½Qz‰‚ŸëH‰ëãEà9…`)j0	Yÿµap,½¬‰p½1ó«‹’(‰…Œ0‹²‰…° hP…ô`ýÿÿPÇòp'  èyuÿÿTèE (YÃ ‰…€0$…ØP PSÓ‰)Ñ ÿµ2µ±ÿ¡‰‹ð;óuS$éÄp
+¿T±p…ÒèÁVÇr ðmàmCàs€pn…ì°‰…|P PWSŒÇ…1 ÿ!ŒsO@‰A&8SVÿ	±‘ƒPè¤B©1E}0lµo±e…EpFà/OGÑCñ$èå¨Á|†c£uÇ…1%A ëÿµ!ÿ´Ð9b@,t`BpS‹è%uÁSÅSà. -€W3ÿ3Û9=œð.„†@WhD‘P…ðÿ¤}v°$B (P (ÐBWWjW(jhð€$ÿ ° ‹ðƒþÈÿt"5µì@0	Áèˆ°PV‹ØÿD€WÿµAÿAªëjè6çûÿñ_^‹Ã[èD$a j hÀpDèG'ÿÿ€3ö‰uü95Ñt: ~EÐPÿ€@ j± hEØð Dð Ð2H@ÿuÜè÷þp<ð‰u0¡„ ë/ Ëæûÿë&à‰‹ ‹ ‰EÂä`BÃ‹eè `$hx3‚pKÄ 3öƒMüÿ‹Æ$è Âcƒì„ WâxP}à€@  EàPjÿ¨ …À_u*’àhCh$dn€¨uè¤Ûûp“…À}Ph pëPhRÐáîÐIYvfFìq.‚ƒ¥ø0 ƒ¥7 àghÝ-" @ü¾p V¢…áP»8 S¿ €WèÒ§*  ôh¢ D…ü°Pè6À)h.î`à‚<S”WèŠ›b‹Rur> EhÿÑj<PSPaPRèr¨àk.0Úá0xµa‹ðp3÷ÞP@öWFèí€_@…ö^[tàÆ@àèZ"“Ô~b+Wh1p€*»N€ 
+‘P¿‘W…’¾‘Vèè¦‘uC#E3É 9E”Á‹Á”ëEz>ð hQ@EÅWtVè£CóF uñc€‰p
+ 7Hè¯!ª
+xÄc‹ÀUƒ´ù@àð
+A­…°ð ‹Ej
+€c¨² 3Û¾ pQ½Ôó¥‰…˜@‰…ˆ!p PSÿµ‰•B¬Ð R‰¤` ˆ„Ðð
+ÿ<²¼!#hÀoèÂ”Ð¦YYÇ…qQBŒé!ðN……¼À-0<`6| …Á±PSh0â £8ä µ…È1 :Ph°ð4ˆ!è0tÿÿ8¢  ujzèãûˆÿé± Sh€ @,j1!€ @DÿFpP¸‰…¸uN 3Pm2hpÓAÐ¢ƒÄéip‹5H S ù¡º ÿÿQj'MÔ QPÿÖ…À„   ÿµ¨ù ÿÿ¿  h do…Ìý ÿÿWPèÔ#ÿÿ0ƒÄH Š@:Óuù+ ÁS  dQPa:Pÿµ¸ ¢¾   S…Èü ÿÿPè®¢ÿÿ…ÌÐ¶€   0 ÿ,  hœ 6HPj/‰ÿ $ ƒøÿˆ‰…´ u$9…F EÿÈL  x`h  ¯é^ r‚ÊPèL°w1° Kÿµ¬)€è- h!€*…Àú€WÿµÑè±ƒÃ XLÄû”èã‚u h<¾ h ¼d€˜¢"ÿÿm•…‚‹¦†€‡¦x Š@:Ëuùi…¥+Ç‘¦py‚®‰ƒ)ÿµ‰èk¯Q®Pˆa‚pK„0‚Ñÿ(ªÂ\…Ðþ64€c9 j…ÁŠX„hÜ@nè}|Â7éž‚}‚LÄUÕ®C%–ºNÉUª%t‚ÐT¦‚ÒTN!×T2À¹ìTt ƒŠ†|ÂKC.œ…ã€C†˜ÂFh˜>„{!ë‹˜@3À@‰‰L…¤€ž@P8‚_^[tFV’À€«ƒ½B]tCo!ƒb‹Mü‹Bè· ÿÿÉÂ ‹ ÿU‹ìì8   ¡8š	S 3Û‰Eü‹E VW‰…Üôÿÿ¨‰àBäBè@’¾A¯9…Að-@vØÀÀ’ì3À9Á	S•ÀÇ…A   f‰ìàs@@Pÿu€ÿ¼	?"°À6f9½q¡ „@`vA	W hxpÿ5|@jÿ¨bt@lSV…ða}j2äÇ…¡ D ÿÔ¤£(¡ø!M¦Hÿ`…¢è„A¸Guh(@°hp–`ƒ¡
+hA Pè†cýÁjWèZ ’|Gf9@Y…cÿ  …	Áƒ½¡ Œñ™€ƒ½À0u„DÿµÁ'è·`(…Ga(‚/è:/…/@‚‚/W3ÿW! /W…ì ¡P‰â½Á ‰½ð€ D` ;ÇtPh qÀbfyÿÿYYé
+Û€%‹ÂD  SPèÍÿÿ‹€Ø;ßY„¾`WÿµSWÿJÄð è%’€f9;VÇ…ÁAA(‹ótW@,èaÿÀÃPVh¸áVàƒÄëKÀäA…ôÁÁ Wj	ÿµa€1à€Å<tVhRœa±xVãèŠ€À!ÂVèôÀtF ,>Yu^Sèÿ TY[b&¡_è€&ÃäU„”äUƒ¨ø 2ƒ Á S‹]V‹u(‹} 3Àƒûÿ‰½¤@‰…œ  „OA@QPjÁQ Pj
+VSÇ…@ƒGX€…Àt'öÂ thsBBäF¢& WhlÀëShÚ`À ¿Á±€!øà@„GˆÑûGj j Ï[¡`c”€À ˆÁ j€
+ÿvÿÐ €ƒøtÿµaDh0 	èw; äh  jÀVSÿ8Â“@ÔAud†h Dé¬àŒ€QXì ÇÀ ˜¡j  h PÇ…Awÿ %‚o‹`4ƒ½Á<…~€ OÎ‹ÂÐÿ‚@öà	`h€¤. oÁA(È (`ÿl“  {„åà	` ÿ  ¨Ì h  € :h¢—Ô réâ )jUñdã…œàëÐ-…¬pP@@JÇÂ …`ã@åPàè?vÿÿ³R;îÏ@C4a‚`ƒÄ é €VSjÿPÓ“ Âhañu°¼éQ@¯ð¥ê ˆÿT‹øƒà?R½Á)u…	Ôñ;¦‘¡Yé¿ ƒ!P‚Ò@	–‰ä½àð ÿTç‘Úgã1àð
+ö
+V!R @éK 1¡ÁS‰D…€@…l¡WÇ…|p   èØ„¹ûÐ’twƒ½!( tne.Ò ‰ƒøýp!ŠðÔsr>€Dàe¢›c0rXh›ÑSâè<Öi€œ4AÄQè» ”èÙWýÿëH1hx±št`ëêIõT1†0d1vð bŽø`6PVS„èéà{¡ÄU,tj¥!4Pè7(…ÿÿã#Ìðƒ½gâAQp‚ Ñ+òÿtFOFtƒ¥qQ÷ƒR¦óÿµòFD1Mü_ 3À^@[èbuq]u]CuÀtEü 3ÛP3ÿÀSëaÿµôÐ ht›P±9PGè SÍûÿ‹dDàƒùÿtH	CpÁ°„Òuù j •ðÀR+†Æ EòQÿHâ”t)cPWÿ5xPsèÍ“  …À@u3ÛC‹€
+^À‹Ã[èº¡Tä!ÓPhèRPes53‡ÔtV|àR"‹M0‹UðU±U‹E0V3öÓ² *‰R°Q µ¬R ¤R ¨P „¬€9WjJ€Y3ÀR½Ô Ìó«¤$RÇ…1aCØÇ…ÜÐ€B ƒ‘ € ƒ è8!ð›a4¢  G4tVà
+Dar€#YéD`‹D½´ðØÐT  ’ì Páoh €×Du¼ë€À q”F&6d°TèÃ¡rQ¸ÀPrVÑÇ…± *GF7	pé`ƒ}u6hò[Vjá[‹ðƒþÿt‹=Äp(hà Vÿ×høt%p VÃU‹5±GSÿ^µ H@Ó'RÀ é¶¼ 9õ!Ð÷ŒñFœðu?Ä?˜jûQÕ„P P+` ÇŒ…”P €
+ èÒà…ñZ©Ð 3ÿ9½È„›Ð ë*d"bÆT`ë8SUÄ Ë ÁÅKÂ¦ð1n©pr6@£!…dt)f„÷…A€tÀÒ ûÿÿÇ(h¢° hØÑ[Ò ëyWÿs…‡ñ'`1Á(PÿÔR‚‹Ru	ö…­ð u ƒøt`ƒøt ¡hZœ‘±.ZûZo`Tµ1.óëð ƒÄg9=¼«	Èu
+¡È€IÐšW#PèŸ€ÿÿ9=u8h‚12Pÿ5 ž	è»a:tW’W2ÿµÁjÿÓW *À Çø Ñ‚Ó.Ã+qNv.ÿ‘LñL1ÐõA7&15ó ÿ’L_B“L˜A‘L hœ	úpBw°6˜ÿÿ¢@‰„Eä @‰…ö œ…”P ¡pÃ„° (ƒˆP ÿ;u‰Ñ”º ‹…”öÿÿ‹M äèBÿÿè‹ ÿÿÂ j@Y3À½´ Ðó«Ç…   (‰x D<Pÿ"µ0ÿµ $ÿ@t	ÿ…"…@Àtª‰| *‰€ 
+S¿   W…àþÿÿPxlà l…Àu ÿÈ P€h4wéŒ jRS 0Ôû0<00Ø
+ë^‹ uƒþ…sil vPÿ5xj€èÿ   ’"Wÿµèy  ¡\i€;Ãt+S5 QPè­~ÿÿƒ@øÿt…‚>hÀ€/è—mÿÿY Yéÿÿÿ3ÿ"9‚m…žRh @  …Ð8S 3À;û•À@…rX‚YtZµ8tL…TVh˜ ÿD5| Vÿo ‹ÆPŠ@ :Ëuù+Ât 8uÍëÇ…¬€r Vh€•èülMGƒÿ0Œb€O„N„W1 ¶‰]ücŠºèUôÿÿ!‚ûë6‹ Eì‹ ‹ ‰…p #3À@Ã‹eèÿµE@èvè•€ƒÄ3Û‰Á‹ƒMüÿˆ‰„€éîý@L þt	ƒþ…à@9ˆT€t"¡ÄUW9‡WN}‚W„¸©À	ë `G,Dd…–@¡ÈCÈÅvÀƒþu'3ÄQÄwhÔ€+KS„¢JÀ
+‰Œ€+9‚¤¨…€PSo9B1p„°€|	q„1ri3ÿG‰½E‚ÇhÇ…ÜÀ(P# ½…ÿ‚„â«…ÐúBÂÂCÜŒèò@ÉÀµ‰½a‘ÄVh°Akçj€Y$ÄÞÿ…Á=ƒ½AÀˆûÀ…A„3üÀ³öF‰uüƒ} ……`h`ˆs¤	è6KAàs3ÿ5¬š |µÈ`(£+èú™  Sÿ"èK  Ìé`*ÃCéÆ@a
+u5hè	æä	¦¤5ëR‘ ‡@D9µa…´ SSÿ€!‹ð‰„µˆ ƒþÿu¦„˜S [Ç…˜ E”"PSSäVXÿÜ)G| $ëf( -b*jD Ø•#E‹@A)œiAÄéë ÿuÆi"18…hà }ÁPVäèe é‰:!© §‰Ÿè6À‰…t  `;Ã…àB&*¡‹"Ðµÿÿ 0/E-ÌàŽà°¢ë$„¤hëhb?‹B=®|d ¦|eØuM |¯c©|ƒ½.ÿ(„€Eÿ"0ÿp %ƒéõûÀÇÿU‹ì¸”   è`ÿÿ¡B8`EƒŒìà‘S VWp Q 
+ÀEü‹ES ³Sà‡¨	ø€·®   ¾À?‹=ª¤`Scð P :Pÿ×…À„BO ShA¯àÚø@cj@Vè/áåÂèagjÿ…	ÀIÐÀ ÁÀ`·‰…Âè>™¡-te@Ü Lè˜g-b@Ùàà€ Pj@h  ÀÐ1Áÿ” `
+…ó%àS  hÐ ÿµ!ÿ…Ö;€e`àäÿx ‹øƒÿÿ‰’½'uE8x 3Bë`jSW8ÿd‚FDhø© Âë5ÀGò@"SA8‹=è@ ø d  Á'u8$ÅÀ9qd´fb# bÿ5 hDè‡wÿ2ÿAé< ˜ÿµA
+‰ˆ!×éÂ‘À+…ÀÀ%h¬ÐPè` …ÀYYœtc@2rhà’ëÀ…¹ˆ½ð€ó«f«S¸"à	hP‰…R  ´#‚³ÿäS&‹=±‚ÿ×ƒøzt˜ÿ×¦rìer@ë…¨î`è¦ øt<ÿþ…Á
+4, Åqñ60+V…ø°RPèO S?Å$"Á$Â±IÁ$ë.À9]…¸P4Fv ˆ0ÓVPDè àƒ=dÐÿLt_4Ô'h0#Ì…ì5€g
+€5‚ˆƒÄp!„—RáÇslQ+ÂKp¡Pð!Hñ&t2Ì¹u Ò%ÿtJ¸Ì€…ò3PÀ*Ð àb@ÿ‹øt3?Qÿƒÿˆ„W`9Ç…„`A€ ‹Mü‹Â _ ^[èøÿÿÉGP¤v&r	hèR€,L‚d0ÄëÎ‹1C˜ìð“óB¥èpD ‰2BVW£!Bè·tàÌ— ¿ÀdoW£A)"BSƒPA	PáƒÐÄƒù€JbA SXŠ@„ Òuùj •ä1ðR+ÃpRQÿrsu †
+‚ƒ
+£2c‚
+é¼àÐ>hW¥À‰…q
+»A{àôQ{h
+èÝ––ÿ@FWæ	¢í	nlðã@‰B	4
++Ž…
+–
+~
+„TU…2s"Pè€§r
+PbèoðN!B
+¬h¤·¾à%>ø`.¿¿Ð46„BÈPj hqüù`K"&¡èÊ•I/è ‹5þ˜ÿt]æ ¯„ÉÂnáC-á	PàyÃœ„O€eE{C› ¸Cj	C[‹¡)!1_^è^ ¼ÉÂ Â'ƒ} t!i;Erw ƒ}$ uè5©w‹U; Uu3Àë% v3À@ë3 À3É@9M v W‹}; tA;M rò ë3À_]Â ±ƒì,eTpìp2ÿS`-°
+  Phpc3ÛShDª „h°*€‰è€¸Ç…äP  Ð(ˆòb t‰„´é]Ë #àHÔðPh@{± S¾ìYVÿµ2Tfu	ƒ½"àÐtãjB¢PjS¶¾1,p_Ä ØÉP„î0ht@gõa Ð#ð6RºûÿðH°³   jShjhðÀóÐC‰ G‹ðAšÇ…q° éš0…Ø‹AT’VuÀF‰àës 9Ü @|q½¡ €  vc3ö 
+Y2 hhB	Ñ/ha‚PèÅ¹Ã$1èP„AÒ{	Fþè| Å3öƒþ}#&3rÿX €F;Ã < tÜ^ƒ½±[tµÑy‹‚#Qè' MÃB#Vÿu€ ÿuè*Ð‹ð…ö}@ÿuVh„Ð	è—_‚(‹Æ^]ÂZÕ 0Ò V`#  •âj Æ Ã ô;Æ„àêðê„Á¸Sj\Pè €+ñtu¾O €Vh¤y€hù>  h` ]R§Æá!o)	?  ë[Ô¼ ÿÿPVWèk  ‹ð…ö}L Vh¤yh ?  häx ë2‹5È  ÿÖ…ÀÿÖ‹ðëæÿ ÿ  Î  R€fí> f° fè ‘^ÿÿƒÄ‹ Mü_‹Æ^èè ÿþÿÉÂ ‹ ÿU‹ìQS‹] V3ö;ÞW‰ uüt‰3‹} EüPWÿu è?ºüÿ…À@}Ph<z †¤† 	ë‹Eü€ƒøshW q•«¸ ®è p ë)Oÿ;Ás "…Û‹M4 t+øO‰; €~ÿ\tÆ \F…ÛÆ tÿ˜[ÉÂ”}ÿÿÿ(v	¸.] ]é7¯ÿÿ‚XìÜ   ¡8š	 ‰Eü‹ES‰ …8ûÿÿ3ÛV 3À9]WÇ…4    t 9]•À  €ë ‰…D€h   …øþ »hÄ€kÿl …À„K€SSj Sjh€$À„ÿ ƒøÿ‰D…<  „#@ Q¾   VHPÿ”¸„%å  9µH…Ù€½S@dwn…É€º€   9•L ‚¸ Á1¹ÅE@‚
+ó«‹Â+ÇŠ…‰B‰…TÀ tƒPÀ9„]Å9]ÅHhÿ )ÿµI…X@
+Pè“ÿXÿh€ ý€@@hPè}@ƒ€ÄSSSÿµ7ˆÿL€0S…Á.¨PV‚PÅHÀ@‹ø;ût
+7th3ÿÅÀ@ 3À@éÚ€h°@WS@R ÿX °h`ê  pWÿØ€€Aë‚.Bëh'* @dÀ‚uP…$A0Sjè{„Tÿ@§uh€ ˆèn[À€Àél@(‹=(\vÇ…” Sÿ×ƒ½`¡€vPÃœÂ¡¬T;pÃtS€n$ƒA€¾¸  C u.ƒ½d€r %¡pÐÁÿÆµÁ’€Ëÿu NY SÿÐë3ÿëD T, QA=…»Áñ=B[€²t!=÷ ƒøu(ÄVtÆu‚3ÿGé¦…¢!!éo cÿPhLa…Zÿÿö…ô @YYt^hú€¾`i Vÿ<@!…À tIj\VèúþþÿYYá0 g[VˆX[‹ðƒþÿt ¨ @V‹øÿ$9
+2j@¬A$0èB¸ rÇ‹Mü_^P[è“ûŠäwìP 0GtPè¾¼a5‰…¸`„LCÀ‚oh`i Ä BÁ-4à3ÀŠˆ¡ˆ  @„É@uïSVW»¡‹ ûOŠGG„Àuø¾äà¥¥Sf¥èïmÿÿ j Sè!‹øY‰…° ¾à  f¥…¼€PS°¤ÿø Âw´ („µ€*ö¢D…€…èAèJÜâÁ½A qŠŠÂ: u„ÀtŠV€WuFFG!â3ÀëÀƒØ@Rt‹	…ÉuÆ` 0‹•Ã
+‹È+ÑBŠˆÁöSÿÀu
+jPM 0¢VbÿµÿÄô…WA>dð`ÿµAèªSŒÿÿÀ/€0èú!0#0ƒìVW‹À}Wèå¾ 4`ÉuT#FƒøuI ‹E!uô!u€ø!uü‹5´ S ‰EðEìPj WÆEìÆE í fÇEî ÿÖÂWÿÖh€à# t, Wèâ
+á¶ÉÂ j  h({èŸü þÿ3ö‰uä‰uàÀ‹ÇH Š@„Òuù+ Á€|8ÿ_u03ÀéŒà<ÀÍE`àPWèí w T; EÐPEÜPhì” Üuàè Õ "3É‹EÜ ‹P‹@3ö ÈÖ‹u‰€‰VÇEä 	 ë ƒMüÿ ë,‹Eì‹ ‹ ‰EØ Ã‹eèÿuØÁ hð AÄè^ (ƒÄA  ‹]ä…Û…îA …ö„æà h ï WèL	 ÂèÇ@ZYY…À$u@ò£ÀÀ(ØéJÁ‚æKºS t	€¾ ’ë¨Ùh âÆâšé ´Œÿÿë¹hø*î¦âzé]ºAà™¡(Ó0htXXhà€P@Ì2 tHÇEüáVWÿ5!ÿÐ‹Ø‰]ŠäŒÔ†Ôh°ðèiVÿ0?3ÛU€}ÿvÿ6 Qÿÿ‰`‹Ãè"°`vQQVEøP Kè­¿Q;t2ÿuüÿuøX@±N‰ Eø‹ÂÁè;€Áwuâˆ ;Vv ë3À^q!ƒ} u$‹Eÿ0@ÿuè­J€h€pDèTÁñŒu£)Q]Â,mAEã%ïå¼ì,0T"GÐB‚bP8‰…àðb /ðP@V3ÿPhÀ€^‰D…Ü`‰½èR Ø•R äR ÔP è=0
+B»ÑS…ô rP jÿVWW‹=ì5¡7×@ìP@ÿµaj j ÿ×‹
+=‘1»Q2SVÿ×Vÿµ‘è^ßû"ÿDèmpò5=  €t	PVèhð{@Qó°m²€h„%  hØ$hˆ@ è§`%ƒÄ\j ŠbÕ‹ÒuXÇ…Q’0 @•1s2…!Àñ` ÁPèßU¢ÿµaVèÅ› `D‹²]ÁõøDpì$D— œ3Û¾Ç €‰Ü Ç…äP ÃæPL÷fà  î8€ êA€ ÑÆ…ìp …Æ…í` åˆî` Æ…ïP ÀÆ…Bð` OÆ…ñ` ÂÆ…ò` •Æ…óÁ` î‹þèn`¦@uQh Wð"°Y÷ØÀ%9Ð
+Æé´à89tQ€x„†² x° tÐ~9|q vž6Qax¡ ~S„aQàîQP{€+€1e0€hè§hÂ }´*‹ÔøS´¢°ëV@ WP!P 'h 4|Vèu÷Âþ!¸VèÈRpDEsÆ^{–¸ì ,€‹MS•äÀR3ÛSÃ,QP‰~ }!ªtUVH‹58  W¿q*ëD,9âu<ó¬èJDà‰2…¡PÅDH£SWT£jPÿ Åu¼_0^‹MüÐ§¢[ ”Àè»óZ  U '  pUÐ	jò	S(W‰½A‰Â‰âèÿ$ âva„ut.Whl}Àb&Ï°DàXémpS¾Q ¦0`ðhÜÙ-p`µ‘°q@¢uèWh±“°ƒ&Àø é(P À’¼jÂ?¿QƒWhÜ¥ ¢ècFPOQ'D» 0Â¾ X ˆµIñ hü ÿµ±*è¶ÅÀ/ 	ÿâ)p…Vs	¢Cè  Pèru11!uÃP06BWèŠ‚Yƒªj\"¢Aèm…ÀY³€‰±t ò	Æ0°Àèöþÿ‹âpÆ \SµWè°ŒEÿ€µq	VhÌ0
+8è–PÝ ;2èû¢úÒ)hœÁyÀI—ë4h`Á\IÀYY#ƒ½¡ÿØ‹ðtA@â(@ÀŸ>ð€ °@P±@µñ­Z Ð£VW SS6"ÁQjÿâ PdSSÐÀÀ`¤ |r`hÇBè$g¡€0dP`ƒùˆÿtOãVpá‚0:Óuù 0á.R+Æ K"PR!Ç…À^uDSPhèRIà$€ORëÐ²‹a"6[èüðf©@C Ú‚ƒÜü@ƒ@xjÿÀ,¾Dø— ¯ÿ5|ð 3"Û0‰Ø„D	P¾‰…ÐÐ È%jÁÑx@ÐpC@dPPèà0%…	ñéE èÄm ( 9£ñ‰"Ô`Ž)°‹="°…ÀÿµVSÿ€	x» …À„  Sh P…ð üÿÿPS…ÀI8ÿ×ðÊ xôRý xj
+|ª >…2~h  è`NÿÿƒÄ…à–BèÛ ÿÿ;ÃtPh
+XH; $YYëiSS t(ÿx 	ƒøÿ‰…Ü 8tÿuPè€ßÿÿ!…Ø  ë!ÿÈ ’PQh0GóMl$‰"ƒ½9ÿtHÿµpQQÿ…Ô D‹;…Ð€ŒÝþÿ ÿ‹5H ¿ èRƒ}…§ k9ÈU „€ƒ= dDÿ„ hÔvh8”›  …ø€h 
+ Pè²òþ yt¶…P Š@:ËuùSÄ8Q+Â€^Pÿ5‚*Ö…ÀuF†k‚Wèƒié lÿÿÿ¡<Ð@;Ã„Ž KS hŸÊSSÿ5OÿÐ Xux ƒ=xjP‚ aAbh¤}‹TóPè‰¦ûˆT„OÀP+ÁJR+„ nÿ8è®Ø€&Àkt Pèbm  ƒƒÂ!a_^[tÉa‹Mü‹rèÏí þÿÉÂ h$	AT ~ÀŒÏðþÿ ¡8š	‰Eä ‹E3Û‰Ô	€W£|@6‰(h ‹M‰¼«@ˆÏÿ;Ç„ÉÀ¾˜ V°Pÿ„ÀyIª ¢À9Âm„…AE}uVnG‚l §€PèùÀƒÄ‹Ac;Ï„r@pŠ @:Óuù+ÆPS•ÌÀR@oà±ÁQÿA o oEhÁ‘è^K¥é% èê[ÿÿ£bÄ€“‰]ü€©€‰”Ü@ƒÀ$t@ uJƒ}uD…ÁPèJˆÿÿ9Ât&Sèh²‰ÿ€ÄØ@€Ï &S€T€h AMöJaÂë
+Ç…Á@ 9AujèÙZ@>è'Ñ‚uèi  £¬@Zë‰=eá ÿ€Eûa!.ƒR½"	u+#ãèB, …ÀtÄè¹€KèwÀ`xa ` ‰}üë6‹Eì€‹ ‹ ‰…Ð  3À@Ã‹eèÿRµh°aCbƒøMüÿ¡!¡ÀrÀ ‹Mäè³ëþÿ èüîþÿÂ  ‹ÿU‹ìì bCS‹]‰E ü‹EV3ö;Þ‰…ô€W‰µ¡`8ÿ‰µì€Æân  ‹Ãu¸ˆØ P¿Œ Whè?  hp@èAà >…Û„6à
+€; „- Sÿuÿµ
+èI£ûÿ‹ð …ö}VWh÷å!0 éýàH„¥âtähá	û™@ˆ¥xPWh@€Àá3ÔpIÿÿéÁ¨à£ Pƒ`cmPèM¥ü‡!zé˜€…ASè&Å	`Àë×‹Š…á9‚‚ PS¥Šjh    ÿ\ ¥ƒø˜uq¢gm¢d•á	!á	$ã	Ø( Tßê„2 & h„Á±H HÄëPWhëÁ"Hðm€‹"1`¾Æ`‚(WTh,Á,!Î!Mü ._‹Æ^[èÔÐéÁÅ; /Â;Dƒ¥Á/ ƒ¥á €=VW‹}…
+ÿa>Ç%:¾l€°VhRÁ":oÀK!: ´š€!€? :‘O d.."7hd`WZjà#`à# w<¤wV”h^á	$Àèã	W€&Sè=¡ûÿ…À#M}TPVhÊaáØ ?ë& ƒ°SPèQàãæ,àJháœ!D{G£&XVhU¢&º‚€Æ SVhmÁõB%£À‹á¤!!&À%„¡èÊ%<  Â%á"a‰…è`w@b n!‰…ÄVh‰…ä" ê ¾-!ÀVC`¦Ä"tc2|ÿ<€p@ 3Àéú°W¿ úÿ  W»`i8S€?0ÔÆ`ipa  è@w;ÿÿWh!ÿ’µ!ÿµA	è``"SbèÁÐq„& pÆ XÀ3ÀŠˆˆP @€„Éuïh 41ÑhÜ¥‘vò	ˆYaè±Ôh1è”ù: }àB=ì H„k %h€è(Uêþ SàpÇ
+$CY3É9FA³„: ;Á„2p Vÿµ¡jÿSQQÿ×'Ð ‘ j Å°#×è¤ s‚ˆ‰…Ô ‰•ØP Xèï£aãÈbÌMaÄØ!è³ 9‘‚Ÿà*‹A$A„a=‹•	ñ‹ñÑt}Ówp92whr&`S°;…qwXJ‹r 9ÂuOSuFG³4¼ÿà,uh23ö-°8Ô"  YY°Z Sè"ì @Æéð	3öhFëÐôýÀ(ôò[  Ð_Â@$ìpPÇF@Lñ èã_“uzc¾…ÀYñã)tyVPÓ%ó0SR$%`ÓH‰ÂtJ@Ü°hÈÑ:óCÑ5‹B/3ÉA 9t…öu$‰£(èKa
+ëÒPhxA¾Cµ€2ëÿÿ3À9’4 ”À_[‹MüP^è)åq7eJDt7ƒ¥Üøÿÿj â7PJà ‹*E7Ð’  qK‰…6ÌÀ E7à° F7„fÌà)0èú`µ…7D„¶P…¼¡jH SW€ ’º‹ñ€3ÿW¢g¸R¨ÿ8i»Á¨3Aò2j¤EuˆŠŒñˆŒá±6í9}Ð/ðR@±P$7’	èž7ÿrÿ@äù`
+¤?dè"ƒ W…¢èÎ"fQ„ƒ€ƒ=€ˆT…á¨8‰½ØÐ€1ÿµÁ ÿ5ŒðèÉbm°b…±ÆJ€‹Š…ñãª«æþ +0YYu/T¿ÓVñÑ<Pèªð)€"‘€V3ÿPGè”PÀ…ÿt‰éôÐ+TÄj õì‘À»Ñ*ip[z›á°Ñò+è’tAƒÿ
+}®:´`âÑhª?¬GèÈeQuÄ°Àt|h 0±CÀ¾"ka  0”a9ehà Ñ,ðèð:š‘´eSÃï¿¡Rü€ù—²§Á@"ÿµ(ÿpÆ¢µá)ÿµÔñ­0-ÀFD"°)H¢$t"Í&ÿÐ„&…œnpˆ‹Mü¾èâA2@ 3Àëíâšƒ¤ìÒiSVÔc¾aaÀVh ‚¦P3ˆèI5@%ÿÐògD£ðÍ„qðjŠ`ÌR„`€ ÿÐ…À£O ƒ=0 	 …À Eô PVèëç“'è  }ô t¸    u9Eøt/ R“…Ó ! rw	@ `	trj¤éphXÀ	éAX0WV»H°  è@¢4ÿÿW¿1gWð è’ð ‹ÜQð	VÿÓaÏ?P» °t9h€ °:,Ðs€j WVÿ4stÄ…h èJ?0ÿÿYYÉcuWâuhØ(ëàO5AèÊ–¡£àu(h’ÄÀè@ëu’˜!ò>qƒ=a  thlAÝ@Pë2hD± Ñj$ÿBÿ£ñ» ÐëÿÈ  Ph èª>ÿÿYY ‹Mü_^[è- àþÿÉÂ ‹ ÿU‹ìì(   ¡8š	S V3Û9´Î W‹}‰Eü ‰½ðýÿÿ‰ì 
+uÿ´ £>9]¾ €   tVWXÿ, , À Ü •øþÿÿ‹Ç+ ×Šˆ@„@Éuö‹=  S VjS» 3ÀëH:ÿ…Qƒ½	 ‡¤  ÿµI…>ÿµvh ð‚Pèâ€þÿƒÄj  ?j j"SPÿ@×ƒøÿ£° ¬t °3ö3ÉŠ”;ˆ‘@hA „ÒuîjVVPÿL >…ÀuGPèt2ÿÿ ;Æt7P…ôQ€khdo33V=QP‰…#Pÿ53ÿ‚H %jY¸=  $½7ó«+VÆ …Hÿÿÿ èÀ=ÿÿ…Ø€,€=Âd ‰·…æ€ªä„â„à„Þ„&Ú„‚hÄ€Vèˆ«<ÿ€$h ’…5ÿtjtfL…è‰µ‰Á¥è¯äÿÿÀA$‹•AP‹‚]‹È ¬ÊÁé ·ÊQ·ÈÁè€À€C4Ph¨I‰•?è.B¡?ë	ƒ%Á H3À‹Ã‘åÝÁ‘Ã‘‚ME PEPhÅ kÿuÿ€ ]Â„	 QQ‹ESV¾ ¨Ë;ÆWt ‹Ö+ÐÈŠÆPŠÁù+Â¸	Æ\Gƒ e »0ÁB‰EøfÇ*p ÿø XÀÀªtuöuI¸J\
+×Éhü@5W èRáþÿ…ÀYYth¯VÿÂ®€Á®ëÿuVèãÿÀtÿÀ)ÿuüÿôÀ  ð ‹EøÀ9E…p |ÀÓ"ÉÅ6ì…Òƒ¥AA\ S‹]ÀÒÀ'”Pj ÿ5`ŒTÇÂbÀt  è[  …À¤„á ÇV‹‚	ÿ‚uD€PhG~è`—é  ÉÉI„„„ÀÆ„÷ ß*„Š[…:Wè²/ÿÿj@¢èü^	auC	PhƒI`„ï:a„ë<CJˆ!NQc…BWÿ€uSWèQó |0ðƒþ@‚"uè0æÿÿ!xáFPÿ#Q#è½Zâ…!À%^d`‹MüA#R_[èšÛJ’BF’‹uW#áSQ@)`@hÚ`›‰…ìüà“µè  @èÐ.ÿÿVèR b‹5“»=SÁäÿÖ‹=œ@gÅ"×à:jÅ$ÿ¾0€€à	 ’¡
+G 	²ScÿÖä ¡ Ä‚ƒ} u>¶¾a&€ð@ÀÄ"Gt' â.hHms ˜¢è àÁ™#2’¦c€*ÃjŽÚj! oJ‚ V@K…ÿ‚‰‚3‹E‰…Š¾	 t^€? 0tYWÇIÁLÿÜ `et¨t†@PSWÆ"N  è-ÿÿëbWè,çAMÃ9upèÏùAF . u²JÆÿµ!CeL`]@è›ht+ƒ‚½bbtWh(áMŒ8áMÆÿµÁÀè¨‘ûÿ‹FCÀÕ~Ùá! …Ò‹ Â÷ÐtV¾ 1ÁÀ3ÆAJ0uô^Ã¢Ø@B‹MÇ t ‰HÊGe`S+ÂV ‹ÐW‰Uüè«' R@‰a »!ëJ ‹H9Mør; w=‹H‹Ñâ@?9Uür)w+÷Á€l@t ‹xëxu3Òó¦t ÒƒÚÿ…Ò t}‹ ë ‹@;Ãu²3
+ÀËƒ¬ ‹E HŠ@@ÔùS+Á@V‹ðW‹@Ö‰uøèÀ‹ M‰Eô‹¿A!;ÇX€‰„T¡ ]ütaB ôrHwCH;òÐr7w2.ÎÐ3
+
+H„ê1uøÒ| ƒÀ‰‹  ƒÃ;Ç‰]üu¢Ð¡,tjZPV‹Iè ãûþÿ‹Ð…Ò@‰Uø„©Bô@‰B‹Î¸° €È‰:‰z ‰Jt0É!€@‰r ë‹a‹ÙÁé zó¥‹Ë‹] üƒáó¤ƒë@‹‰¾‘¿ðë:#M‹	…A	$‹ ;Úu‹Y‰ ]‹[…Øt 1‹u#ß‰^€!z	AÐ ‹ò‹Ñ";ÙÄw¼!xpZò  …Ftñ92u*à9u ‹B‰‰JÀ0‰ëÔ‹ ‰A‹F‰€‰‰Vë ‘@Qu	‹€‰
+À`N‰Ð¡~‰0ë™(‹ ‹UJ¹±V 3ö  F;ÁtWz€ƒÇ‰‹ñ  uô_‰2‹D² ;Á^u3ÀÆ*ñ<‹t—‹ $²;Áu€J‰‹D—ð_ BƒÆ‰‹ àôëàÓ" eua7Ž :FSQƒËÿ…ÿ t*‹u°:8 u8Fu 8Fu8F	 uFPèT… HØƒÆ
+‰7ëh¸4j9h"”` èê41ˆ_^‹Ã[†ìDTZ‰Eü‹E‰…ÀûEQo‰…ØÂ V‰…‚Ì’  W‰…Ü’  ,3ÿ¾˜ˆ È0jwh„ ‰…¼ð ‰½èUR ÔR àR ÄR ÐeR äP èW 	°VjxhhèG"
+ ;ßt€; Dtà¦zhH‘-’ÿµÑ	Vj|”h,QPÿµ1
+ Vj}h!‚ 9½ñ
+t,ÿµEq V‚‚hð‡ rã‚30*uVhÐ-”hÔ!Ð ƒÄ0!‘tÿµq Vh*…°¯ëPVh‡AhAšB·E$PVThŠqLq‚pÿ u(Vh‹!0!>o¢ ‘q VhjŽN)Aô†
+9BWP¹X ‹ø…€ÿ}WVh•räé[°À£ P@hˆ7jðšh¢˜€ ÿL	BœëÌ‹…!‹ˆ•ARh¨€XPÿrQ¤Q¦…Ût.Á)…aQPSèz(!g%`±0h °‰Eè˜@¸P½ƒ} ÆâŒ t(jÍ Ò a’xpñy¨Vh·¡taÓ€"‹Ò…À»ÁvteÀ€8 t`€Ò¸@ÇŠ1è]Ó’Ž@j¿AXAŽ@s‰>Á$€g0l‘è(†‹ðgVhÊ0éZàjT—Pè*G-ãÕ=¡	t Q„VhÖQ PèÄa1A3é<ÒqrPV	ÇÒAðzuupâq_Ð%S*¥FŠ§€Ÿ éÏ }hÎŒ 9ƒè0¢PVhðñQ¨°. vðˆSPèYXß  ‚ ü!w0ÓÐŠðÀ“;tª1Ñ
+ì"h°„éH`‹>H€8  túÆ@ ë¸Æ…á€Ô”ðÇòDèæçBÕ(°hÔ…éÍ 7&RPÿQVP²
+q+‘¨‘£Wš‘,–$‘t‘y å³<èhÒ@3Û;û}°-*Ié{QußD,‹øpÑ0ph@e1% 91>õtV!3?à
+$)€7•ôáð„æ,ÿQóá2=ðëÞA#ÿu$‹Ð4•æCÑÀ0é¶ÐUU(R<VIQQa?TµÑA‹lº PÿQ‹ø;û }WVhO   h\„ëj 9¨Ðtl …øþÿÿPè Âÿÿ‹½¼û€ÿÿ;û‰…Ð €tP€? tK@h  lèì.ÿÿ YYWè” Zÿu4‰…Ä PPÿµY^ÿ¢Ö ÖaÖèƒèc 4 ƒÄëA‹…Ôa .‹j1 ›¡/Vhk.È.B4.ëSzj jÿ| @…Àt‹a <‹…è Pƒ‚½ tÿµ ÿ  ÿPMü‹Ç_^ [è;ÏþÿÉÂ 0 ‹ÿU‹ìì€;¡8š	 S‹]VW‹} ‰Eü‹E¾ ŠV‰…è!€Ž3Àh­O„ˆ ‰ä€‰…*ì‚ô‚ð€èÑ -ÿÿÿuVhR®ð‰ |¾ 	ƒ@Ä…ÿt¥•€Š°H€#è¡ SVh²	,	€	ÿuVh³	Ì!z 	3Ûƒ Ä ;ût-8t)=PWè) øÿÿƒøÿtPVhÂ † O0EèG €·9]DÆî t0@\uB„SSÿx D…¨Àu ÈAA„¼,ÀÄéŽ@„‹Á7…Û¿  tf€; ta€‚½AŠ t(…=PWÄèÎÿÿ!@VhÒ@hpA é   Ã‰"½ASÿµèÕ$…û ‰…ÁL}(VhÞP€ëm‰Í­Í€¤Ø…ÛUÂê€	ë¤ÿµ_ƒXSèŠ‰ ^ñÁ³,ÿµlÅþÀ…ÀK„€™øÀh0€è@Í+ÿÿéŸ†)P@ÿÀ À1#(ÿÈ@P„7VhT@ÍÁíÀƒ@Äën‹=£j„8P@¨ÿ×ƒ} t@„ÆCÿ ÿœÀŸ…Àƒtj A
+ÿ×°ëÿµ@@nŠÌ<VhÊ¬}‚‹À®L)Á¯{ÌÁ¯Å¯l	  Â¯‹U‹MSB¯VW3Û ‰…œöÿÿ‰‚´  3À½¸à  ««3öRFQ‰D˜€‰• ¡ µBÔ  «‰ÌJÄ¢ ¬¡ µÈb¨¢ °  ÿL @;Ã‰…” w‰Bé©  ‰€Ð€†› (‹=8 ¾G…'áA„ ÿµ!ÿµ¡ÿ4`…ÀL„c ÅD€ƒ0øs(@„&hX ‹hOá", ˆè&*AUé 4SVÃ+PÀ…Bˆ)áTÿ×Aî@…! /d#ÿÂ¬uÄc]aô@$ëNôý`£jI$ˆáÿ×!àq oPj&áau*#ê	há	¸à	èrš)Ãk[ èúA†áÿ×…0èPjä‰2ƒ¡ôÜ÷¡¦á¡68Pj¦á£…ÙÁ8PjÀÂ#ÇâÀ`§ÀSA ¡
+äù¡
+	¦
+‹áÃìà«Pj
+&GááBPjä‰&á¤ÿµá-…nØÀ7à>Pÿ"ŽG¤A€t{h @j 8X`~A,¤ˆAaèÿÿ :ðRü h°€'hÂúÿÿ€<ÂèELaŽtÇ…!SÁëX$…C¢E™!/|I!/7("/‰bXµ§A€¨…"ÿ"]t…‚)µB) È ò…¢4…¡;‚DÃhèüòá}`¡NP•£H¤aP`‰¨èa'"9"u!U	ƒ€K‚?ShŒY ßhL «W 3…¨À}*¬¡`$è]ã
+‹…¡!…©yÿ…Áp‹¢ ;ât‚x€ë‰ñ‹±D ±D/È±D³D‹M…Ét-‹E u&ƒ}  t+È‹ ;uƒÀ ÿMuñau 3À@ë3Àë@ƒÈÿ]Âú+ó$ò+ÈŠ@:u@Ñó«ßÜ6Ó/Ò Õ ‹T;P5aè†V‹@u…öt5“.’$+ð‹‹€;Êwr´ˆíëq3ÀÒUõ^3“,’" +ðŠŠ: Êw
+rRïWqwƒPcIaS0VWt9Ð`‹p ;Ö‹<‹ wr;ûwà;Örw 
+Ò>Ø °»O t±GrwOquOG”OBr
+wO: ìOO@rs¢@wâ€
+O BuLjhÀ`! ,3ÿ‰}›H@ƒø‡ÿ @ÿ@$…(ùÕMüÿé03ƒ}uð•ÿuÿuèGébðU€‰-IƒX…Î WNÁ, 3öF9uy²µp6é• …7ZÜ8PÐFÚ YÐëeš	3PéÖÈ…(d¯ƒ°j4ºÁ’À”	× ‰EäéÍ)£uÈ	Ð«ëâ­Ã	©ðW3‘ÈÂ	Uø‹°ëp5Z¿ÝQSÁŸWí±Ö‹°?H1a ³ UJyHƒY¨/Mäÿ9u äu‰}äë0 9}äu+‰uäë&hœ¡!Ã!ÿÿë0 Ã‹eè)€¹hlQ­PYY
+ƒƒ`!‹Eäè yÆþÿÂ û ö ÷U0 Z0 ¥0 ô0 B0øŽ0 äÂD
+ä– Â=ä @ÐõÿÿQ²ŽV	Ã—Ñ]Q‰…Ì‹EjP‰d…È° ‰µ±R‚àƒÎÿé@) mA:PðnÔ @f¢a3ÛÆS f ÿ¤P`©eÛ …’jNàk€ÇtÕäbÂ…"hŒ€v¡lh PèòÅþ2ÿp¬SSPbkjÿ¤nSSf‰îeà°á°tˆ
+2èÒDPl}u&3ö;ÃdŽuh’üT ‘áé:ðFhìëì;Ãˆ„Gp…¼ð	‘åsè"ÈAo„àÆ‹P»½„ðØ@Áà3˜€T Û¥è€€…ÀYY…Ù +çá|”#Q„¸g RrƒÎa†bSPÑÀzTè9ðÿÿj0îÐp™3C¢0u‰•1èq€„‹ðƒþu„P‹‚€^Á@
+ë;óuÓBM…†Ó²…hÌÑ
+‚[Ðy_‹Æ^è–Ày hTð&h˜Àä–ÃþŽÿ‚¾°4 d‰…¤ 	#0ë’'‰µ´Ð ƒ¥Â¬P  ƒ¥¨a °™` Bº PV…Øüÿÿ PjS‹=ä  ÿ×…ÀtLfƒ½° tB˜…´õ | œÄ÷ ¸Sj ÿ¤ ¸ …Àu'ÿÈ@ Pÿµ¤ Rh Pèdÿ ÿƒÄé+  fƒ¥t ‰µ'’žîSqu==& =YYépî  o Ct"…PhŒh!Ðú ˜è<Ãþ rëPhp–!	€àþ 7jSÿ 8 €dB‚Ü€-évÿÿÿ¼…jY	f!’…ë‡iÌù)c )ƒeü `Oÿ ˆ ‰…¨A€ …À„{\@QP n# tˆÿÌ€¤‰… ‚t(QÿÐëJœu8ƒ¸€ÿƒ}È…w€&ƒ¥…7$…‚nhÀ eèÖ
+ƒÆP ÿÐ‰…ª°€P…¤A´CPƒMüÿhC;.!Au^ƒ½°”À‰…ÁE”An@Àmí   ‹ }4ÁæÀ†Tš	@‚{€èòÂþÿYYÀZ…¬!jÀ_JÃ_5é«@j
+DÃ+jWè#øÀdÂƒøu†^Àëƒ‚½‚>uw†† dÿµBÿµ*(d	(ÍBëNR…BehHA·@YYTu*Së!3@À@Ã‹eèEMÁ‡Ê€Lƒ½u tÿµÿ¼@q‹Â)‹Mäèç ¼þÿè0Àþÿ Â ‹ÿU‹ì ìH  ¡8À*VW‹}¾€; €Vj j ‰E ü‰½Øû€žÈ¢Á¤‰…à@u@†QÂØh¸Ž@× Ïÿéº@tS…Ô‘ÀP»ôýÁ ,WÇó‡ÇêÿÀ`ƒ€n@ {"Dÿµ!ÿ(à‹Puƒþ UÜa5ˆ3ÿG 6"3ÿ}¤…hh	z€	¥!}@	hD!h TëB .àëÌ¸à
+QPÿd¸bu`dhZì€%@ Iºà"‹Ä…¼€‰…è   ì PjÿµÃb%A–84vÉM"èƒ .…ÀYYuP…äbdedN`ëTMâPjÿuè!á•‹øƒÿGM
+…˜ÿu'¥Lÿµ#%C"¨¡g¢Lƒ½ÇÁ'¢BÿØ ¥,a[‹Mü‹Ç_€^èÆºþÿÉ€C hl	  h@‘!@<Æ½þÿD‰E ä‹E‰…¬ö ÿÿ‹]‰”E ¾A=‰µ¸@ƒt¥°   CAºÀc@Iº‰…´ @2`c h`ë)ö…Hja±F ²aHhÜÀ”AFé±àÔ ÿÐ•aÀ
+*ƒËÿ‰¬¼ ã‘’á¸[ƒ¥A é{ÝÁ À@?@àè,h|.‚E	%BŠPAAYé9 I¤@…¢hDÁôrA.Ç£ÂBL…Ü¡aKÿ•Á‰…Œ€3ÛC9] u?ƒøt ƒøtdhðšàœá
+£ë#å á|àYYëšNÁ€œâ(hx@Dë+dÿhB%„a ƒøsååHeá4áÄ%Á°é"QBç¼EÔ .„…Á‹ŒEÖÀ fƒùeufƒ¼EØ xu
+f9ŒEÚ@t_@*EGXHD@dub¥luAQl„t(°D… 0<áõL…‘ä 1à â‚à ‰ˆ`‘J`C"Tð8RaÿÀpn…nˆà…˜Çàp¢èF¾á[£(¸„gñ2,w(È ^LPj0:Q.ÿ×Å(„:À‹E0@Áà r`€3”eBè˜PV‘e…#¡H-ÿµ)3ÿ ;Ç„åðEWW§•`’WWGÃQ´bè/Ñ¤‰ü•¨P 1CÑ àRàH90C€ñQ¢0 j‹$…  €‚j9ò½uvUÓjÁ‡apPÿµœáR+ÿµbh"ÿQÐë;-hÑ#ëNTjÃ=KhàXß1“+‰]üà{ð2I¡;•jQ	‘j=’¶j†¹™jL
+”jÞS j¢@‰€{Q j€I’HVáOQ‰…Ð‹Ej3 ÛP‰…ÀÐ Cá„¢‚Qh`Pèé0O’YÇ…Äpà-€é‘éWüŒQÃU =Q‘ð€ënhhð"F ,€"€ëK$è"},@D€ë(ÿµÑ
+ÐhÄ“,éç€'¤ èžâQO…Ìð	aUVgsquàtJ³hÚ|±¿bJeäB¡@-±e…€¡RtzT~ p³‘È!ñh ‚…‰Rÿµáÿ40e3W3ð3Û;ÃD… f9ÁL…9À 4h@ CHèÈQÿµQÿÄ én‘¶õ
+yQPj3oQ¾QhjQ
+Ø@jð	j0 Pè#°€¨ t0©  tG°‘™ÀŽ é5@%0÷ØÀƒàPýƒÀ#¤éÐŒÿ”© øÐéðPVÀ éï0»Ç c„° éÜ Ð}“A4ì’ [áÕ/¬é 5Ô±Å°}ð…wpÐÎ°4¡3ÈÛh¬0éû‚2÷07³ÏP±À:!ŠÇâ!Ð	ÿ€Ô„‹qÆ„Ûp  u.…À
+u4hœD  gét)°hˆ2écË  	,ã3ÛÄe[P`é¬š&“<ÿµ“S¦RèmÈ·þÿ±7t)Y DK3a1$q	šb‹åbà92­t#oÀr!ü€…é½Ñ-øtÀƒøu[÷3ã	öå	px°áÀ-4$TÜèø7 Y¼Yj¨Ñ ß0ÒÖ‰¤™ìàØƒ½…ç}	¿¢uÿ×ëÿ ë3É;Álu.ÀÐè$¡‚éR3Û‘06	µÑ	½aD‰ñ7…Ä€fb9âO„·Ã Qt`Xj_‰@Ð³²Vtè%/ÿðñ WèHëûÿ„a ùƒû„X€ Vèu´þÿ tFfƒ> YDu®ÃÎ‹5Á¿âŒÐ
+…É€ååñ®„À±j¢¤,ó­Ôê  °}ºœy`¨„Ïÿ0Š…öt&`ð‰0xHÿ…È ‰^P‰~T‰F@‰NuàÀ«“‘
+à 
+b@s!±%ƒa8 cƒì@¡8š	@ƒû`&Y 8ëwVW€pú}ô¥ › f¥‹}ðƒÇú¸è  «f«‹A 8\ú‰]ì ëBÿA8€: èu÷‹y8B;ûs'Àq4;Æ s+Ç‰ë ‹Ø÷Û;ßw ð‰2‹]ìƒ ÂƒA8ëÌ	Ã@‰Y8 uô¥f¥_^‹ Mš½ ü[èIÀÿÿÉ Â ‹ÿSVW j‹ñ‹VX ‰F$‹ø‹F$ Šˆ0=3Û CÓãû@;ú \rè‹NTÿV P3É…À•Á _‰F^[‹Á Ã‹Ñ‹J$ Í   VW‹ ñÁé3Àº d
+  ó«‹Î`ƒáóªB>ˆ"nj>Y3|%ª x_^ Ã3Ò3À@‰A X‰A\‰A`‰ Q0‰Q ‰AL ‰QD‰QH‰A (‰Q4‰Q,Ã€‹ÿU‹ìQQ Î 3ÿ;×‰Uü‹€Ù‰}øŽ™ ™ 3ÒB9SL…g 9{(t1‹ Ë‰{(è]   …Àt jZ0‹ËèO€‚‹ðèC€ÁæÆ ‰C4ë‰{4 ƒ{HuöC @t‹C; Cs@‰C‘$Hèb€+j"
+
+"€‰CHè.ý€(ñ†øè‚å€Áæ÷"Æ -‰C &Du
+ C ‹CHƒ øtƒøt@ƒøu  -…ÀuEƒÈÿ€éì   ‹K¼$‹Á »³º»Q­¥‹È½¤ ¦³¬»¨¥‹Ë ¤è	  ÇCL€ 3ÿëV9 }ü~V‹sD; uü|‹uü;÷tœ ‹S0 ujV Ú€,ë %uWëîU$
+4@$; Ç…cÿÿÿ) sD)uüuø 9{D¥ uK€@	 €u
+@6€.Àgþÿÿ ‹K0;Ït
+‹ C+EøÁë 	‹C‹U$øP@Ó :Eø _^[ÉÃƒyH€nAVp ;qw$3ÒŠ pW¶xŠ ¶@ÆA ‰qÁâ"×Ð‰ ëÆ ‹Á(P‹ÊÓ  ŠP„ÒW‹ 8cV‹p;€pr	Ç@,' ëPS3ÛŠ~ 3ÉŠÊ‚ÂŠ ƒÆ÷Ù‰p ˆPÓãß@„Ò‰+JÃGÓã	€ [^_À¤V‹Á‹ 0j Y+ÊÓî‹Èès€H‹Æ^«‹Â‹UV‹ qW<Ö ;Qv€Rë! ;Ç}SŠ‹ Qˆ@F; Ç|ò[‹Q#ÐÀ6À¿+Ç_^]ÀîƒAþ‹A ƒÀ;Ar3ÀÃÁòqXB_€¶XÁG@ŠP¶ CÓÃD ƒÆO uØ_3À^@[AÃƒì$SV  Š^‰Mü‹N€‰MÜ‹NÂ ‰Mð‹NÐ;Â‰M@W‹ ~‰Eø‰Mì€‰UàÁ4 üÁè¿DF d…À}&¹     ‹Uü÷Ø… Êt
+¿„†   ë!   Ñé…À|ß;} Üƒé  ŠŒ0áWÓeü*ÙP„Û@w1Ë Š÷ÙÓâ	U€üGG‚Ã-   ; 0000 010B       PcDbg("<>-----WifiLink is activated and ready-----<>");
+                +
+00024d e0a4     +LDI R26 , LOW ( 2 * _0x0 + ( 158 ) )
+00024e e0b1     +LDI R27 , HIGH ( 2 * _0x0 + ( 158 ) )
+                 	__POINTW2FN _0x0,158
+00024f deb8      	RCALL _PcDbg
+                 ; 0000 010C 
+                 ; 0000 010D while (1)
+                 _0x5C:
+                 ; 0000 010E       {
+                 ; 0000 010F       // Place your code here
+                 ; 0000 0110         char str[32] = "";
+                 ; 0000 0111         if(nrf24_dataReady())
+000250 97a0      	SBIW R28,32
+000251 e280      	LDI  R24,32
+000252 e0a0      	LDI  R26,LOW(0)
+000253 e0b0      	LDI  R27,HIGH(0)
+000254 e4e6      	LDI  R30,LOW(_0x5F*2)
+000255 e0f0      	LDI  R31,HIGH(_0x5F*2)
+000256 d200      	RCALL __INITLOCB
+                 ;	str -> Y+0
+000257 df0c      	RCALL _nrf24_dataReady
+000258 30e0      	CPI  R30,0
+000259 f081      	BREQ _0x60
+                 ; 0000 0112         {
+                 ; 0000 0113          PORTD.3 = 1;
+00025a 9a93      	SBI  0x12,3
+                 ; 0000 0114          CurrentPayLoad = nrf24_dynamicpayload_length();
+00025b def5      	RCALL _nrf24_dynamicpayload_length
+00025c 2e5e      	MOV  R5,R30
+                 ; 0000 0115          if(CurrentPayLoad > 32)PcDbg("RXPayload length Error");
+00025d e2e0      	LDI  R30,LOW(32)
+00025e 15e5      	CP   R30,R5
+00025f f418      	BRSH _0x63
+                +
+000260 e3a2     +LDI R26 , LOW ( 2 * _0x0 + ( 204 ) )
+000261 e0b1     +LDI R27 , HIGH ( 2 * _0x0 + ( 204 ) )
+                 	__POINTW2FN _0x0,204
+000262 dea5      	RCALL _PcDbg
+                 ; 0000 0116          nrf24_getData(str);
+                 _0x63:
+000263 01de      	MOVW R26,R28
+000264 df16      	RCALL _nrf24_getData
+                 ; 0000 0117          SendDataNFixed(str,CurrentPayLoad);
+000265 01fe      	MOVW R30,R28
+000266 d194      	RCALL SUBOPT_0x9
+000267 2da5      	MOV  R26,R5
+000268 de7e      	RCALL _SendDataNFixed
+                 ; 0000 0118          PORTD.3 = 0;
+000269 9893      	CBI  0x12,3
+                 ; 0000 0119         }
+                 ; 0000 011A         nrf24_powerUpRx();
+                 _0x60:
+00026a df2c      	RCALL _nrf24_powerUpRx
+                 ; 0000 011B         delay_ms(1);
+00026b d17b      	RCALL SUBOPT_0x4
+                 ; 0000 011C         PORTD.4 = 1;
+00026c 9a94      	SBI  0x12,4
+                 ; 0000 011D 
+                 ; 0000 011E //        /* Automatically goes to TX mode */
+                 ; 0000 011F //        nrf24_send(str);
+                 ; 0000 0120 //
+                 ; 0000 0121 //        /* Wait for transmission to end */
+                 ; 0000 0122 //        while(nrf24_isSending());
+                 ; 0000 0123 //
+                 ; 0000 0124 //        //ToDO : NRF_CE = 0;
+                 ; 0000 0125 //        /* Make analysis on last tranmission attempt */
+                 ; 0000 0126 //        temp = nrf24_lastMessageStatus();
+                 ; 0000 0127 //
+                 ; 0000 0128 //        if(temp == NRF24_TRANSMISSON_OK)
+                 ; 0000 0129 //        {
+                 ; 0000 012A //            PcDbg("Transmision done.");
+                 ; 0000 012B //        }
+                 ; 0000 012C //        else if(temp == NRF24_MESSAGE_LOST)
+                 ; 0000 012D //        {
+                 ; 0000 012E //            PcDbg("Message is lost.");
+                 ; 0000 012F //        }
+                 ; 0000 0130 //
+                 ; 0000 0131 //		/* Retranmission count indicates the tranmission quality */
+                 ; 0000 0132 //		temp = nrf24_retransmissionCount();
+                 ; 0000 0133 //		if (temp > 0) printf("> Retranmission count: %d#",temp);
+                 ; 0000 0134 //
+                 ; 0000 0135 //		/* Optionally, go back to RX mode ... */
+                 ; 0000 0136 //		//nrf24_powerUpRx();
+                 ; 0000 0137 //
+                 ; 0000 0138 //		/* Or you might want to power down after TX */
+                 ; 0000 0139 //		// nrf24_powerDown();
+                 ; 0000 013A //
+                 ; 0000 013B //		/* Wait a little ... */
+                 ; 0000 013C //		delay_ms(100);
+                 ; 0000 013D       }
+00026d 96a0      	ADIW R28,32
+00026e cfe1      	RJMP _0x5C
+                 ; 0000 013E }
+                 _0x68:
+00026f cfff      	RJMP _0x68
+                 	#ifndef __SLEEP_DEFINED__
+                 	#endif
+                 
+                 	.CSEG
+                 _putchar:
+000270 93aa      	ST   -Y,R26
+                 putchar0:
+000271 9b5d           sbis usr,udre
+000272 cffe           rjmp putchar0
+000273 81e8           ld   r30,y
+000274 b9ec           out  udr,r30
+000275 c15e      	RJMP _0x20C0001
+                 _put_usart_G100:
+000276 d164      	RCALL SUBOPT_0x1
+000277 81aa      	LDD  R26,Y+2
+000278 dff7      	RCALL _putchar
+000279 81a8      	LD   R26,Y
+00027a 81b9      	LDD  R27,Y+1
+00027b 91ed      	LD   R30,X+
+00027c 91fd      	LD   R31,X+
+00027d 9631      	ADIW R30,1
+00027e 93fe      	ST   -X,R31
+00027f 93ee      	ST   -X,R30
+000280 9623      	ADIW R28,3
+000281 9508      	RET
+                 __print_G100:
+000282 d158      	RCALL SUBOPT_0x1
+000283 9726      	SBIW R28,6
+000284 d1c1      	RCALL __SAVELOCR6
+000285 e010      	LDI  R17,0
+000286 85ac      	LDD  R26,Y+12
+000287 85bd      	LDD  R27,Y+12+1
+000288 e0e0      	LDI  R30,LOW(0)
+000289 e0f0      	LDI  R31,HIGH(0)
+00028a 93ed      	ST   X+,R30
+00028b 93fc      	ST   X,R31
+                 _0x2000016:
+00028c 89ea      	LDD  R30,Y+18
+00028d 89fb      	LDD  R31,Y+18+1
+00028e 9631      	ADIW R30,1
+00028f 8bea      	STD  Y+18,R30
+000290 8bfb      	STD  Y+18+1,R31
+000291 9731      	SBIW R30,1
+000292 91e4      	LPM  R30,Z
+000293 2f2e      	MOV  R18,R30
+000294 30e0      	CPI  R30,0
+000295 f409      	BRNE PC+2
+000296 c0fc      	RJMP _0x2000018
+000297 2fe1      	MOV  R30,R17
+000298 30e0      	CPI  R30,0
+000299 f431      	BRNE _0x200001C
+00029a 3225      	CPI  R18,37
+00029b f411      	BRNE _0x200001D
+00029c e011      	LDI  R17,LOW(1)
+00029d c001      	RJMP _0x200001E
+                 _0x200001D:
+00029e d15f      	RCALL SUBOPT_0xA
+                 _0x200001E:
+00029f c0f2      	RJMP _0x200001B
+                 _0x200001C:
+0002a0 30e1      	CPI  R30,LOW(0x1)
+0002a1 f4a1      	BRNE _0x200001F
+0002a2 3225      	CPI  R18,37
+0002a3 f411      	BRNE _0x2000020
+0002a4 d159      	RCALL SUBOPT_0xA
+0002a5 c0eb      	RJMP _0x20000C9
+                 _0x2000020:
+0002a6 e012      	LDI  R17,LOW(2)
+0002a7 e040      	LDI  R20,LOW(0)
+0002a8 e000      	LDI  R16,LOW(0)
+0002a9 322d      	CPI  R18,45
+0002aa f411      	BRNE _0x2000021
+0002ab e001      	LDI  R16,LOW(1)
+0002ac c0e5      	RJMP _0x200001B
+                 _0x2000021:
+0002ad 322b      	CPI  R18,43
+0002ae f411      	BRNE _0x2000022
+0002af e24b      	LDI  R20,LOW(43)
+0002b0 c0e1      	RJMP _0x200001B
+                 _0x2000022:
+0002b1 3220      	CPI  R18,32
+0002b2 f411      	BRNE _0x2000023
+0002b3 e240      	LDI  R20,LOW(32)
+0002b4 c0dd      	RJMP _0x200001B
+                 _0x2000023:
+0002b5 c002      	RJMP _0x2000024
+                 _0x200001F:
+0002b6 30e2      	CPI  R30,LOW(0x2)
+0002b7 f439      	BRNE _0x2000025
+                 _0x2000024:
+0002b8 e050      	LDI  R21,LOW(0)
+0002b9 e013      	LDI  R17,LOW(3)
+0002ba 3320      	CPI  R18,48
+0002bb f411      	BRNE _0x2000026
+0002bc 6800      	ORI  R16,LOW(128)
+0002bd c0d4      	RJMP _0x200001B
+                 _0x2000026:
+0002be c003      	RJMP _0x2000027
+                 _0x2000025:
+0002bf 30e3      	CPI  R30,LOW(0x3)
+0002c0 f009      	BREQ PC+2
+0002c1 c0d0      	RJMP _0x200001B
+                 _0x2000027:
+0002c2 3320      	CPI  R18,48
+0002c3 f010      	BRLO _0x200002A
+0002c4 332a      	CPI  R18,58
+0002c5 f008      	BRLO _0x200002B
+                 _0x200002A:
+0002c6 c007      	RJMP _0x2000029
+                 _0x200002B:
+0002c7 e0aa      	LDI  R26,LOW(10)
+0002c8 9f5a      	MUL  R21,R26
+0002c9 2d50      	MOV  R21,R0
+0002ca 2fe2      	MOV  R30,R18
+0002cb 53e0      	SUBI R30,LOW(48)
+0002cc 0f5e      	ADD  R21,R30
+0002cd c0c4      	RJMP _0x200001B
+                 _0x2000029:
+0002ce 2fe2      	MOV  R30,R18
+0002cf 36e3      	CPI  R30,LOW(0x63)
+0002d0 f439      	BRNE _0x200002F
+0002d1 d133      	RCALL SUBOPT_0xB
+0002d2 d135      	RCALL SUBOPT_0xC
+0002d3 d131      	RCALL SUBOPT_0xB
+0002d4 81a4      	LDD  R26,Z+4
+0002d5 93aa      	ST   -Y,R26
+0002d6 d135      	RCALL SUBOPT_0xD
+0002d7 c0b9      	RJMP _0x2000030
+                 _0x200002F:
+0002d8 37e3      	CPI  R30,LOW(0x73)
+0002d9 f429      	BRNE _0x2000032
+0002da d137      	RCALL SUBOPT_0xE
+0002db d138      	RCALL SUBOPT_0xF
+0002dc d0da      	RCALL _strlen
+0002dd 2f1e      	MOV  R17,R30
+0002de c007      	RJMP _0x2000033
+                 _0x2000032:
+0002df 37e0      	CPI  R30,LOW(0x70)
+0002e0 f449      	BRNE _0x2000035
+0002e1 d130      	RCALL SUBOPT_0xE
+0002e2 d131      	RCALL SUBOPT_0xF
+0002e3 d0de      	RCALL _strlenf
+0002e4 2f1e      	MOV  R17,R30
+0002e5 6008      	ORI  R16,LOW(8)
+                 _0x2000033:
+0002e6 6002      	ORI  R16,LOW(2)
+0002e7 770f      	ANDI R16,LOW(127)
+0002e8 e030      	LDI  R19,LOW(0)
+0002e9 c02d      	RJMP _0x2000036
+                 _0x2000035:
+0002ea 36e4      	CPI  R30,LOW(0x64)
+0002eb f011      	BREQ _0x2000039
+0002ec 36e9      	CPI  R30,LOW(0x69)
+0002ed f411      	BRNE _0x200003A
+                 _0x2000039:
+0002ee 6004      	ORI  R16,LOW(4)
+0002ef c002      	RJMP _0x200003B
+                 _0x200003A:
+0002f0 37e5      	CPI  R30,LOW(0x75)
+0002f1 f429      	BRNE _0x200003C
+                 _0x200003B:
+0002f2 e2e6      	LDI  R30,LOW(_tbl10_G100*2)
+0002f3 e0f0      	LDI  R31,HIGH(_tbl10_G100*2)
+0002f4 d128      	RCALL SUBOPT_0x10
+0002f5 e015      	LDI  R17,LOW(5)
+0002f6 c00b      	RJMP _0x200003D
+                 _0x200003C:
+0002f7 35e8      	CPI  R30,LOW(0x58)
+0002f8 f411      	BRNE _0x200003F
+0002f9 6008      	ORI  R16,LOW(8)
+0002fa c003      	RJMP _0x2000040
+                 _0x200003F:
+0002fb 37e8      	CPI  R30,LOW(0x78)
+0002fc f009      	BREQ PC+2
+0002fd c093      	RJMP _0x2000071
+                 _0x2000040:
+0002fe e3e0      	LDI  R30,LOW(_tbl16_G100*2)
+0002ff e0f0      	LDI  R31,HIGH(_tbl16_G100*2)
+000300 d11c      	RCALL SUBOPT_0x10
+000301 e014      	LDI  R17,LOW(4)
+                 _0x200003D:
+000302 ff02      	SBRS R16,2
+000303 c011      	RJMP _0x2000042
+000304 d10d      	RCALL SUBOPT_0xE
+000305 d11a      	RCALL SUBOPT_0x11
+000306 85ab      	LDD  R26,Y+11
+000307 23aa      	TST  R26
+000308 f432      	BRPL _0x2000043
+000309 85ea      	LDD  R30,Y+10
+00030a 85fb      	LDD  R31,Y+10+1
+00030b d129      	RCALL __ANEGW1
+00030c 87ea      	STD  Y+10,R30
+00030d 87fb      	STD  Y+10+1,R31
+00030e e24d      	LDI  R20,LOW(45)
+                 _0x2000043:
+00030f 3040      	CPI  R20,0
+000310 f011      	BREQ _0x2000044
+000311 5f1f      	SUBI R17,-LOW(1)
+000312 c001      	RJMP _0x2000045
+                 _0x2000044:
+000313 7f0b      	ANDI R16,LOW(251)
+                 _0x2000045:
+000314 c002      	RJMP _0x2000046
+                 _0x2000042:
+000315 d0fc      	RCALL SUBOPT_0xE
+000316 d109      	RCALL SUBOPT_0x11
+                 _0x2000046:
+                 _0x2000036:
+000317 fd00      	SBRC R16,0
+000318 c010      	RJMP _0x2000047
+                 _0x2000048:
+000319 1715      	CP   R17,R21
+00031a f470      	BRSH _0x200004A
+00031b ff07      	SBRS R16,7
+00031c c008      	RJMP _0x200004B
+00031d ff02      	SBRS R16,2
+00031e c004      	RJMP _0x200004C
+00031f 7f0b      	ANDI R16,LOW(251)
+000320 2f24      	MOV  R18,R20
+000321 5011      	SUBI R17,LOW(1)
+000322 c001      	RJMP _0x200004D
+                 _0x200004C:
+000323 e320      	LDI  R18,LOW(48)
+                 _0x200004D:
+000324 c001      	RJMP _0x200004E
+                 _0x200004B:
+000325 e220      	LDI  R18,LOW(32)
+                 _0x200004E:
+000326 d0d7      	RCALL SUBOPT_0xA
+000327 5051      	SUBI R21,LOW(1)
+000328 cff0      	RJMP _0x2000048
+                 _0x200004A:
+                 _0x2000047:
+000329 2f31      	MOV  R19,R17
+00032a ff01      	SBRS R16,1
+00032b c015      	RJMP _0x200004F
+                 _0x2000050:
+00032c 3030      	CPI  R19,0
+00032d f091      	BREQ _0x2000052
+00032e ff03      	SBRS R16,3
+00032f c005      	RJMP _0x2000053
+000330 81ee      	LDD  R30,Y+6
+000331 81ff      	LDD  R31,Y+6+1
+000332 9125      	LPM  R18,Z+
+000333 d0e9      	RCALL SUBOPT_0x10
+000334 c005      	RJMP _0x2000054
+                 _0x2000053:
+000335 81ae      	LDD  R26,Y+6
+000336 81bf      	LDD  R27,Y+6+1
+000337 912d      	LD   R18,X+
+000338 83ae      	STD  Y+6,R26
+000339 83bf      	STD  Y+6+1,R27
+                 _0x2000054:
+00033a d0c3      	RCALL SUBOPT_0xA
+00033b 3050      	CPI  R21,0
+00033c f009      	BREQ _0x2000055
+00033d 5051      	SUBI R21,LOW(1)
+                 _0x2000055:
+00033e 5031      	SUBI R19,LOW(1)
+00033f cfec      	RJMP _0x2000050
+                 _0x2000052:
+000340 c047      	RJMP _0x2000056
+                 _0x200004F:
+                 _0x2000058:
+000341 e320      	LDI  R18,LOW(48)
+000342 81ee      	LDD  R30,Y+6
+000343 81ff      	LDD  R31,Y+6+1
+000344 d0fd      	RCALL __GETW1PF
+000345 87e8      	STD  Y+8,R30
+000346 87f9      	STD  Y+8+1,R31
+000347 81ee      	LDD  R30,Y+6
+000348 81ff      	LDD  R31,Y+6+1
+000349 9632      	ADIW R30,2
+00034a d0d2      	RCALL SUBOPT_0x10
+                 _0x200005A:
+00034b 85e8      	LDD  R30,Y+8
+00034c 85f9      	LDD  R31,Y+8+1
+00034d 85aa      	LDD  R26,Y+10
+00034e 85bb      	LDD  R27,Y+10+1
+00034f 17ae      	CP   R26,R30
+000350 07bf      	CPC  R27,R31
+000351 f050      	BRLO _0x200005C
+000352 5f2f      	SUBI R18,-LOW(1)
+000353 85a8      	LDD  R26,Y+8
+000354 85b9      	LDD  R27,Y+8+1
+000355 85ea      	LDD  R30,Y+10
+000356 85fb      	LDD  R31,Y+10+1
+000357 1bea      	SUB  R30,R26
+000358 0bfb      	SBC  R31,R27
+000359 87ea      	STD  Y+10,R30
+00035a 87fb      	STD  Y+10+1,R31
+00035b cfef      	RJMP _0x200005A
+                 _0x200005C:
+00035c 332a      	CPI  R18,58
+00035d f028      	BRLO _0x200005D
+00035e ff03      	SBRS R16,3
+00035f c002      	RJMP _0x200005E
+000360 5f29      	SUBI R18,-LOW(7)
+000361 c001      	RJMP _0x200005F
+                 _0x200005E:
+000362 5d29      	SUBI R18,-LOW(39)
+                 _0x200005F:
+                 _0x200005D:
+000363 fd04      	SBRC R16,4
+000364 c019      	RJMP _0x2000061
+000365 3321      	CPI  R18,49
+000366 f420      	BRSH _0x2000063
+000367 85a8      	LDD  R26,Y+8
+000368 85b9      	LDD  R27,Y+8+1
+000369 9711      	SBIW R26,1
+00036a f409      	BRNE _0x2000062
+                 _0x2000063:
+00036b c009      	RJMP _0x20000CA
+                 _0x2000062:
+00036c 1753      	CP   R21,R19
+00036d f010      	BRLO _0x2000067
+00036e ff00      	SBRS R16,0
+00036f c001      	RJMP _0x2000068
+                 _0x2000067:
+000370 c011      	RJMP _0x2000066
+                 _0x2000068:
+000371 e220      	LDI  R18,LOW(32)
+000372 ff07      	SBRS R16,7
+000373 c00a      	RJMP _0x2000069
+000374 e320      	LDI  R18,LOW(48)
+                 _0x20000CA:
+000375 6100      	ORI  R16,LOW(16)
+000376 ff02      	SBRS R16,2
+000377 c006      	RJMP _0x200006A
+000378 7f0b      	ANDI R16,LOW(251)
+000379 934a      	ST   -Y,R20
+00037a d091      	RCALL SUBOPT_0xD
+00037b 3050      	CPI  R21,0
+00037c f009      	BREQ _0x200006B
+00037d 5051      	SUBI R21,LOW(1)
+                 _0x200006B:
+                 _0x200006A:
+                 _0x2000069:
+                 _0x2000061:
+00037e d07f      	RCALL SUBOPT_0xA
+00037f 3050      	CPI  R21,0
+000380 f009      	BREQ _0x200006C
+000381 5051      	SUBI R21,LOW(1)
+                 _0x200006C:
+                 _0x2000066:
+000382 5031      	SUBI R19,LOW(1)
+000383 85a8      	LDD  R26,Y+8
+000384 85b9      	LDD  R27,Y+8+1
+000385 9712      	SBIW R26,2
+000386 f008      	BRLO _0x2000059
+000387 cfb9      	RJMP _0x2000058
+                 _0x2000059:
+                 _0x2000056:
+000388 ff00      	SBRS R16,0
+000389 c007      	RJMP _0x200006D
+                 _0x200006E:
+00038a 3050      	CPI  R21,0
+00038b f029      	BREQ _0x2000070
+00038c 5051      	SUBI R21,LOW(1)
+00038d e2e0      	LDI  R30,LOW(32)
+00038e 93ea      	ST   -Y,R30
+00038f d07c      	RCALL SUBOPT_0xD
+000390 cff9      	RJMP _0x200006E
+                 _0x2000070:
+                 _0x200006D:
+                 _0x2000071:
+                 _0x2000030:
+                 _0x20000C9:
+000391 e010      	LDI  R17,LOW(0)
+                 _0x200001B:
+000392 cef9      	RJMP _0x2000016
+                 _0x2000018:
+000393 85ac      	LDD  R26,Y+12
+000394 85bd      	LDD  R27,Y+12+1
+000395 d0a8      	RCALL __GETW1P
+000396 d0b6      	RCALL __LOADLOCR6
+000397 9664      	ADIW R28,20
+000398 9508      	RET
+                 _printf:
+000399 92ff      	PUSH R15
+00039a 2ef8      	MOV  R15,R24
+00039b 9726      	SBIW R28,6
+00039c d0ad      	RCALL __SAVELOCR2
+00039d 01de      	MOVW R26,R28
+00039e 9614      	ADIW R26,4
+00039f d091      	RCALL __ADDW2R15
+0003a0 018d      	MOVW R16,R26
+0003a1 e0e0      	LDI  R30,LOW(0)
+0003a2 83ec      	STD  Y+4,R30
+0003a3 83ed      	STD  Y+4+1,R30
+0003a4 83ee      	STD  Y+6,R30
+0003a5 83ef      	STD  Y+6+1,R30
+0003a6 01de      	MOVW R26,R28
+0003a7 9618      	ADIW R26,8
+0003a8 d088      	RCALL __ADDW2R15
+0003a9 d094      	RCALL __GETW1P
+0003aa d050      	RCALL SUBOPT_0x9
+0003ab 931a      	ST   -Y,R17
+0003ac 930a      	ST   -Y,R16
+0003ad e7e6      	LDI  R30,LOW(_put_usart_G100)
+0003ae e0f2      	LDI  R31,HIGH(_put_usart_G100)
+0003af d04b      	RCALL SUBOPT_0x9
+0003b0 01de      	MOVW R26,R28
+0003b1 9618      	ADIW R26,8
+0003b2 decf      	RCALL __print_G100
+0003b3 d09d      	RCALL __LOADLOCR2
+0003b4 9628      	ADIW R28,8
+0003b5 90ff      	POP  R15
+0003b6 9508      	RET
+                 
+                 	.CSEG
+                 
+                 	.DSEG
+                 
+                 	.CSEG
+                 
+                 	.CSEG
+                 _strlen:
+0003b7 d023      	RCALL SUBOPT_0x1
+0003b8 91a9          ld   r26,y+
+0003b9 91b9          ld   r27,y+
+0003ba 27ee          clr  r30
+0003bb 27ff          clr  r31
+                 strlen0:
+0003bc 916d          ld   r22,x+
+0003bd 2366          tst  r22
+0003be f011          breq strlen1
+0003bf 9631          adiw r30,1
+0003c0 cffb          rjmp strlen0
+                 strlen1:
+0003c1 9508          ret
+                 _strlenf:
+0003c2 d018      	RCALL SUBOPT_0x1
+0003c3 27aa          clr  r26
+0003c4 27bb          clr  r27
+0003c5 91e9          ld   r30,y+
+0003c6 91f9          ld   r31,y+
+                 strlenf0:
+0003c7 9005      	lpm  r0,z+
+0003c8 2000          tst  r0
+0003c9 f011          breq strlenf1
+0003ca 9611          adiw r26,1
+0003cb cffb          rjmp strlenf0
+                 strlenf1:
+0003cc 01fd          movw r30,r26
+0003cd 9508          ret
+                 	#ifndef __SLEEP_DEFINED__
+                 	#endif
+                 
+                 	.CSEG
+                 _spi:
+0003ce 93aa      	ST   -Y,R26
+0003cf 81e8      	LD   R30,Y
+0003d0 b9ef      	OUT  0xF,R30
+                 _0x2060003:
+0003d1 9b77      	SBIS 0xE,7
+0003d2 cffe      	RJMP _0x2060003
+0003d3 b1ef      	IN   R30,0xF
+                 _0x20C0001:
+0003d4 9621      	ADIW R28,1
+0003d5 9508      	RET
+                 
+                 	.CSEG
+                 
+                 	.CSEG
+                 
+                 	.DSEG
+                 _rx_buffer:
+000160           	.BYTE 0x8
+                 _tx_address:
+000168           	.BYTE 0x5
+                 _rx_address:
+00016d           	.BYTE 0x5
+                 __seed_G101:
+000172           	.BYTE 0x4
+                 
+                 	.CSEG
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:4 WORDS
+                 SUBOPT_0x0:
+0003d6 27ee      	CLR  R30
+0003d7 0fa1      	ADD  R26,R17
+0003d8 1fbe      	ADC  R27,R30
+0003d9 91ac      	LD   R26,X
+0003da 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 9 TIMES, CODE SIZE REDUCTION:6 WORDS
+                 SUBOPT_0x1:
+0003db 93ba      	ST   -Y,R27
+0003dc 93aa      	ST   -Y,R26
+0003dd 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
+                 SUBOPT_0x2:
+0003de 81aa      	LDD  R26,Y+2
+0003df 81bb      	LDD  R27,Y+2+1
+0003e0 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:4 WORDS
+                 SUBOPT_0x3:
+0003e1 2fe1      	MOV  R30,R17
+0003e2 dffb      	RCALL SUBOPT_0x2
+0003e3 e0f0      	LDI  R31,0
+0003e4 0fea      	ADD  R30,R26
+0003e5 1ffb      	ADC  R31,R27
+0003e6 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:2 WORDS
+                 SUBOPT_0x4:
+0003e7 e0a1      	LDI  R26,LOW(1)
+0003e8 e0b0      	LDI  R27,0
+0003e9 c03d      	RJMP _delay_ms
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:4 WORDS
+                 SUBOPT_0x5:
+0003ea 93ea      	ST   -Y,R30
+0003eb e0a3      	LDI  R26,LOW(3)
+0003ec cd6f      	RJMP _nrf24_configRegister
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:6 WORDS
+                 SUBOPT_0x6:
+0003ed 93ea      	ST   -Y,R30
+0003ee e0a0      	LDI  R26,LOW(0)
+0003ef cd6c      	RJMP _nrf24_configRegister
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:10 WORDS
+                 SUBOPT_0x7:
+0003f0 93ea      	ST   -Y,R30
+0003f1 81e9      	LDD  R30,Y+1
+0003f2 81fa      	LDD  R31,Y+1+1
+0003f3 93fa      	ST   -Y,R31
+0003f4 93ea      	ST   -Y,R30
+0003f5 e0a5      	LDI  R26,LOW(5)
+0003f6 cde0      	RJMP _nrf24_writeRegister
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:1 WORDS
+                 SUBOPT_0x8:
+0003f7 71ef      	ANDI R30,LOW(0x1F)
+0003f8 62e0      	ORI  R30,0x20
+0003f9 2fae      	MOV  R26,R30
+0003fa cfd3      	RJMP _spi
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 10 TIMES, CODE SIZE REDUCTION:7 WORDS
+                 SUBOPT_0x9:
+0003fb 93fa      	ST   -Y,R31
+0003fc 93ea      	ST   -Y,R30
+0003fd 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:18 WORDS
+                 SUBOPT_0xA:
+0003fe 932a      	ST   -Y,R18
+0003ff 85ad      	LDD  R26,Y+13
+000400 85be      	LDD  R27,Y+13+1
+000401 85ef      	LDD  R30,Y+15
+000402 89f8      	LDD  R31,Y+15+1
+000403 9509      	ICALL
+000404 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 6 TIMES, CODE SIZE REDUCTION:3 WORDS
+                 SUBOPT_0xB:
+000405 89e8      	LDD  R30,Y+16
+000406 89f9      	LDD  R31,Y+16+1
+000407 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 5 TIMES, CODE SIZE REDUCTION:6 WORDS
+                 SUBOPT_0xC:
+000408 9734      	SBIW R30,4
+000409 8be8      	STD  Y+16,R30
+00040a 8bf9      	STD  Y+16+1,R31
+00040b 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 3 TIMES, CODE SIZE REDUCTION:6 WORDS
+                 SUBOPT_0xD:
+00040c 85ad      	LDD  R26,Y+13
+00040d 85be      	LDD  R27,Y+13+1
+00040e 85ef      	LDD  R30,Y+15
+00040f 89f8      	LDD  R31,Y+15+1
+000410 9509      	ICALL
+000411 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
+                 SUBOPT_0xE:
+000412 dff2      	RCALL SUBOPT_0xB
+000413 cff4      	RJMP SUBOPT_0xC
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:5 WORDS
+                 SUBOPT_0xF:
+000414 89a8      	LDD  R26,Y+16
+000415 89b9      	LDD  R27,Y+16+1
+000416 9614      	ADIW R26,4
+000417 d026      	RCALL __GETW1P
+000418 83ee      	STD  Y+6,R30
+000419 83ff      	STD  Y+6+1,R31
+00041a 81ae      	LDD  R26,Y+6
+00041b 81bf      	LDD  R27,Y+6+1
+00041c 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 4 TIMES, CODE SIZE REDUCTION:1 WORDS
+                 SUBOPT_0x10:
+00041d 83ee      	STD  Y+6,R30
+00041e 83ff      	STD  Y+6+1,R31
+00041f 9508      	RET
+                 
+                 ;OPTIMIZER ADDED SUBROUTINE, CALLED 2 TIMES, CODE SIZE REDUCTION:3 WORDS
+                 SUBOPT_0x11:
+000420 89a8      	LDD  R26,Y+16
+000421 89b9      	LDD  R27,Y+16+1
+000422 9614      	ADIW R26,4
+000423 d01a      	RCALL __GETW1P
+000424 87ea      	STD  Y+10,R30
+000425 87fb      	STD  Y+10+1,R31
+000426 9508      	RET
+                 
+                 
+                 	.CSEG
+                 _delay_ms:
+000427 9610      	adiw r26,0
+000428 f039      	breq __delay_ms1
+                 __delay_ms0:
+                +
+000429 ed80     +LDI R24 , LOW ( 0x7D0 )
+00042a e097     +LDI R25 , HIGH ( 0x7D0 )
+                +__DELAY_USW_LOOP :
+00042b 9701     +SBIW R24 , 1
+00042c f7f1     +BRNE __DELAY_USW_LOOP
+                 	__DELAY_USW 0x7D0
+00042d 95a8      	wdr
+00042e 9711      	sbiw r26,1
+00042f f7c9      	brne __delay_ms0
+                 __delay_ms1:
+000430 9508      	ret
+                 
+                 __ADDW2R15:
+000431 2400      	CLR  R0
+000432 0daf      	ADD  R26,R15
+000433 1db0      	ADC  R27,R0
+000434 9508      	RET
+                 
+                 __ANEGW1:
+000435 95f1      	NEG  R31
+000436 95e1      	NEG  R30
+000437 40f0      	SBCI R31,0
+000438 9508      	RET
+                 
+                 __LNEGB1:
+000439 23ee      	TST  R30
+00043a e0e1      	LDI  R30,1
+00043b f009      	BREQ __LNEGB1F
+00043c 27ee      	CLR  R30
+                 __LNEGB1F:
+00043d 9508      	RET
+                 
+                 __GETW1P:
+00043e 91ed      	LD   R30,X+
+00043f 91fc      	LD   R31,X
+000440 9711      	SBIW R26,1
+000441 9508      	RET
+                 
+                 __GETW1PF:
+000442 9005      	LPM  R0,Z+
+000443 91f4      	LPM  R31,Z
+000444 2de0      	MOV  R30,R0
+000445 9508      	RET
+                 
+                 __SAVELOCR6:
+000446 935a      	ST   -Y,R21
+                 __SAVELOCR5:
+000447 934a      	ST   -Y,R20
+                 __SAVELOCR4:
+000448 933a      	ST   -Y,R19
+                 __SAVELOCR3:
+000449 932a      	ST   -Y,R18
+                 __SAVELOCR2:
+00044a 931a      	ST   -Y,R17
+00044b 930a      	ST   -Y,R16
+00044c 9508      	RET
+                 
+                 __LOADLOCR6:
+00044d 815d      	LDD  R21,Y+5
+                 __LOADLOCR5:
+00044e 814c      	LDD  R20,Y+4
+                 __LOADLOCR4:
+00044f 813b      	LDD  R19,Y+3
+                 __LOADLOCR3:
+000450 812a      	LDD  R18,Y+2
+                 __LOADLOCR2:
+000451 8119      	LDD  R17,Y+1
+000452 8108      	LD   R16,Y
+000453 9508      	RET
+                 
+                 __LOADLOCR2P:
+000454 9109      	LD   R16,Y+
+000455 9119      	LD   R17,Y+
+000456 9508      	RET
+                 
+                 __INITLOCB:
+                 __INITLOCW:
+000457 0fac      	ADD  R26,R28
+000458 1fbd      	ADC  R27,R29
+                 __INITLOC0:
+000459 9005      	LPM  R0,Z+
+00045a 920d      	ST   X+,R0
+00045b 958a      	DEC  R24
+00045c f7e1      	BRNE __INITLOC0
+00045d 9508      	RET
+                 
+                 ;END OF CODE MARKER
+                 __END_OF_CODE:
+
+
+RESOURCE USE INFORMATION
+------------------------
+
+Notice:
+The register and instruction counts are symbol table hit counts,
+and hence implicitly used resources are not counted, eg, the
+'lpm' instruction without operands implicitly uses r0 and z,
+none of which are counted.
+
+x,y,z are separate entities in the symbol table and are
+counted separately from r26..r31 here.
+
+.dseg memory usage only counts static data declared with .byte
+
+ATmega8 register use summary:
+r0 :  13 r1 :   1 r2 :   1 r3 :   0 r4 :   4 r5 :   4 r6 :   3 r7 :   0 
+r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 r13:   0 r14:   0 r15:   4 
+r16:  35 r17:  50 r18:  27 r19:   8 r20:   9 r21:  17 r22:   4 r23:   0 
+r24:  13 r25:   3 r26: 105 r27:  41 r28:  20 r29:   2 r30: 231 r31:  56 
+x  :  16 y  : 169 z  :  16 
+Registers used: 25 out of 35 (71.4%)
+
+ATmega8 instruction use summary:
+.lds  :   0 .lds.l:   0 .sts  :   0 .sts.l:   0 adc   :   4 add   :   5 
+adiw  :  21 and   :   0 andi  :   8 asr   :   0 bclr  :   0 bld   :   1 
+brbc  :   0 brbs  :   0 brcc  :   0 brcs  :   0 break :   0 breq  :  15 
+brge  :   0 brhc  :   0 brhs  :   0 brid  :   0 brie  :   0 brlo  :   6 
+brlt  :   0 brmi  :   0 brne  :  26 brpl  :   1 brsh  :   7 brtc  :   0 
+brts  :   0 brvc  :   0 brvs  :   0 bset  :   0 bst   :   0 cbi   :  11 
+cbr   :   0 clc   :   0 clh   :   0 cli   :   1 cln   :   0 clr   :  11 
+cls   :   0 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :  10 
+cpc   :   1 cpi   :  30 cpse  :   0 dec   :   2 des   :   0 eor   :   0 
+fmul  :   0 fmuls :   0 fmulsu:   0 icall :   2 ijmp  :   0 in    :   6 
+inc   :   2 ld    :  24 ldd   :  82 ldi   : 142 lds   :   0 lpm   :  17 
+lsl   :   0 lsr   :   0 mov   :  24 movw  :  10 mul   :   1 muls  :   0 
+mulsu :   0 neg   :   2 nop   :   0 or    :   0 ori   :   7 out   :  46 
+pop   :   4 push  :   4 rcall : 139 ret   :  35 reti  :   1 rjmp  :  98 
+rol   :   0 ror   :   0 sbc   :   1 sbci  :   2 sbi   :  12 sbic  :   0 
+sbis  :   2 sbiw  :  13 sbr   :   0 sbrc  :   2 sbrs  :  11 sec   :   0 
+seh   :   0 sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   1 
+sev   :   0 sez   :   0 sleep :   0 spm   :   0 st    :  59 std   :  22 
+sts   :   0 sub   :   1 subi  :  18 swap  :   0 tst   :   4 wdr   :   1 
+
+Instructions used: 51 out of 114 (44.7%)
+
+ATmega8 memory use summary [bytes]:
+Segment   Begin    End      Code   Data   Used    Size   Use%
+---------------------------------------------------------------
+[.cseg] 0x000000 0x0008bc   1906    330   2236    8192  27.3%
+[.dseg] 0x000060 0x000176      0     22     22    1119   2.0%
+[.eseg] 0x000000 0x000000      0      0      0     512   0.0%
+
+Assembly complete, 0 errors, 9 warnings

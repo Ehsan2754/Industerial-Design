@@ -1,0 +1,3 @@
+Added Pin To Net: NetName=NetD1_2 Pin=C1-1
+Change Net Name : Old Net Name=NetD1_2 New Net Name=NetC1_1
+Added Room: Name=TEMP_SCH

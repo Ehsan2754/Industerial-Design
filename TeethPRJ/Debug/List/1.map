@@ -1,0 +1,28 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+i                                                                                 R4,R5        2
+j                                                                                 R6,R7        2
+z                                                                                 R9           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+timer0_ovf_isr                                                                    0x00080     51
+ext_int0_isr                                                                      0x000B3     10
+ext_int1_isr                                                                      0x000BD      3
+ext_int2_isr                                                                      0x000C0     10
+ext_int3_isr                                                                      0x000CA      3
+ext_int4_isr                                                                      0x000CD     10
+ext_int5_isr                                                                      0x000D7      3
+ext_int6_isr                                                                      0x000DA     10
+ext_int7_isr                                                                      0x000E4     12
+main                                                                              0x000F0    117

@@ -1,0 +1,36 @@
+Removed Pin From Net: NetName=ADC Pin=U2-61
+Removed Pin From Net: NetName=GND Pin=U8-1
+Removed Pin From Net: NetName=SEL_4B_COM Pin=U8-2
+Removed Pin From Net: NetName=OUT4 Pin=U8-3
+Removed Pin From Net: NetName=OUT3 Pin=U8-4
+Removed Pin From Net: NetName=OUT2 Pin=U8-5
+Removed Pin From Net: NetName=OUT1 Pin=U8-6
+Removed Pin From Net: NetName=COM_SENSOR Pin=U8-7
+Removed Pin From Net: NetName=GND Pin=U8-8
+Removed Pin From Net: NetName=SEL_4A_COM Pin=U8-14
+Removed Pin From Net: NetName=VCC Pin=U8-15
+Removed Pin From Net: NetName=VCC Pin=U8-16
+Removed Member From Class: ClassName=SmartChessMultiplex_SCH Member=U8
+Added Component: Designator=C146(SMD_CAP_1206)
+Added Component: Designator=P3.3(HDR1X2)
+Added Component: Designator=U1024(MP04A_N)
+Added Pin To Net: NetName=GND Pin=C146-1
+Added Pin To Net: NetName=GND Pin=P3.3-1
+Added Pin To Net: NetName=OUT4 Pin=U2-58
+Added Pin To Net: NetName=OUT3 Pin=U2-59
+Added Pin To Net: NetName=OUT2 Pin=U2-60
+Added Pin To Net: NetName=OUT1 Pin=U2-61
+Added Pin To Net: NetName=GND Pin=U1024-1
+Added Pin To Net: NetName=VCC Pin=U1024-3
+Change Net Name : Old Net Name=OUT1 New Net Name=INSENSOR1
+Change Net Name : Old Net Name=OUT2 New Net Name=INSENSOR2
+Change Net Name : Old Net Name=OUT3 New Net Name=INSENSOR3
+Change Net Name : Old Net Name=OUT4 New Net Name=INSENSOR4
+Added Pin To Net: NetName=3.3V Pin=C146-2
+Added Pin To Net: NetName=3.3V Pin=P3.3-2
+Added Pin To Net: NetName=3.3V Pin=U1024-4
+Added Net: Name=3.3V
+Added Member To Class: ClassName=SmartChess_SCH Member=Component B2 BAT
+Added Member To Class: ClassName=SmartChess_SCH Member=Component C146 100nF
+Added Member To Class: ClassName=SmartChess_SCH Member=Component P3.3 Header 2
+Added Member To Class: ClassName=SmartChess_SCH Member=Component U1024 LM1117IMP-x.x

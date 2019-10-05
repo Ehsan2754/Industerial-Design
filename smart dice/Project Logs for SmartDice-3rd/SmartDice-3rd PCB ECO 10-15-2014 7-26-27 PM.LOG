@@ -1,0 +1,66 @@
+Added Component: Designator=C1(SMD_CAP_0805)
+Added Component: Designator=C2(SMD_CAP_0805)
+Added Component: Designator=C3(SMD_CAP_1206)
+Added Component: Designator=P1(MHDR1X2)
+Added Component: Designator=P4(MHDR1X6)
+Added Component: Designator=R1(RES 0603 (1608X06L))
+Added Component: Designator=R1(RES 0603 (1608X06L))
+Added Component: Designator=R2(RES 0603 (1608X06L))
+Added Component: Designator=R3(RES 0603 (1608X06L))
+Added Component: Designator=R4(RES 0603 (1608X06L))
+Added Component: Designator=R70(RES 0603 (1608X06L))
+Added Component: Designator=U1(32A_N)
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=VCC Pin=C1-2
+Added Pin To Net: NetName=NetC2_1 Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=NetC3_1 Pin=C3-1
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=GND Pin=P1-1
+Added Pin To Net: NetName=VCC Pin=P1-2
+Added Pin To Net: NetName=GND Pin=P4-1
+Added Pin To Net: NetName=VCC Pin=P4-2
+Added Pin To Net: NetName=RES Pin=P4-3
+Added Pin To Net: NetName=MOSI Pin=P4-4
+Added Pin To Net: NetName=MISO Pin=P4-5
+Added Pin To Net: NetName=SCK Pin=P4-6
+Added Pin To Net: NetName=NetR1_1 Pin=R1-1
+Added Pin To Net: NetName=VCC Pin=R1-1
+Added Pin To Net: NetName=NetR1_2 Pin=R1-2
+Added Pin To Net: NetName=RES Pin=R1-2
+Added Pin To Net: NetName=NetR2_1 Pin=R2-1
+Added Pin To Net: NetName=TXD Pin=R2-2
+Added Pin To Net: NetName=VCC Pin=R3-1
+Added Pin To Net: NetName=SCL Pin=R3-2
+Added Pin To Net: NetName=VCC Pin=R4-1
+Added Pin To Net: NetName=SDA Pin=R4-2
+Added Pin To Net: NetName=GND Pin=R70-1
+Added Pin To Net: NetName=NetR1_2 Pin=R70-2
+Added Pin To Net: NetName=MPU-INT Pin=U1-1
+Added Pin To Net: NetName=GND Pin=U1-3
+Added Pin To Net: NetName=VCC Pin=U1-4
+Added Pin To Net: NetName=GND Pin=U1-5
+Added Pin To Net: NetName=VCC Pin=U1-6
+Added Pin To Net: NetName=MOSI Pin=U1-15
+Added Pin To Net: NetName=MISO Pin=U1-16
+Added Pin To Net: NetName=SCK Pin=U1-17
+Added Pin To Net: NetName=GND Pin=U1-21
+Added Pin To Net: NetName=NetHC1_24 Pin=U1-23
+Added Pin To Net: NetName=NetR1_1 Pin=U1-25
+Added Pin To Net: NetName=SDA Pin=U1-27
+Added Pin To Net: NetName=SCL Pin=U1-28
+Added Pin To Net: NetName=RES Pin=U1-29
+Added Pin To Net: NetName=TXD Pin=U1-30
+Added Pin To Net: NetName=RXD Pin=U1-31
+Added Pin To Net: NetName=NetR2_1 Pin=U1-32
+Added Member To Class: ClassName=SmartDice-3rd Member=Component C1 100nF
+Added Member To Class: ClassName=SmartDice-3rd Member=Component C2 100nF
+Added Member To Class: ClassName=SmartDice-3rd Member=Component C3 2.2nf
+Added Member To Class: ClassName=SmartDice-3rd Member=Component P1 MHDR1X2
+Added Member To Class: ClassName=SmartDice-3rd Member=Component P4 Programmer
+Added Member To Class: ClassName=SmartDice-3rd Member=Component R1 10k
+Added Member To Class: ClassName=SmartDice-3rd Member=Component R2 330
+Added Member To Class: ClassName=SmartDice-3rd Member=Component R3 4.7k
+Added Member To Class: ClassName=SmartDice-3rd Member=Component R4 4.7k
+Added Member To Class: ClassName=SmartDice-3rd Member=Component R70 LED
+Added Member To Class: ClassName=SmartDice-3rd Member=Component U1 ATmega8-16AC

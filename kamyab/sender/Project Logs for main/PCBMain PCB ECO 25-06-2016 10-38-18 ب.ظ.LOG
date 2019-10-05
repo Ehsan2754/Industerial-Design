@@ -1,0 +1,10 @@
+Change Component Footprint: Designator=C1 Old Footprint=RAD-0.1 New Footprint=RAD-0.3
+Added Component: Designator=led(LED-3mm)
+Added Component: Designator=R?(Res50)
+Added Pin To Net: NetName=NetC1_1 Pin=led-2
+Added Pin To Net: NetName=3.3V Pin=R?-2
+Added Pin To Net: NetName=Netled_1 Pin=led-1
+Added Pin To Net: NetName=Netled_1 Pin=R?-1
+Added Net: Name=Netled_1
+Added Member To Class: ClassName=SheetMain Member=Component led LED 3mm
+Added Member To Class: ClassName=SheetMain Member=Component R? Resistor vertical

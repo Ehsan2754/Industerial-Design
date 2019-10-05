@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=+12 Pin=J2-1
+Removed Pin From Net: NetName=+12 Pin=J2-2
+Added Component: Designator=S100(SPDT Subminiator)
+Added Pin To Net: NetName=+12 Pin=S100-2
+Added Pin To Net: NetName=NC Pin=J2-1
+Added Pin To Net: NetName=NC Pin=J2-2
+Added Pin To Net: NetName=NC Pin=S100-3
+Added Net: Name=NC
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component S100 Switch SPDT_Subminiator

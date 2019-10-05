@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=RGND Pin=P1-1
+Added Component: Designator=S89(SPDT Subminiator)
+Added Pin To Net: NetName=RGND Pin=S89-2
+Added Pin To Net: NetName=NetP1_1 Pin=P1-1
+Added Pin To Net: NetName=NetP1_1 Pin=S89-1
+Added Net: Name=NetP1_1
+Added Member To Class: ClassName=Teeth_Radiology_SCH Member=Component S89 Switch SPDT_Subminiator

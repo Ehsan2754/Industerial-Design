@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=INPUTVOLTAGE Pin=J1-3
+Added Pin To Net: NetName=NetD1_1 Pin=J1-3

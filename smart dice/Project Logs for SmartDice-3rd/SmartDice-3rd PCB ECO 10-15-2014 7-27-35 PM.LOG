@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=VCC Pin=R1-1
+Removed Pin From Net: NetName=RES Pin=R1-2
+Added Component: Designator=HC1(HC-05)
+Added Component: Designator=U2(Mpu6050)
+Added Pin To Net: NetName=TXD Pin=HC1-1
+Added Pin To Net: NetName=RXD Pin=HC1-2
+Added Pin To Net: NetName=VCC Pin=HC1-12
+Added Pin To Net: NetName=GND Pin=HC1-13
+Added Pin To Net: NetName=GND Pin=HC1-22
+Added Pin To Net: NetName=NetHC1_24 Pin=HC1-24
+Added Pin To Net: NetName=NetHC1_24 Pin=HC1-31
+Added Pin To Net: NetName=NetR1_1 Pin=R1-1
+Added Pin To Net: NetName=VCC Pin=R1-1
+Added Pin To Net: NetName=NetR1_2 Pin=R1-2
+Added Pin To Net: NetName=RES Pin=R1-2
+Added Pin To Net: NetName=GND Pin=U2-1
+Added Pin To Net: NetName=VCC Pin=U2-8
+Added Pin To Net: NetName=GND Pin=U2-9
+Added Pin To Net: NetName=NetC2_1 Pin=U2-10
+Added Pin To Net: NetName=GND Pin=U2-11
+Added Pin To Net: NetName=MPU-INT Pin=U2-12
+Added Pin To Net: NetName=VCC Pin=U2-13
+Added Pin To Net: NetName=GND Pin=U2-18
+Added Pin To Net: NetName=NetC3_1 Pin=U2-20
+Added Pin To Net: NetName=SCL Pin=U2-23
+Added Pin To Net: NetName=SDA Pin=U2-24
+Added Member To Class: ClassName=SmartDice-3rd Member=Component HC1 HC-05 Bluetooth
+Added Member To Class: ClassName=SmartDice-3rd Member=Component U2 Mpu6050

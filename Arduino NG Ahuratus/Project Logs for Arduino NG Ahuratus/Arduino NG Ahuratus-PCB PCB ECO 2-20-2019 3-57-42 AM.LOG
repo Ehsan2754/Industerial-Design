@@ -1,0 +1,18 @@
+Added Component: Designator=P2(HDR1X2)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=P3(HDR1X4)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=RST Pin=P3-2
+Added Pin To Net: NetName=VCC Pin=P3-3
+Added Pin To Net: NetName=SCL Pin=P2-1
+Added Net: Name=SCL
+Added Pin To Net: NetName=SDA Pin=P2-2
+Added Net: Name=SDA
+Added Member To Class: ClassName=Arduino NG Ahuratus-SCH Member=Component P2 Header 2
+Added Member To Class: ClassName=Arduino NG Ahuratus-SCH Member=Component P3 Header 4

@@ -1,0 +1,8 @@
+Added Component: Designator=D6(My_DO-41)
+Added Pin To Net: NetName=NetD6_A Pin=D6-A
+Added Pin To Net: NetName=NetD6_A Pin=T9-1
+Added Net: Name=NetD6_A
+Added Pin To Net: NetName=NetD6_K Pin=D6-K
+Added Pin To Net: NetName=NetD6_K Pin=LC1-1
+Added Pin To Net: NetName=NetD6_K Pin=LC2-1
+Added Net: Name=NetD6_K

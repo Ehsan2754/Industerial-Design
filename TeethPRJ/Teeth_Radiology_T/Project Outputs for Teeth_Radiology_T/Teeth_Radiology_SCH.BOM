@@ -1,0 +1,42 @@
+Bill of Material for 
+On 8/14/2017 at 8:58:24 AM
+
+ Comment             Pattern     Quantity  Components
+------------------------------------------------------------------------------
+ 100k                RES 0805 (2012X06L)    2    R36, R37                     Resistor             
+ 100nF               SMD_CAP_0805     1    C11                          Bipolar Capacitor    
+ 100nF               SMD_CAP_1206     4    C3, C7, C9, C16              Bipolar Capacitor    
+ 10K                 RES 0805 (2012X06L)    1    R19                          Resistor             
+ 10u                 SMD_CAP_1206     6    C1, C2, C6, C8, C14, C15     Bipolar Capacitor    
+ 10uF                SMD_CAP_1206     1    C13                          Bipolar Capacitor    
+ 16MHz               XTAL Small       1    Y1                           XTAL Crystal         
+ 18pF                SMD_CAP_0805     2    C10, C12                     Bipolar Capacitor    
+ 1K                  RES 0805 (2012X06L)    5    R8, R27, R29, R31, R33       Resistor             
+ 1N4007              My_DO-41         2    D1, D6                       1 Amp Diode          
+ 1uF                 cap 04           2    C4, C5                       Polar Capacitor      
+ 220-12 Medule       AC-DC 220-12     1    M2                                                
+ 330                 RES 0805 (2012X06L)   15    R7, R9, R10, R11, R12, R13   Resistor             
+                                           R14, R15, R16, R17, R18, R20
+                                           R21, R22, RG
+ 51k                 RES 0805 (2012X06L)    1    R35                          Resistor             
+ 7Segment-4Digit-CA  7segCA           1    DS1                          7-Segment Display: CA 
+ 820k                RES 0805 (2012X06L)    1    R34                          Resistor             
+ ATmega64A-AU        64A_M            1    U2                           8-bit AVR Microcontroller, 64KB Flash, 2KB EEPROM, 4KB SRAM, 64-pin TQFP, Industrial Grade (-40°C to 85°C) 
+ BoxHeader 2x5       Box Header 2x5    2    P3, P900                                          
+ Buzzer              Buzzer           1    B1                                                
+ C945                C945             1    Q1                           NPN Transistor       
+ Diode Zener SMD     DIOMELF3615N     4    D2, D3, D4, D5                                    
+ FUSE                FUSE_1           1    F1                                                
+ HC-05 Bluetooth     HC-05            1    HC1                                               
+ L78M05              TO-252           1    IC1                          Precision 500mA Regulator 
+ LHWR                Polarized Header 3    2    P2, P4                                            
+ LHWR                Polarized Header 4    2    P5, P6                                            
+ PHONIX3             PHONIX3          3    POWER SW, T1, T2                                  
+ PT2272              DIP18            1    U3                                                
+ Red                 LED-3mm          6    LED36, LED Expose, LEDG      LED                  
+                                           POWER LED, RVG LED, Timer LED
+ Relay-DPDT          My_REL_cochick    1    K1                           Dual-Pole Dual-Throw Relay 
+ RJ45                My_RJ45          2    J1, J2                       Right Angle, Standard Profile, RJ45-Keyed, Flange Mount PCB Jack 
+ Switch PB           Switch - Push to On   14    DOWN SW, EXPOSE, RVG SW, S5  Push Button Switch   
+                                           S6, S7, S8, S9, S10, S11, S12
+                                           S13, TIMER SW, UP SW

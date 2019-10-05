@@ -1,0 +1,27 @@
+Removed Pin From Net: NetName=GND Pin=C3-2
+Removed Pin From Net: NetName=GND Pin=P2-1
+Removed Pin From Net: NetName=GND Pin=P2-3
+Added Component: Designator=C9(Electrolytic Capacitor SMD Dia-8)
+Added Component: Designator=SW9(Switch SPDT - 500x270x1100x185 mil)
+Added Component: Designator=SW?(Switch SPDT - 500x270x1100x185 mil)
+Added Pin To Net: NetName=VCC Pin=C9-1
+Added Pin To Net: NetName=GND Pin=C9-2
+Added Pin To Net: NetName=GND Pin=SW9-2
+Added Pin To Net: NetName=GND Pin=SW9-2
+Added Pin To Net: NetName=GND Pin=SW9-2
+Added Pin To Net: NetName=GND Pin=SW9-2
+Added Pin To Net: NetName=GND Pin=SW9-2
+Added Pin To Net: NetName=NetC3_2 Pin=C3-2
+Added Pin To Net: NetName=NetC3_2 Pin=P2-1
+Added Pin To Net: NetName=NetC3_2 Pin=P2-3
+Added Pin To Net: NetName=NetC3_2 Pin=SW9-3
+Added Pin To Net: NetName=NetC3_2 Pin=SW9-3
+Added Pin To Net: NetName=NetC3_2 Pin=SW9-3
+Added Pin To Net: NetName=NetC3_2 Pin=SW9-3
+Added Pin To Net: NetName=NetC3_2 Pin=SW9-3
+Added Net: Name=NetC3_2
+Added Member To Class: ClassName=SmartChess_SCH Member=Component C9 Capacitor Polarized
+Added Member To Class: ClassName=SmartChess_SCH Member=Component SW9 SPDT
+Added Member To Class: ClassName=SmartChess_SCH Member=Component SW? SPDT
+Added Member To Class: ClassName=SmartChessMultiplex_SCH Member=Component U4 CD4067BE
+Added Member To Class: ClassName=SmartChessMultiplex_SCH Member=Component U5 CD4067BE

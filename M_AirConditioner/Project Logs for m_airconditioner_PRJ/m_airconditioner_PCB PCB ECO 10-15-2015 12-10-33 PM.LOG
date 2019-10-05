@@ -1,0 +1,5 @@
+Added Component: Designator=U2(My_TO-220)
+Added Pin To Net: NetName=+12 Pin=U2-1
+Added Pin To Net: NetName=GND Pin=U2-2
+Added Pin To Net: NetName=VCC Pin=U2-3
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component U2 7805

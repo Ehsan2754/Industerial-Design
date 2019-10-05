@@ -1,0 +1,4 @@
+Added Component: Designator=5V(phoenix terminal 2)
+Added Pin To Net: NetName=GND Pin=5V-1
+Added Pin To Net: NetName=VCC Pin=5V-2
+Added Member To Class: ClassName=SheetMain Member=Component 5V Phoenix terminal

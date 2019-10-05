@@ -1,0 +1,187 @@
+Added Pin To Net: NetName=GND Pin=C5--
+Added Pin To Net: NetName=GND Pin=C6--
+Added Pin To Net: NetName=GND Pin=C7--
+Added Pin To Net: NetName=GND Pin=C8-2
+Added Pin To Net: NetName=GND Pin=C9-2
+Added Pin To Net: NetName=+12 Pin=D1-K
+Added Pin To Net: NetName=+12 Pin=D2-K
+Added Pin To Net: NetName=+12 Pin=D3-K
+Added Pin To Net: NetName=+12 Pin=D4-K
+Added Pin To Net: NetName=+12 Pin=D5-K
+Added Pin To Net: NetName=+12 Pin=D6-K
+Added Pin To Net: NetName=+12 Pin=D7-K
+Added Pin To Net: NetName=+12 Pin=D8-K
+Added Pin To Net: NetName=+12 Pin=D9-K
+Added Pin To Net: NetName=+12 Pin=D10-K
+Added Pin To Net: NetName=+12 Pin=D11-K
+Added Pin To Net: NetName=+12 Pin=D12-K
+Added Pin To Net: NetName=+12 Pin=D13-K
+Added Pin To Net: NetName=+12 Pin=D14-K
+Added Pin To Net: NetName=+12 Pin=D15-K
+Added Pin To Net: NetName=+12 Pin=D16-K
+Added Pin To Net: NetName=+12 Pin=D17-K
+Added Pin To Net: NetName=+12 Pin=D18-K
+Added Pin To Net: NetName=+12 Pin=D19-K
+Added Pin To Net: NetName=+12 Pin=D20-K
+Added Pin To Net: NetName=+12 Pin=D21-K
+Added Pin To Net: NetName=+12 Pin=D22-K
+Added Pin To Net: NetName=+12 Pin=D23-K
+Added Pin To Net: NetName=+12 Pin=D24-K
+Added Pin To Net: NetName=GND Pin=D30-K
+Added Pin To Net: NetName=GND Pin=DZ1-1
+Added Pin To Net: NetName=GND Pin=DZ2-1
+Added Pin To Net: NetName=GND Pin=DZ3-1
+Added Pin To Net: NetName=GND Pin=DZ4-1
+Added Pin To Net: NetName=GND Pin=J2-3
+Added Pin To Net: NetName=GND Pin=Q2-1
+Added Pin To Net: NetName=GND Pin=Q3-1
+Added Pin To Net: NetName=GND Pin=Q4-1
+Added Pin To Net: NetName=GND Pin=Q5-1
+Added Pin To Net: NetName=GND Pin=Q6-1
+Added Pin To Net: NetName=GND Pin=Q7-1
+Added Pin To Net: NetName=GND Pin=Q8-1
+Added Pin To Net: NetName=GND Pin=Q9-1
+Added Pin To Net: NetName=GND Pin=Q10-1
+Added Pin To Net: NetName=GND Pin=Q11-1
+Added Pin To Net: NetName=GND Pin=Q12-1
+Added Pin To Net: NetName=GND Pin=Q19-1
+Added Pin To Net: NetName=GND Pin=Q20-1
+Added Pin To Net: NetName=GND Pin=Q25-1
+Added Pin To Net: NetName=GND Pin=U2-2
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component C1 
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component C2 Cap
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component C3 CAP
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component C4 CAP
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component C5 Cap
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component C6 Cap
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component C7 Cap
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component C8 Cap
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component C9 Cap
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D1 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D2 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D3 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D4 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D5 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D6 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D7 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D8 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D9 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D10 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D11 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D12 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D13 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D14 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D15 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D16 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D17 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D18 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D19 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D20 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D21 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D22 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D23 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D24 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D25 5V
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D26 5v
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D27 5V
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D28 5V
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D29 LED
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D30 LED
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D31 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component D32 1N4007
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component DZ1 ZENER
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component DZ2 ZENER
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component DZ3 ZENER
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component DZ4 ZENER
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component J1 SIP16
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component J2 DC_Jack
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component P1 Programmer
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component P2 LHWR
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q1 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q2 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q3 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q4 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q5 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q6 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q7 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q8 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q9 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q10 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q11 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q12 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q13 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q14 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q15 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q16 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q17 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q18 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q19 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q20 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q21 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q22 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q23 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q24 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component Q25 C945
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R1 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R2 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R3 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R4 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R5 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R6 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R7 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R8 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R9 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R10 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R11 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R12 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R13 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R14 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R15 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R16 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R17 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R18 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R19 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R20 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R21 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R22 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R23 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R24 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R25 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component R26 RES
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL1 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL2 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL3 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL4 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL5 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL6 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL7 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL8 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL9 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL10 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL11 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL12 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL13 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL14 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL15 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL16 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL17 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL18 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL19 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL20 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL21 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL22 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL23 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component REL24 RELAY
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component S100 Switch SPDT_Subminiator
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component T1 PHONIX6
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component T2 PHONIX6
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component T3 PHONIX6
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component T4 PHONIX6
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component T5 PHONIX6
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component T6 PHONIX6
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component T7 PHONIX6
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component T8 PHONIX6
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component T9 PHONIX3
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component U1 ATmega64-16AC
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component U2 7805
+Added Member To Class: ClassName=m_airconditioner_SCH Member=Component X1 XTAL

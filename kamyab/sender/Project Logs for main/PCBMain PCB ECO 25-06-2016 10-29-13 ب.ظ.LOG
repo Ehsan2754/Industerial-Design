@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=3.3V Pin=IC1-1
+Removed Pin From Net: NetName=GND Pin=IC1-3
+Removed Pin From Net: NetName=3.3V Pin=IC1-5
+Removed Pin From Net: NetName=GND Pin=IC1-6
+Removed Member From Class: ClassName=SheetMain Member=IC1
+Added Component: Designator=IC?(PCBComponent_1)
+Added Pin To Net: NetName=3.3V Pin=IC?-1
+Added Pin To Net: NetName=GND Pin=IC?-3
+Added Pin To Net: NetName=3.3V Pin=IC?-5
+Added Pin To Net: NetName=GND Pin=IC?-6
+Added Pin To Net: NetName=GND Pin=IC?-9
+Added Pin To Net: NetName=NetIC?_2 Pin=IC?-2
+Added Pin To Net: NetName=NetIC?_2 Pin=U3-14
+Added Net: Name=NetIC?_2
+Added Pin To Net: NetName=NetIC?_4 Pin=IC?-4
+Added Pin To Net: NetName=NetIC?_4 Pin=U3-15
+Added Net: Name=NetIC?_4
+Added Pin To Net: NetName=NetIC?_8 Pin=IC?-8
+Added Pin To Net: NetName=NetIC?_8 Pin=P1-1
+Added Net: Name=NetIC?_8
+Added Member To Class: ClassName=SheetMain Member=Component IC? HM-TRP
